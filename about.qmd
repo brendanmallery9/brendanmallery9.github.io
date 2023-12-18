@@ -14,5 +14,5 @@ about:
    #   href: https://github.com
 
 ---
-My name is Brendan Mallery. I am a 3rd year PhD student at Tufts University, working on applications of optimal transport to data science and machine learning. I have also done work in graph curvature, topological data analysis and the study of time-evolving networks. 
+My name is Brendan Mallery. I am a 3rd year PhD student at Tufts University, studying mathematics. I obtained my Master's degree in mathematics in 2020 from SUNY Albany. My current research focuses on applications of optimal transport to data science and machine learning. I have also done work in graph curvature, topological data analysis and the study of time-evolving networks. 
 
