@@ -68,7 +68,7 @@ Let $(X,d)$ be a metric space and $M$ a Markov kernel on $X$. Then $\kappa(x,y)>
 
 :::
 
-The theorem was first discovered (as far as I can tell) in the context of path coupling by [Bubbly and Dyer](https://www.math.cmu.edu/~af1p/Teaching/MCC17/Papers/Pathcouple.pdf), and hence predates the definition of $\kappa$. To rephrase it in a way more suggestive in our analogy, convolution by $M$ defines a map $$M*:\mathcal{P}(X)\rightarrow \mathcal{P}(X)$$ sending $\mu$ to $M*\mu$. Then if $(M*)^t$ has curvature bounded below by $\alpha>0$, $M*$ is a contraction, and in particular contracts $(\mathcal{P}(\Omega),W_1)$ by a factor of $(1-\alpha)^t$. Over many applications of $M*$, the entire space $\mathcal{P}(\Omega)$ contracts to the stationary distribution of $M*$, which is necessarily unique. 
+The theorem was first discovered (as far as I can tell) in the context of path coupling by [Bubbly and Dyer](https://www.math.cmu.edu/~af1p/Teaching/MCC17/Papers/Pathcouple.pdf), and hence predates the definition of $\kappa$. We may interpret this theorem in a way that is more suggestive to our analogy: Observe that convolution by $M$ defines a map $$M*:\mathcal{P}(X)\rightarrow \mathcal{P}(X)$$ sending $\mu$ to $M*\mu$. Then if $(M*)^t$ has curvature bounded below by $\alpha>0$, $M*$ is a contraction, and in particular contracts $(\mathcal{P}(\Omega),W_1)$ by a factor of $(1-\alpha)^t$. Over many applications of $M*$, the entire space $\mathcal{P}(\Omega)$ contracts to the stationary distribution of $M*$, which is necessarily unique. 
 
 ## Convexity meets curvature
 
