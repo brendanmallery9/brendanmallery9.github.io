@@ -24,7 +24,7 @@ There is a rich connection between convexity and notions of curvature for Markov
 
 ## Convexity
 
-Recall that a function $f:\mathbb{R}^d\rightarrow \mathbb{R}$ is $\alpha$-strictly convex (for $\alpha\geq 0$) if it satisfies the following inequality: $$f(x)-f(y)\geq \langle \nabla f(y),x-y\rangle +\frac{\alpha}{2}||y-x||^2$$for all $x$ and $y$. Observe that a $0$-strictly convex function is simply a convex function. Strict convexity is a strong condition for a function to satisfy, and has a number of important consequences. From an optimization perspective, the two that stand out are: 
+Recall that a function $f:\mathbb{R}^d\rightarrow \mathbb{R}$ is $\alpha$-convex (for $\alpha\geq 0$) if it satisfies the following inequality: $$f(x)-f(y)\geq \langle \nabla f(y),x-y\rangle +\frac{\alpha}{2}||y-x||^2$$for all $x$ and $y$. Observe that a $0$-convex function is simply a convex function, and we say that a function is strictly convex if $\alpha>0$. Strict convexity is a strong condition for a function to satisfy, and has a number of important consequences. From an optimization perspective, the two that stand out are: 
 
 1. Strictly convex functions have a unique minimum, and;
 
