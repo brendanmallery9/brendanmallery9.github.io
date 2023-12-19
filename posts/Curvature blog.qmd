@@ -45,7 +45,7 @@ To define Ollivier Ricci curvature, we must first define the optimal transport, 
 **Examples:**
 
 * If $\mu$ and $\nu$ are both stacked vertically on points $x$ and $y$ in $X$ respectively, then $W_1(\mu,\nu)=d(x,y)$.
-* If $\mu$ and $\nu$ are discrete probability measures supported on $n$ points, which we denote $\{x_1,...,x_n\}$ and $\{y_1,...,y_n\}$ respectively, then: $$W_1(\mu,\nu)=\min_{\sigma\in S_n}\sum_{i=1}^n d(x_i,y_{\sigma(i)})$$ where $S_n$ denotes the set of permutations on $n$ elements. See a proof of this fact [here](https://sites.math.rutgers.edu/~brezis/PUBlications/220journal.pdf).
+* If $\mu$ and $\nu$ are discrete, uniform probability measures supported on $n$ points, which we denote $\{x_1,...,x_n\}$ and $\{y_1,...,y_n\}$ respectively, then: $$W_1(\mu,\nu)=\frac{1}{n}\min_{\sigma\in S_n}\sum_{i=1}^n d(x_i,y_{\sigma(i)})$$ where $S_n$ denotes the set of permutations on $n$ elements. See a proof of this fact [here](https://sites.math.rutgers.edu/~brezis/PUBlications/220journal.pdf).
 * If $\mu$ and $\nu$ are circular piles of sand in $\mathbb{R}^d$ with uniform height and the same radius. Then $W_1(\mu,\nu)$ is the distance between their centers (to see this, rigidly translate the pile $\mu$ onto the pile $\nu$, so that every particle travels along a straight line. Convince yourself this is as efficient as possible, then convince yourself that the cost of this is equal to what is claimed).
 
 
