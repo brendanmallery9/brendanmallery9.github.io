@@ -40,7 +40,11 @@ for $f$ an $\alpha$-strongly convex function. Then $T^t$ contracts $\mathbb{R}^d
 
 ## Curvature
 
-To define Ollivier Ricci curvature, we must first define the optimal transport, or Wasserstein distance. This is not the post to do this detail, but one can roughly think of it as follows: Let $\mu,\nu$ be two piles of sand on $X$, and imagine you are tasked with finding the most efficient way(in terms of distance$\times$mass) to move the pile of sand $\mu$ to the pile of sand $\nu$. Then the 1-Wasserstein distance, $W_1(\mu,\nu)$ would be the average distance traveled by a particle of sand under your efficient "transport plan." Slightly more formally, the Wasserstein distance is a metric on the space of probability measures on a metric space $X$ which takes into account the underlying distance on $X$.
+To define Ollivier Ricci curvature, we must first define the optimal transport, or Wasserstein distance. This is not the post to do this detail, but one can roughly think of it as follows: Let $\mu,\nu$ be two piles of sand on a metric space $(X,d)$, and imagine you are tasked with finding the most efficient way to move the pile of sand $\mu$ to the pile of sand $\nu$, where efficiency is governed by the metric $d$. Then the 1-Wasserstein distance, $W_1(\mu,\nu)$ would be the average distance traveled by a particle of sand under your efficient "transport plan." More formally, the Wasserstein distance is a metric on the space of probability measures on a metric space $X$ which takes into account the underlying distance on $X$, defined:
+
+$$W_1(\mu,\nu)=\inf_{\xi\in \Pi(\mu,\nu)}\int d(x,y)d\xi(x,y)$$
+
+where $\Pi(\mu,\nu)$ is the set of all couplings of $\mu$ and $\nu$. 
 
 **Examples:**
 
@@ -52,7 +56,7 @@ To define Ollivier Ricci curvature, we must first define the optimal transport, 
 With that established, we may define Ollivier Ricci curvature, which is a notion of curvature that is defined for a Markov chain on a metric space $X$. Let $M:x\rightarrow \mathcal{P}(X)$ be Markov kernel, i.e. a measurable map from $X$ to $\mathcal{P}(X)$, the set of probability measures on $X$. Then the Ollivier Ricci curvature of $M$ is:
 $$\kappa(x,y)=\frac{d(x,y)-W_1(M(x),M(y))}{d(x,y)}$$where $d$ is the metric on $X$ and $W_1$ is the 1-Wasserstein, or optimal transport distance on $\mathcal{P}(X)$. 
 
-How should one think about this curvature? It is most natural to think about $M(x)$ as a probability measure centered at $x$ (for instance the uniform measure on a ball centered with $x$ at its center). Then one can think of $M$ as defining a density of particles (or sand if you prefer) around each point in the metric space. Then $\kappa(x,y)$ can be seen as a comparison between the distance a particle at $x$ must travel to reach $y$ versus the "average" distance a particle nearby $x$ must travel to reach a particle nearby $y$. If $\kappa(x,y)\geq 0$, then a random nearby particle must on average travel less distance than the one placed at $x$, whereas if $\kappa(x,y)\leq 0$, the nearby particle must travel further. Thus $\kappa(x,y)$ says something about the "local geometry" of the pair of points $(x,y)$. 
+How should one think about this curvature? It is most natural to think about $M(x)$ as a probability measure which is centered at $x$ in some sense (for instance the uniform measure on a ball of some radius at $x$). Then one can think of $M$ as defining a density of particles (or sand if you prefer) around each point in the metric space. Then $\kappa(x,y)$ can be seen as a comparison between the distance a particle at $x$ must travel to reach $y$ versus the "average" distance a particle nearby $x$ must travel to reach a particle nearby $y$. If $\kappa(x,y)\geq 0$, then a random nearby particle must on average travel less distance than the one placed at $x$, whereas if $\kappa(x,y)\leq 0$, the nearby particle must travel further. Thus $\kappa(x,y)$ says something about the "local geometry" of the pair of points $(x,y)$. 
 
 The easiest way to convince yourself that this is a good notion of curvature is by example. For the following examples, we take $M$ to be the uniform measure on a ball of some radius $r>0$ around each point in $X$:
 
@@ -68,7 +72,7 @@ Let $(X,d)$ be a metric space and $M$ a Markov kernel on $X$. Then $\kappa(x,y)>
 
 :::
 
-The theorem was first discovered (as far as I can tell) in the context of path coupling by [Bubbly and Dyer](https://www.math.cmu.edu/~af1p/Teaching/MCC17/Papers/Pathcouple.pdf), and hence predates the definition of $\kappa$. We may interpret this theorem in a way that is more suggestive to our analogy: Observe that convolution by $M$ defines a map $$M*:\mathcal{P}(X)\rightarrow \mathcal{P}(X)$$ sending $\mu$ to $M*\mu$. Then if $(M*)^t$ has curvature bounded below by $\alpha>0$, $M*$ is a contraction, and in particular contracts $(\mathcal{P}(\Omega),W_1)$ by a factor of $(1-\alpha)^t$. Over many applications of $M*$, the entire space $\mathcal{P}(\Omega)$ contracts to the stationary distribution of $M*$, which is necessarily unique. 
+The theorem was first discovered (as far as I can tell) in the context of path coupling by [Bubbly and Dyer](https://www.math.cmu.edu/~af1p/Teaching/MCC17/Papers/Pathcouple.pdf), and hence predates the definition of $\kappa$. We may interpret this theorem in a way that is more suggestive to our analogy: Observe that convolution by $M$ defines a map $$M*:\mathcal{P}(X)\rightarrow \mathcal{P}(X)$$ sending $\mu$ to $M*\mu$. Then if $(M*)^t$ has curvature bounded below by $\alpha>0$, $M*$ is a contraction, and in particular contracts $(\mathcal{P}(\Omega),W_1)$ by a factor of $(1-\alpha)^t$. Over many applications of $M*$, the entire space $\mathcal{P}(\Omega)$ contracts to the stationary distribution of $M*$, which is necessarily unique.
 
 ## Convexity meets curvature
 
