@@ -44,7 +44,7 @@ To define Ollivier Ricci curvature, we must first define the optimal transport, 
 
 $$W_1(\mu,\nu)=\inf_{\xi\in \Pi(\mu,\nu)}\int d(x,y)d\xi(x,y)$$
 
-where $\Pi(\mu,\nu)$ is the set of all couplings of $\mu$ and $\nu$. 
+where $\Pi(\mu,\nu)$ is the set of all couplings of $\mu$ and $\nu$.  
 
 **Examples:**
 
