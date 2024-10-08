@@ -29,6 +29,6 @@ My research is in optimal transportation, with a focus on statistical theory and
 In addition to my dissertation work, I am also interested in:
 
 - Interactions between optimal transport and Ricci curvature
-- The analysis of time-evolving networks
+- Modeling and analysis of time-evolving networks
 
-I was introduced to the latter topic through my work at NASA Glenn Research & Goddard Space Flight Centers (2020-2023).
+I was introduced to the latter topic through my work at NASA Glenn Research & Goddard Space Flight Centers (2020-2023). 
