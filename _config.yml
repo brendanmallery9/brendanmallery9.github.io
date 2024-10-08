@@ -337,7 +337,7 @@ scholar:
   group_by: year
   group_order: descending
 
-  verbose: true  # Add this line
+  verbose: true # Add this line
 
 # Display different badges withs stats for your publications
 # Customize badge behavior in _layouts/bib.liquid
