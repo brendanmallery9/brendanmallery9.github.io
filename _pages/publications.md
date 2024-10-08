@@ -10,9 +10,9 @@ nav_order: 1
 <!-- Plain text with hyperlinks for publications -->
 ## Publications
 
-- [Title of Publication 1](https://link-to-publication-1.com)
-- [Title of Publication 2](https://link-to-publication-2.com)
-- [Title of Publication 3](https://link-to-publication-3.com)
+- [Title of Publication 1]()
+- [Title of Publication 2]()
+- [Title of Publication 3]()
 
 <!-- You can continue listing publications this way -->
 
