@@ -5,7 +5,7 @@ title: cv
 nav: true
 nav_order: 5
 cv_pdf: assets/cv/brendan_mallery_resume.pdf
-description: 
+description:
 toc:
   sidebar: left
 ---
