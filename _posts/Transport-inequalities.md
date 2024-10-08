@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: a distill-style blog post
+title: Transport Inequalities
 description: an example of a distill-style blog post and main elements
 tags: distill formatting
 giscus_comments: true
