@@ -452,21 +452,6 @@ Our most active contributors are welcome to join the maintainers team. If you ar
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-### All Contributors
-
-<a href="https://contrib.rocks">
-  <img src="https://contrib.rocks/image?repo=alshedivat/al-folio&max=500&columns=24" />
-</a>
-
-## Star History
-
-<a href="https://star-history.com/#alshedivat/al-folio&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=alshedivat/al-folio&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=alshedivat/al-folio&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=alshedivat/al-folio&type=Date" />
-  </picture>
-</a>
 
 ## License
 
