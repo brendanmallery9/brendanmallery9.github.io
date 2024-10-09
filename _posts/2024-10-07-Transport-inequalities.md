@@ -52,9 +52,9 @@ So if you are like me and are not particularly motivated by a bunch of statement
 
 ## Introduction
 
-**Definition 1:** (Transport Inequality) Let $\mathcal{X}$ be a Polish space equipped with a cost function $c:\mathcal{X}^2\rightarrow \mathbb{R}$ with $c(x,x)=0$ for all $x\in \mathcal{X}$. Consider a function $J(-|-):\mathcal{P}(\mathcal{X})^2\rightarrow [0,\infty]$ and $\alpha:[0,\infty)\rightarrow [0,\infty)$ an increasing function so that $\alpha(0)=0.$ Then $\mu\in \mathcal{P}(\mathcal{X})$ satisfies the transport inequality $\alpha(\mathcal{T}_c)\leq J$ if:
+**Definition 1:** (Transport Inequality) Let $\mathcal{X}$ be a Polish space equipped with a cost function $c:\mathcal{X}^2\rightarrow \mathbb{R}$ with $c(x,x)=0$ for all $x\in \mathcal{X}$. Consider a function $$J(-|-):\mathcal{P}(\mathcal{X})^2\rightarrow [0,\infty]$$ and $$\alpha:[0,\infty)\rightarrow [0,\infty)$$ an increasing function so that $\alpha(0)=0.$ Then $$\mu\in \mathcal{P}(\mathcal{X})$$ satisfies the transport inequality $$\alpha(\mathcal{T}_c)\leq J$$ if:
 
-$$\alpha(\mathcal{T}_c(\nu,\mu))\leq J(\nu|\mu), \; \; \;\; \forall \nu\in\mathcal{P}(\mathcal{X})$$
+$$\alpha(\mathcal{T}_c(\nu,\mu))\leq J(\nu|\mu), \forall \nu\in\mathcal{P}(\mathcal{X})$$
 
   
   
