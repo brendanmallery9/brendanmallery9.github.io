@@ -112,7 +112,9 @@ $$
 
 where $m_f$ is the median of $f$. 
 
-*Proof:* Take $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, and let $B=\mathcal{X}\setminus A^r$. Consider $d\mu_A(x):=\frac{1}{\mu(A)}1_A(x) d\mu(x)$ and $d\mu_B 1_B(x)d\mu(x)$. Any coupling between $\mu_A$ and $\mu_B$ has cost lower bounded by $r$, by definition. Via the triangle inequality we have :
+*Proof:* 
+
+Take $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, and let $B=\mathcal{X}\setminus A^r$. Consider $d\mu_A(x):=\frac{1}{\mu(A)}1_A(x) d\mu(x)$ and $d\mu_B 1_B(x)d\mu(x)$. Any coupling between $\mu_A$ and $\mu_B$ has cost lower bounded by $r$, by definition. Via the triangle inequality we have :
 
 $$
 \begin{align*}
@@ -157,7 +159,9 @@ H(\nu\mid\mu)\geq \int V(T_{\mu\rightarrow \nu}(x))-V(x)-V'(x)[T_{\mu\rightarrow
 $$
 
 where $T_{\mu\rightarrow \nu}$ is the optimal transport map from $\mu$ to $\nu$. 
+
 *Proof:*
+
 By Brenier's theorem, $T_{\mu\rightarrow \nu}$ is a monotone map. Assume that $f$ is absolutely continuous and hence we have $\nu=f\mu$. We may write 
 
 $$
@@ -203,6 +207,7 @@ H(\nu\mid\mu)\geq \frac{1}{2} W_2^2(\nu,\gamma)
 $$
 
 *Proof:*
+
 Applying Lemma 1\ with $V(x)=x^2/2+\log(2\pi)/2$ we get:
 $$
 H(\nu\mid\gamma)\geq \int \frac{(T_{\gamma\rightarrow \nu}(x)-x)^2}{2} d\gamma(x) = \frac{W_2^2(\nu,\gamma)}{2}.
@@ -235,7 +240,9 @@ $$
 
 for all $\nu\in \mathcal{P}(\mathcal{X}^n)$, where $c^{\oplus n}(x,y)=\sum_{i=1}^n c(x_i,y_i)$.
 
-*Proof:* We will prove this for $n=2$, and the result extends to arbitrary $n$ by induction: Let $\nu\in \mathcal{P}(\mathcal{X}\times \mathcal{X})$. Then we may define the conditional expectation w.r.t. the first coordinate as follows:
+*Proof:* 
+
+We will prove this for $n=2$, and the result extends to arbitrary $n$ by induction: Let $\nu\in \mathcal{P}(\mathcal{X}\times \mathcal{X})$. Then we may define the conditional expectation w.r.t. the first coordinate as follows:
 $$
 d\nu(x_1,x_2)=d\nu_1(x_1)d\nu_2^{x_1}(x_2).
 $$
@@ -273,7 +280,9 @@ $$
 
 for $r\geq r_0=\sqrt{n C\log(2)}$.
 
-*Proof:* $T_1(C)$ means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
+*Proof:* 
+
+$T_1(C)$ means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
 
 
 **Corollary 3:** (Tensorization of $T_2$) Suppose $\mu$ verifies $T_2(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality $T_2(C)$ on $\mathcal{X}^n$ equipped with $d_2^n(x,y)=\sqrt{\sum_{i=1}^n d^2(x_i,y_i)}$. Consequently, for all $1$-Lipschitz functions $f$:
@@ -286,7 +295,9 @@ $$
 
 for $r\geq r_0=\sqrt{2\log 2}$.
 
-*Proof:* $T_2(C)$ means $W_2^2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu)$. In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is $T_2(C)$ with this metric.  
+*Proof:* 
+
+$T_2(C)$ means $W_2^2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu)$. In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is $T_2(C)$ with this metric.  
 
 
 Hence we see that $T_2$ is much stronger than $T_1$, since it tensorizes to give dimension free concentration. Combining Corollary 3 and Corollary 1, we obtain Theorem 2.
@@ -310,4 +321,6 @@ by $1$-Lipschitzness of $T_{\mu\rightarrow \nu}.$ In other words, we may transpo
 
 **Corollary:** (Concentration for Strongly Log-Concave Measures) Let $\nu\in\mathcal{P}_2(\mathbb{R}^d)$ have density $d\nu=\exp(-W)$ with $W:\mathbb{R}^d\rightarrow \mathbb{R}$ a $\kappa$-strongly log-concave for $\kappa>0$. Then $\nu(f>m_f+r+r_0)\leq e^{-\frac{r^2}{\kappa}}$.
 
-*Proof:* Let $\gamma_\kappa$ be a standard $d$-dimensional Gaussian with variance $2\kappa^2$. Then by applying Theorem 4 and scaling appropriately, $\gamma_\kappa$ satisfies $T_2(\kappa)$, and hence has the above concentration profile by Theorem 3. By Theorem 5, the optimal transport map $T_{\mu\rightarrow \nu}$ is $1$-Lipschitz, so we may transport this concentration profile to $\nu$.
+*Proof:* 
+
+Let $\gamma_\kappa$ be a standard $d$-dimensional Gaussian with variance $2\kappa^2$. Then by applying Theorem 4 and scaling appropriately, $\gamma_\kappa$ satisfies $T_2(\kappa)$, and hence has the above concentration profile by Theorem 3. By Theorem 5, the optimal transport map $T_{\mu\rightarrow \nu}$ is $1$-Lipschitz, so we may transport this concentration profile to $\nu$.
