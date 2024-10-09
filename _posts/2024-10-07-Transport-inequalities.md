@@ -52,10 +52,10 @@ So if you are like me and are not particularly motivated by a bunch of statement
 
 ## Introduction
 
-**Definition 1:** (Transport Inequality) Let $\mathcal{X}$ be a Polish space equipped with a cost function $c:\mathcal{X}^2\rightarrow \mathbb{R}$ with $c(x,x)=0$ for all $x\in \mathcal{X}$. Consider a function $J(-|-):\mathcal{P}(\mathcal{X})^2\rightarrow [0,\infty]$ and $\alpha:[0,\infty)\rightarrow [0,\infty)$ an increasing function so that $\alpha(0)=0.$ Then $\mu\in \mathcal{P}(\mathcal{X})$ satisfies the transport inequality $\alpha(\mathcal{T}_c)\leq J$ if:
+**Definition 1:** (Transport Inequality) Let $\mathcal{X}$ be a Polish space equipped with a cost function $c:\mathcal{X}^2\rightarrow \mathbb{R}$ with $c(x,x)=0$ for all $x\in \mathcal{X}$. Consider a function $J(-\mid-):\mathcal{P}(\mathcal{X})^2\rightarrow [0,\infty]$ and $\alpha:[0,\infty)\rightarrow [0,\infty)$ an increasing function so that $\alpha(0)=0.$ Then $\mu\in \mathcal{P}(\mathcal{X})$ satisfies the transport inequality $\alpha(\mathcal{T}_c)\leq J$ if:
 
 $$
-\alpha(\mathcal{T}_c(\nu,\mu))\leq J(\nu|\mu), \forall \nu\in\mathcal{P}(\mathcal{X})
+\alpha(\mathcal{T}_c(\nu,\mu))\leq J(\nu\mid\mu), \forall \nu\in\mathcal{P}(\mathcal{X})
 $$
 
 
@@ -63,7 +63,7 @@ We will primarily concerned with the following family of examples:
 
   
 
-**Definition 2:** (Transport-Entropy Inequality) Let $(\mathcal{X},d)$ be a metric space and let $C>0$. We say that $\mu$ satisfies the inequality $\textbf{T}_p(C)$ if:
+**Definition 2:** (Transport-Entropy Inequality) Let $(\mathcal{X},d)$ be a metric space and let $C>0$. We say that $\mu$ satisfies the inequality **$T_p$** $(C)$ if:
 
 $$
 W^2_p(\mu,\nu)\leq CH(\nu|\mu)
@@ -73,7 +73,7 @@ where $W_p$ is the $p$-Wasserstein distance and $H$ is the relative entropy.
 
   
 
-We will typically take $p=1,2$. When $p=1$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x^2$. When $p=2$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x$. Observe by Jensen's inequality, $\textbf{T}_1(C)$ is always weaker than $\textbf{T}_2(C).$ A basic example is the following:
+We will typically take $p=1,2$. When $p=1$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x^2$. When $p=2$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x$. Observe by Jensen's inequality, **$T_1**$(C)$ is always weaker than **${T}_2$**$(C).$ A basic example is the following:
 
 
 **Theorem 1:** (Pinsker's Inequality ) Let $\mu,\nu \in \mathcal{P}(\mathcal{X})$, and let $d_H$ denote the Hamming distance. Then:
@@ -86,17 +86,17 @@ where $\|.\|_{TV}$ denotes the total-variation distance.
 
 A particularly famous one was proven by Talagrand:
 
-**Theorem 2:** ($\textbf{T}_2$ for the Standard Gaussian) The standard Gaussian measure $\gamma$ on $\mathbb{R}^d$ satisfies $\textbf{T}_2(2)$, and this constant is sharp.
+**Theorem 2:** (**$T_2$** for the Standard Gaussian) The standard Gaussian measure $\gamma$ on $\mathbb{R}^d$ satisfies **$T_2$**$(2)$, and this constant is sharp.
 \end{mytheo}
 
 Before proving Theorem 2, we mention some applications:
 
 *Applications of transportation inequalities:*
-1. If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $\textbf{T}_2$ is particularly useful in that it ''tensorizes'', allowing one to establish \textit{dimension independent} concentration for $\mu^{\otimes n}$.
+1. If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. **$T_2$** is particularly useful in that it ''tensorizes'', allowing one to establish \textit{dimension independent} concentration for $\mu^{\otimes n}$.
 2. Transportation inequalities can allow one to prove other functional inequalities of interest.
 3. Connections to positive curvature lower bounds
 
-We will see an example of $\textbf{T}_2$ implying tensorization later. First, we will elaborate on the connection to concentration, via a proof attributed to [Katalin Marton](https://en.wikipedia.org/wiki/Katalin_Marton):
+We will see an example of **${T}_2$** implying tensorization later. First, we will elaborate on the connection to concentration, via a proof attributed to [Katalin Marton](https://en.wikipedia.org/wiki/Katalin_Marton):
 
 **Theorem 3** (Marton's argument) Let $\alpha: \mathbb{R}^+\rightarrow \mathbb{R}^+$ be bijective, and suppose that $\mu\in \mathcal{P}(\mathcal{X})$ satisfies $\alpha(\mathcal{T}_{d^p})\leq H$ for $p\geq 1$. Then for all measurable $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, the following concentration inequality holds:
 
@@ -144,11 +144,11 @@ $$
 $$
 for all $r\geq r_0$.
 
-Hence we see $\textbf{T}_p\rightarrow$ subgaussian concentration for any $p$. Observe that from the above, __there is no apparent difference between $\textbf{T}_2$ and $\textbf{T}_1$, as both imply subgaussian concentration.__
+Hence we see **${T}_p$**$\rightarrow$ subgaussian concentration for any $p$. Observe that from the above, __there is no apparent difference between $T_2$ and $T_1$, as both imply subgaussian concentration.__
 
 ## Proof of Theorem 2
 
-In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use \textit{tensorization} properties of $\textbf{T}_2$.
+In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use \textit{tensorization} properties of **$T_2$**.
 
 **Lemma 1:** Let $V: \mathbb{R}\rightarrow \mathbb{R}_{\geq 0}$, and let $\mu\in \mathcal{P}_2(\mathbb{R})$ be defined by $d\mu(x)=e^{-V(x)}dx$. Then: 
 
@@ -195,7 +195,7 @@ $$
 
 since $b-1-\log b\geq 0$ for all $b>0$. The left hand side is $H(\nu|\mu)$ and we are done. 
 
-**Corollary 1:** (\textbf{$T_1$} for the standard 1D Gaussian) Let $\gamma$ be the standard 1-D Gaussian. Then $\gamma$ satisfies **$T_2$($2$)**:
+**Corollary 1:** (**$T_1$** for the standard 1D Gaussian) Let $\gamma$ be the standard 1-D Gaussian. Then $\gamma$ satisfies **$T_2$($2$)**:
 $$
 H(\nu|\mu)\geq \frac{1}{2} W_2^2(\nu,\gamma)
 $$
@@ -224,7 +224,7 @@ $$
 
 - **Important:** For convex, increasing $\alpha$, we have: $\alpha^{\square n}(t)=n \alpha (t/n)$ for all $t\geq 0$. (Proof: Set $n=2$ and take a derivative, then generalize.)
 
-**Theorem 4:** Suppose $\mu$ verifies $\textbf{T}_1(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality \textbf{$\textbf{T}_1(nC)$} on $\mathcal{X}^n$ equipped with $d_1^n(x,y):=\sum_{i=1}^n d(x_i,y_i)$. Consequently, for all $1$-Lipschitz functions $f$:$$
+**Theorem 4:** Suppose $\mu$ verifies **${T}_1$**$(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **${T}_1$**$(nC)$ on $\mathcal{X}^n$ equipped with $d_1^n(x,y):=\sum_{i=1}^n d(x_i,y_i)$. Consequently, for all $1$-Lipschitz functions $f$:$$
 n \alpha\left(\frac{\mathcal{T}_{c^{\bigoplus n}} (\nu,\mu^{\otimes n})}{n}\right) \leq H(\nu|\mu^{\otimes n}),$$
 for all $\nu\in \mathcal{P}(\mathcal{X}^n)$, where $c^{\bigoplus n}(x,y)=\sum_{i=1}^n c(x_i,y_i)$.
 *Proof:*
@@ -254,24 +254,24 @@ $$
 where we used the fact that $\alpha_1\square \alpha_2$ is increasing, the definition of infimal-convolution and Jensen's inequality, along with (\ref{eqn:transport_tensor}) and (\ref{eqn:entropy_tensor}).
 
 Let's specialize this to our typical cost functions:
-**Corollary 2:** (Tensorization of **$\textbf{T}_1$**)
-Suppose $\mu$ verifies $\textbf{T}_1(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **$\textbf{T}_1$**$(nC)$ on $\mathcal{X}^n$ equipped with $d_1^n(x,y):=\sum_{i=1}^n d(x_i,y_i)$. Consequently, for all $1$-Lipschitz functions $f$:
+**Corollary 2:** (Tensorization of **${T}_1$**)
+Suppose $\mu$ verifies **${T}_1$**$(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **${T}_1$**$(nC)$ on $\mathcal{X}^n$ equipped with $d_1^n(x,y):=\sum_{i=1}^n d(x_i,y_i)$. Consequently, for all $1$-Lipschitz functions $f$:
 $$\begin{equation*}
 \mu^{\otimes n}(f>m_f+r+r_0)\leq e^{-\frac{r^2}{nC}}
 \end{equation*}$$
 for $r\geq r_0=\sqrt{n C\log(2)}$.
 
-*Proof:* $\textbf{T}_1(C)$ means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu|\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu|\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
+*Proof:* **${T}_1(C)$** means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu|\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu|\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
 
-**Corollary 3:** (Tensorization of **$\textbf{T}_2$**) Suppose $\mu$ verifies $\textbf{T}_2(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality $\textbf{T}_2(C)$ on $\mathcal{X}^n$ equipped with $d_2^n(x,y)=\sqrt{\sum_{i=1}^n d^2(x_i,y_i)}$. Consequently, for all $1$-Lipschitz functions $f$:
+**Corollary 3:** (Tensorization of **${T}_2$**) Suppose $\mu$ verifies **${T}_2$**$(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **${T}_2$**$(C)$ on $\mathcal{X}^n$ equipped with $d_2^n(x,y)=\sqrt{\sum_{i=1}^n d^2(x_i,y_i)}$. Consequently, for all $1$-Lipschitz functions $f$:
 $$\begin{equation*}
 \mu^{\otimes n}(f>m_f+r+r_0)\leq e^{-\frac{r^2}{C}}
 \end{equation*}$$
 for $r\geq r_0=\sqrt{2\log 2}$.
-*Proof:* $\textbf{T}_2(C)$ means $W^2_2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu|\mu)$. In this case, $\alpha=\frac{1}{C}$, so Theorem \ref{thm:tensorization} yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu|\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is $\textbf{T}_2(C)$ with this metric.  
+*Proof:* **${T}_2$**$(C)$ means $W^2_2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu|\mu)$. In this case, $\alpha=\frac{1}{C}$, so Theorem \ref{thm:tensorization} yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu|\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is **${T}_2$**$(C)$ with this metric.  
 
 
-Hence we see that $\textbf{T}_2$ is much stronger than $\textbf{T}_1$, since it tensorizes to give dimension free concentration. Combining Corollary 3 and Corollary 1, we obtain Theorem 2.
+Hence we see that **${T}_2$** is much stronger than **${T}_1$**, since it tensorizes to give dimension free concentration. Combining Corollary 3 and Corollary 1, we obtain Theorem 2.
 
 
 ### Extension to strongly log-concave measures
@@ -286,7 +286,6 @@ by $1$-Lipschitzness of $T_{\mu\rightarrow \nu}.$ In other words, we may transpo
 
 (Interestingly, three recent proofs of this using entropy-regularized optimal transport)
 
-**Corollary:** (Concentration for Strongly Log-Concave Measures)
-Let $\nu\in \mathcal{P}_2(\mathbb{R}^d)$ have density $d\nu=\exp(-W)$ with $W:\mathbb{R}^d\rightarrow \mathbb{R}$ $\kappa$-strongly log-concave for $\kappa>0$. Then $\nu(f>m_f+r+r_0)\leq e^{-\frac{r^2}{\kappa}}$.
-*Proof:*
-Let $\gamma_\kappa$ be a standard $d$-dimensional Gaussian with variance $2\kappa^2$. Then by applying Theorem \ref{thm:tensorization} and scaling appropriately, $\gamma_\kappa$ satisfies $\textbf{T}_2(\kappa)$, and hence has the above concentration profile by Theorem \ref{thm:marton'sargument}. By Theorem \ref{thm:caffarelli}, the optimal transport map $T_{\mu\rightarrow \nu}$ is $1$-Lipschitz, so we may transport this concentration profile to $\nu$.
+**Corollary:** (Concentration for Strongly Log-Concave Measures) Let $\nu\in\mathcal{P}_2(\mathbb{R}^d)$ have density $d\nu=\exp(-W)$ with $W:\mathbb{R}^d\rightarrow \mathbb{R}$ a $\kappa$-strongly log-concave for $\kappa>0$. Then $\nu(f>m_f+r+r_0)\leq e^{-\frac{r^2}{\kappa}}$.
+
+*Proof:* Let $\gamma_\kappa$ be a standard $d$-dimensional Gaussian with variance $2\kappa^2$. Then by applying Theorem \ref{thm:tensorization} and scaling appropriately, $\gamma_\kappa$ satisfies **$T_2$**$(\kappa)$, and hence has the above concentration profile by Theorem 3. By Theorem 5, the optimal transport map $T_{\mu\rightarrow \nu}$ is $1$-Lipschitz, so we may transport this concentration profile to $\nu$.
