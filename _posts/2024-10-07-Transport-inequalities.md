@@ -282,7 +282,13 @@ for $r\geq r_0=\sqrt{n C\log(2)}$.
 
 *Proof:* 
 
-$T_1(C)$ means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
+$T_1(C)$ means:
+
+$$
+W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu),
+$$
+
+and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
 
 
 **Corollary 3:** (Tensorization of $T_2$) Suppose $\mu$ verifies $T_2(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality $T_2(C)$ on $\mathcal{X}^n$ equipped with $d_2^n(x,y)=\sqrt{\sum_{i=1}^n d^2(x_i,y_i)}$. Consequently, for all $1$-Lipschitz functions $f$:
@@ -297,7 +303,13 @@ for $r\geq r_0=\sqrt{2\log 2}$.
 
 *Proof:* 
 
-$T_2(C)$ means $W_2^2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu)$. In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is $T_2(C)$ with this metric.  
+$T_2(C)$ means:
+
+$$
+W_2^2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu).
+$$
+
+ In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is $T_2(C)$ with this metric.  
 
 
 Hence we see that $T_2$ is much stronger than $T_1$, since it tensorizes to give dimension free concentration. Combining Corollary 3 and Corollary 1, we obtain Theorem 2.
