@@ -6,7 +6,20 @@ description: Materials for courses you taught. Replace this text with your descr
 nav: true
 nav_order: 3
 ---
+### Teaching Assistant Fall 2021-Ongoing
+Location: Tufts University Medford, MA
+- Led weekly recitation sessions, wrote problem sets, held office hours and graded problem sets for the following
+classes: Introduction to Mathematical Statistics with R (Spring 2024), Ordinary Differential Equations (Spring
+2023), Introduction to Mathematical Modeling with Python (Spring 2022),Calculus III (Fall 2021)
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+### Teaching Assistant Fall 2018-Spring 2021
+Location: SUNY Albany Albany, NY
+- Tutor and grader for: Introductory Statistics, Introduction to Mathematical Probability, and Calculus (I-III)
+courses at SUNY Albany.
 
-Organize your courses by years, topics, or universities, however you like!
+### Lecturer Fall 2019
+Location: SUNY Albany Albany, NY
+- Lecturer for Precalculus (AMAT 100) at SUNY Albany.
+
+I have also guided several high school students through research projects on topics including spectral
+clustering of biomedical data, permutation statistics, and Ollivier Ricci curvature of networks.

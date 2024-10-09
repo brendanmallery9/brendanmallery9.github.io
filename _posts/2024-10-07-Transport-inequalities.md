@@ -52,12 +52,12 @@ So if you are like me and are not particularly motivated by a bunch of statement
 
 ## Introduction
 
-**Definition 1:** (Transport Inequality) Let $\mathcal{X}$ be a Polish space equipped with a cost function $c:\mathcal{X}^2\rightarrow \mathbb{R}$ with $c(x,x)=0$ for all $x\in \mathcal{X}$. Consider a function $$J(-|-):\mathcal{P}(\mathcal{X})^2\rightarrow [0,\infty]$$ and $$\alpha:[0,\infty)\rightarrow [0,\infty)$$ an increasing function so that $\alpha(0)=0.$ Then $$\mu\in \mathcal{P}(\mathcal{X})$$ satisfies the transport inequality $$\alpha(\mathcal{T}_c)\leq J$$ if:
+**Definition 1:** (Transport Inequality) Let $\mathcal{X}$ be a Polish space equipped with a cost function $c:\mathcal{X}^2\rightarrow \mathbb{R}$ with $c(x,x)=0$ for all $x\in \mathcal{X}$. Consider a function $J(-|-):\mathcal{P}(\mathcal{X})^2\rightarrow [0,\infty]$ and $\alpha:[0,\infty)\rightarrow [0,\infty)$ an increasing function so that $\alpha(0)=0.$ Then $\mu\in \mathcal{P}(\mathcal{X})$ satisfies the transport inequality $\alpha(\mathcal{T}_c)\leq J$ if:
 
-$$\alpha(\mathcal{T}_c(\nu,\mu))\leq J(\nu|\mu), \forall \nu\in\mathcal{P}(\mathcal{X})$$
+$$
+\alpha(\mathcal{T}_c(\nu,\mu))\leq J(\nu|\mu), \forall \nu\in\mathcal{P}(\mathcal{X})
+$$
 
-  
-  
 
 We will primarily concerned with the following family of examples:
 
@@ -65,18 +65,23 @@ We will primarily concerned with the following family of examples:
 
 **Definition 2:** (Transport-Entropy Inequality) Let $(\mathcal{X},d)$ be a metric space and let $C>0$. We say that $\mu$ satisfies the inequality $\textbf{T}_p(C)$ if:
 
-$$W^2_p(\mu,\nu)\leq CH(\nu|\mu)$$
+$$
+W^2_p(\mu,\nu)\leq CH(\nu|\mu)
+$$
+
 where $W_p$ is the $p$-Wasserstein distance and $H$ is the relative entropy.
 
-
-  
   
 
 We will typically take $p=1,2$. When $p=1$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x^2$. When $p=2$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x$. Observe by Jensen's inequality, $\textbf{T}_1(C)$ is always weaker than $\textbf{T}_2(C).$ A basic example is the following:
 
 
 **Theorem 1:** (Pinsker's Inequality ) Let $\mu,\nu \in \mathcal{P}(\mathcal{X})$, and let $d_H$ denote the Hamming distance. Then:
-$$\mathcal{T}^2_{d_H}(\mu,\nu)=\|\mu-\nu\|^2_{TV}\leq \frac{1}{2}H(\nu|\mu)$$
+
+$$
+\mathcal{T}^2_{d_H}(\mu,\nu)=\|\mu-\nu\|^2_{TV}\leq \frac{1}{2}H(\nu|\mu)
+$$
+
 where $\|.\|_{TV}$ denotes the total-variation distance.
 
 A particularly famous one was proven by Talagrand:
@@ -94,29 +99,49 @@ Before proving Theorem 2, we mention some applications:
 We will see an example of $\textbf{T}_2$ implying tensorization later. First, we will elaborate on the connection to concentration, via a proof attributed to [Katalin Marton](https://en.wikipedia.org/wiki/Katalin_Marton):
 
 **Theorem 3** (Marton's argument) Let $\alpha: \mathbb{R}^+\rightarrow \mathbb{R}^+$ be bijective, and suppose that $\mu\in \mathcal{P}(\mathcal{X})$ satisfies $\alpha(\mathcal{T}_{d^p})\leq H$ for $p\geq 1$. Then for all measurable $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, the following concentration inequality holds:
-$$\mu(\{x\in \mathcal{X}|d(x,A)\leq r\}) \geq 1-e^{-\alpha(r-r_0)},$$
+
+$$
+\mu(\{x\in \mathcal{X}|d(x,A)\leq r\}) \geq 1-e^{-\alpha(r-r_0)},
+$$
+
 for all $r>r_0:=\alpha^{-1}(\log(2))$. Equivalently, for all $1$-Lipschitz $f$, the following holds:
-$$\mu(\{f>m_f+r+r_0\})\leq e^{-\alpha(r)},\;\;\;\;\;\;r\geq 0$$
+
+$$
+\mu(\{f>m_f+r+r_0\})\leq e^{-\alpha(r)},\;\;\;\;\;\;r\geq 0
+$$
+
 where $m_f$ is the median of $f$. 
 *Proof:*
 Take $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, and let $B=\mathcal{X}\setminus A^r$. Consider $d\mu_A(x):=\frac{1}{\mu(A)}1_A(x) d\mu(x)$ and $d\mu_B 1_B(x)d\mu(x)$. Any coupling between $\mu_A$ and $\mu_B$ has cost lower bounded by $r$, by definition. Via the triangle inequality we have :
+
 $$
 \begin{align*}
 r & \leq \mathcal{T}_{d^p}(\mu_A,\mu_B) \\& \leq \mathcal{T}_{d^p}(\mu_A,\mu)+\mathcal{T}_{d^p}(\mu_B,\mu) \\ & \leq \alpha^{-1}(H(\mu_A|\mu)) +\alpha^{-1}(H(\mu_B|\mu)).
 \end{align*}
 $$
+
 We compute:
-$$ \begin{align*}
+
+$$ 
+\begin{align*}
 H(\mu_A|\mu) & = \int \log (\frac{d\mu_A}{d\mu})d\mu_A \\ & = \frac{1}{\mu(A)}\int_A \log(\frac{1}{\mu(A)})d\mu \\& = -\log (\mu(A)) \\&  \leq \log 2
-\end{align*} $$
+\end{align*} 
+$$
+
 and 
-$$ \begin{align*}
+$$ 
+\begin{align*}
 H(\mu_B|\mu) & = \frac{1}{\mu(B)}\int_B \log(\frac{1}{\mu(B)})d\mu \\ & = -\log(1-\mu(A^r))
-\end{align*} $$
+\end{align*} 
+$$
+
 Applying $\alpha$ and exponentiating both sides, we obtain:
-$$\begin{equation*}
+
+$$
+\begin{equation*}
 \mu(A^r)\geq 1- e^{-\alpha(r-r_0)}
-\end{equation*} $$
+\end{equation*} 
+$$
 for all $r\geq r_0$.
 
 Hence we see $\textbf{T}_p\rightarrow$ subgaussian concentration for any $p$. Observe that from the above, __there is no apparent difference between $\textbf{T}_2$ and $\textbf{T}_1$, as both imply subgaussian concentration.__
@@ -126,40 +151,61 @@ Hence we see $\textbf{T}_p\rightarrow$ subgaussian concentration for any $p$. Ob
 In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use \textit{tensorization} properties of $\textbf{T}_2$.
 
 **Lemma 1:** Let $V: \mathbb{R}\rightarrow \mathbb{R}_{\geq 0}$, and let $\mu\in \mathcal{P}_2(\mathbb{R})$ be defined by $d\mu(x)=e^{-V(x)}dx$. Then: 
-$$H(\nu|\mu)\geq \int V(T_{\mu\rightarrow \nu}(x))-V(x)-V'(x)[T_{\mu\rightarrow \nu}(x)-x] d\mu(x)$$
+
+$$H
+(\nu|\mu)\geq \int V(T_{\mu\rightarrow \nu}(x))-V(x)-V'(x)[T_{\mu\rightarrow \nu}(x)-x] d\mu(x)
+$$
+
 where $T_{\mu\rightarrow \nu}$ is the optimal transport map from $\mu$ to $\nu$. 
 *Proof:*
 By Brenier's theorem, $T_{\mu\rightarrow \nu}$ is a monotone map. Assume that $f$ is absolutely continuous and hence we have $\nu=f\mu$. We may write 
-$$ \nu((-\infty,T_{\mu\rightarrow \nu}(x)])=\mu((-\infty,x])$$
+
+$$
+\nu((-\infty,T_{\mu\rightarrow \nu}(x)])=\mu((-\infty,x])
+$$
+
 for all $x\in \mathbb{R}$. By definition of pushforwards, this means:
-$$\int_{-\infty}^{T_{\mu\rightarrow \nu}(x)} f(z)e^{-V(z)} dz=\int_{-\infty}^x e^{-V(z)}dz.$$
+$$
+\int_{-\infty}^{T_{\mu\rightarrow \nu}(x)} f(z)e^{-V(z)} dz=\int_{-\infty}^x e^{-V(z)}dz.
+$$
+
 Differentiating, we have:
-$$ f(T_{\mu\rightarrow \nu}(x))e^{-V(T_{\mu\rightarrow \nu}(x))}T'_{\mu\rightarrow \nu}(x)=e^{-V(x)}.$$
+$$ 
+f(T_{\mu\rightarrow \nu}(x))e^{-V(T_{\mu\rightarrow \nu}(x))}T'_{\mu\rightarrow \nu}(x)=e^{-V(x)}.
+$$
+
 Taking logarithms, we get:
-$$\log f(T_{\mu\rightarrow \nu}(x))+\log T'_{\mu\rightarrow \nu}(x) -V(T_{\mu\rightarrow \nu}(x))=-V(x).$$
+$$
+\log f(T_{\mu\rightarrow \nu}(x))+\log T'_{\mu\rightarrow \nu}(x) -V(T_{\mu\rightarrow \nu}(x))=-V(x).
+$$
+
 Integrating both sides w.r.t. $\mu$, we get:
 $$
 \begin{align*}
 \int \log f d\nu & =  \int (V(T_{\mu\rightarrow \nu}(x))-V(x) - \log T'_{\mu\rightarrow \nu}(x))e^{-V(x)}dx 
 \end{align*}
 $$
+
 By integration by parts, we have: $\int (T_{\mu\rightarrow \nu}(x)-x)V'(x) e^{-V(x)}dx=\int (T'_{\mu\rightarrow \nu}(x)-1)e^{-V(x)}dx.$ Adding and subtracting this to the above equation we get:
 $$
 \begin{align*}
 \int \log f d\nu & = \int (V(T_{\mu\rightarrow \nu}(x))-V(x)-V'(x)[T_{\mu\rightarrow \nu}(x)-x])d\mu(x) +\int T'_{\mu\rightarrow \nu}(x)-1 -\log T'_{\mu\rightarrow \nu}(x) d\mu(x) \\ & \geq \int V(T_{\mu\rightarrow \nu}(x))-V(x)-V'(x)[T_{\mu\rightarrow \nu}(x)-x]d\mu
 \end{align*}
 $$
+
 since $b-1-\log b\geq 0$ for all $b>0$. The left hand side is $H(\nu|\mu)$ and we are done. 
 
 **Corollary 1:** (\textbf{$T_1$} for the standard 1D Gaussian) Let $\gamma$ be the standard 1-D Gaussian. Then $\gamma$ satisfies **$T_2$($2$)**:
 $$
 H(\nu|\mu)\geq \frac{1}{2} W_2^2(\nu,\gamma)
 $$
+
 *Proof:*
 Applying Lemma 1\ with $V(x)=x^2/2+\log(2\pi)/2$ we get:
 $$
 H(\nu|\gamma)\geq \int \frac{(T_{\gamma\rightarrow \nu}(x)-x)^2}{2} d\gamma(x) = \frac{W_2^2(\nu,\gamma)}{2}.
 $$
+
 We remark that the general case may be proven by generalizing the above argument. Instead, we proceed by establishing the tensorization property for transport inequalities. First we define infimum convolution:
 **Definition:** Let $\alpha_1,\alpha_2 : [0,\infty)\rightarrow [0,\infty)$. Then the infimum convolution of $\alpha_1,\alpha_2$ is defined:
 $$
@@ -175,6 +221,7 @@ $$
 $$
 W_p(\mu,\nu)^p=\displaystyle\sup_{f \in C_b(\mathcal{\mathbb{R}^d})} \int f\square \|.\|^p d\nu - \int f d\mu.
 $$
+
 - **Important:** For convex, increasing $\alpha$, we have: $\alpha^{\square n}(t)=n \alpha (t/n)$ for all $t\geq 0$. (Proof: Set $n=2$ and take a derivative, then generalize.)
 
 **Theorem 4:** Suppose $\mu$ verifies $\textbf{T}_1(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality \textbf{$\textbf{T}_1(nC)$} on $\mathcal{X}^n$ equipped with $d_1^n(x,y):=\sum_{i=1}^n d(x_i,y_i)$. Consequently, for all $1$-Lipschitz functions $f$:$$
@@ -185,18 +232,25 @@ We will prove this for $n=2$, and the result extends to arbitrary $n$ by inducti
 $$
 d\nu(x_1,x_2)=d\nu_1(x_1)d\nu_2^{x_1}(x_2).
 $$
+
 With this notation established, we establish some useful facts:
 $$
-\begin{equation}\mathcal{T}_{c_1\otimes c_2}(\nu,\mu_1\otimes \mu_2)\leq \mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1),\label{eqn:transport_tensor}\end{equation}$$
+\begin{equation}\mathcal{T}_{c_1\otimes c_2}(\nu,\mu_1\otimes \mu_2)\leq \mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1),\label{eqn:transport_tensor}\end{equation}
+$$
+
 $$
 \begin{equation}H(\nu|\mu_1\otimes \mu_2)=H(\nu_1|\mu_1)+\int H(\nu_2^{x_1}|\mu_2)d\nu_1(x_1)\label{eqn:entropy_tensor}
-\end{equation}$$
+\end{equation}
+$$
+
 (\ref{eqn:transport_tensor}) is established via the coupling that transports ''optimally on slices'' of $\nu$ and $\mu_1\otimes \mu_2$. (\ref{eqn:entropy_tensor}) is a famous property known as the disintegration of entropy. We compute:
+
 $$
 \begin{align*}
 \alpha_1\square \alpha_2 (\mathcal{T}_{c_1\oplus c_2}(\nu,\mu_1\otimes\mu_2) &\leq \alpha_1\square \alpha_2\left(\mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1)\right)\\ &\leq \alpha_1(\mathcal{T}_{c_1}(\nu_1,\mu_1))+\alpha_2\left(\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1)\right) \\ & \leq \alpha_1(\mathcal{T}_{c_1}(\nu_1,\mu_1))+\int \alpha_2(\mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2))d\nu_1(x_1)\\& \leq H(\nu_1|\mu_1)+\int H(\nu_2^{x_1}|\mu_2)d\nu_1(x_1) \\& = H(\nu|\mu_1\otimes \mu_2)
 \end{align*}
 $$
+
 where we used the fact that $\alpha_1\square \alpha_2$ is increasing, the definition of infimal-convolution and Jensen's inequality, along with (\ref{eqn:transport_tensor}) and (\ref{eqn:entropy_tensor}).
 
 Let's specialize this to our typical cost functions:

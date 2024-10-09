@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-I am a 4th year PhD candidate studying mathematics at Tufts University, working with Professors [James Murphy](https://jmurphy.math.tufts.edu/) and [Shuchin Aeron](https://sites.google.com/view/shuchin-aeron/home?authuser=0). I obtained a Masters in mathematics from SUNY Albany in 2020, and a B.A. in mathematics and chemistry from Bowdoin College in 2018. For details, see my [CV](assets/cv/brendan_mallery_resume.pdf).
+I am a 4th year PhD candidate studying mathematics at Tufts University, working with Professors [James Murphy](https://jmurphy.math.tufts.edu/) and [Shuchin Aeron](https://sites.google.com/view/shuchin-aeron/home?authuser=0). I obtained a Masters in mathematics from SUNY Albany in 2020, and a B.A. in mathematics and chemistry from Bowdoin College in 2018. For more details, see my [CV](assets/cv/brendan_mallery_resume.pdf).
 
 My research is in optimal transportation, with a focus on statistical theory and applications to data science. In particular:
 
