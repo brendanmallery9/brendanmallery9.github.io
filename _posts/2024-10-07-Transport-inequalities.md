@@ -101,7 +101,7 @@ We will see an example of **$T_2$** implying tensorization later. First, we will
 **Theorem 3** (Marton's argument) Let $\alpha: \mathbb{R}^+\rightarrow \mathbb{R}^+$ be bijective, and suppose that $\mu\in \mathcal{P}(\mathcal{X})$ satisfies $\alpha(\mathcal{T}_{d^p})\leq H$ for $p\geq 1$. Then for all measurable $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, the following concentration inequality holds:
 
 $$
-\mu(\{x\in \mathcal{X}\midd(x,A)\leq r\}) \geq 1-e^{-\alpha(r-r_0)},
+\mu(\{x\in \mathcal{X}\mid d(x,A)\leq r\}) \geq 1-e^{-\alpha(r-r_0)},
 $$
 
 for all $r>r_0:=\alpha^{-1}(\log(2))$. Equivalently, for all $1$-Lipschitz $f$, the following holds:
@@ -228,6 +228,7 @@ $$
 - **Important:** For convex, increasing $\alpha$, we have: $\alpha^{\square n}(t)=n \alpha (t/n)$ for all $t\geq 0$. (Proof: Set $n=2$ and take a derivative, then generalize.)
 
 **Theorem 4:** Suppose $\mu$ verifies **$T_1$**$(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **$T_1$**$(nC)$ on $\mathcal{X}^n$ equipped with $d_1^n(x,y):=\sum_{i=1}^n d(x_i,y_i)$. Consequently, for all $1$-Lipschitz functions $f$:
+
 $$
 n \alpha\left(\frac{\mathcal{T}_{c^{\oplus n}} (\nu,\mu^{\otimes n})}{n}\right) \leq H(\nu\mid\mu^{\otimes n}),
 $$
@@ -241,7 +242,8 @@ $$
 
 With this notation established, we establish some useful facts:
 $$
-\begin{equation}\mathcal{T}_{c_1\otimes c_2}(\nu,\mu_1\otimes \mu_2)\leq \mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1),\label{eqn:transport_tensor}\end{equation}
+\begin{equation}\mathcal{T}_{c_1\otimes c_2}(\nu,\mu_1\otimes \mu_2)\leq \mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1),\label{eqn:transport_tensor}
+\end{equation}
 $$
 
 $$
@@ -260,6 +262,7 @@ $$
 where we used the fact that $\alpha_1\square \alpha_2$ is increasing, the definition of infimal-convolution and Jensen's inequality, along with (\ref{eqn:transport_tensor}) and (\ref{eqn:entropy_tensor}).
 
 Let's specialize this to our typical cost functions:
+
 **Corollary 2:** (Tensorization of **$T_1$**) Suppose $\mu$ verifies **$T_1$**$(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **$T_1$**$(nC)$ on $\mathcal{X}^n$ equipped with $d_1^n(x,y):=\sum_{i=1}^n d(x_i,y_i)$. Consequently, for all $1$-Lipschitz functions $f$:
 
 $$
@@ -270,7 +273,7 @@ $$
 
 for $r\geq r_0=\sqrt{n C\log(2)}$.
 
-*Proof:* **$T_1(C)$** means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
+*Proof:* **$T_1$**$(C)$ means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
 
 **Corollary 3:** (Tensorization of **$T_2$**) Suppose $\mu$ verifies **$T_2$**$(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **$T_2$**$(C)$ on $\mathcal{X}^n$ equipped with $d_2^n(x,y)=\sqrt{\sum_{i=1}^n d^2(x_i,y_i)}$. Consequently, for all $1$-Lipschitz functions $f$:
 
@@ -281,7 +284,8 @@ $$
 $$
 
 for $r\geq r_0=\sqrt{2\log 2}$.
-*Proof:* **$T_2$**$(C)$ means $W^2_2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu)$. In this case, $\alpha=\frac{1}{C}$, so Theorem \ref{thm:tensorization} yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is **$T_2$**$(C)$ with this metric.  
+
+*Proof:* **$T_2$**$(C)$ means $W_2^2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu)$. In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is **$T_2$**$(C)$ with this metric.  
 
 
 Hence we see that **$T_2$** is much stronger than **$T_1$**, since it tensorizes to give dimension free concentration. Combining Corollary 3 and Corollary 1, we obtain Theorem 2.
