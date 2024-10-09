@@ -275,6 +275,9 @@ for $r\geq r_0=\sqrt{n C\log(2)}$.
 
 *Proof:* **$T_1$**$(C)$ means $W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu)$, and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
 
+*Proof:* **$T_1$** $(C)$ means \( W_1^2(\nu,\mu) = \mathcal{T}^2_d(\nu,\mu) \leq CH(\nu \mid \mu) \), and hence \( \frac{1}{n} \mathcal{T}^2_{d_1^n}(\nu,\mu) \leq CH(\nu \mid \mu) \) (recall that \( \alpha(x) = \frac{1}{C} x^2 \) in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
+
+
 **Corollary 3:** (Tensorization of **$T_2$**) Suppose $\mu$ verifies **$T_2$**$(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality **$T_2$**$(C)$ on $\mathcal{X}^n$ equipped with $d_2^n(x,y)=\sqrt{\sum_{i=1}^n d^2(x_i,y_i)}$. Consequently, for all $1$-Lipschitz functions $f$:
 
 $$
