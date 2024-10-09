@@ -32,3 +32,5 @@ In addition to my dissertation work, I am also interested in:
 - Modeling and analysis of time-evolving networks
 
 I was introduced to the latter topic through my work at NASA Glenn Research & Goddard Space Flight Centers (2020-2023). 
+
+In my free time, I make [art](https://www.instagram.com/mostly.faces/). 
