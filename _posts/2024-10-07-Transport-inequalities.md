@@ -309,7 +309,19 @@ $$
 W_2^2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu).
 $$
 
- In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields $\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n})$. Observe that $\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})$, and hence this is $T_2(C)$ with this metric.  
+ In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields: 
+
+$$
+\mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n}).
+$$
+
+Observe that:
+
+$$
+\mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})
+$$
+
+and hence this is $T_2(C)$ with this metric.  
 
 
 Hence we see that $T_2$ is much stronger than $T_1$, since it tensorizes to give dimension free concentration. Combining Corollary 3 and Corollary 1, we obtain Theorem 2.
