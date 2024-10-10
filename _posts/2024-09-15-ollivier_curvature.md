@@ -2,7 +2,7 @@
 layout: distill
 title: Convexity and Ricci Curvature
 description:
-tags: Ricci Curvature, Sampling, Optimal Transport
+tags:
 giscus_comments: true
 date: 2024-10-07
 featured: true
