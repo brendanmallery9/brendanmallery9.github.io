@@ -19,13 +19,13 @@ bibliography: blog.bib
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
-  - name: Introduction
+  - name: Convexity
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
-  - name: Proof of Theorem 2
-  - name: Extension to strongly log-concave measures
+  - name: Curvature
+  - name: Convexity Meets Curvature
 
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
@@ -46,7 +46,7 @@ _styles: >
   }
 ---
 
-  There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. As far as I can tell, these analogies all arise from the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What's more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.
+  There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. A key part of these analogies is the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What's more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.
 
   ## Convexity
 
@@ -111,7 +111,7 @@ _styles: >
 
   sending $\mu$ to $M\star\mu$. Then if $(M\star)^t$ has curvature bounded below by $\alpha>0$, $M\star$ is a contraction, and in particular contracts $(\mathcal{P}(\Omega),W_1)$ by a factor of $(1-\alpha)^t$. Over many applications of $M\star$, the entire space $\mathcal{P}(\Omega)$ contracts to the stationary distribution of $M\star$, which is necessarily unique. 
 
-  **Convexity meets curvature**
+  ## Convexity meets curvature
 
   We've seen that both $\alpha$-convexity for a function $f$ and $\kappa>\alpha$ for a Markov kernel imply contraction properties for dynamical systems associated to these objects. These two properties come together in a very nice way when considering Langevin diffusion. Langevin diffusion is a stochastic process on $\mathbb{R}^d$, governed by the following stochastic differential equation:
   $$dX_t=-\nabla V(X_t)dt+dB_t$$
@@ -144,6 +144,6 @@ _styles: >
 
   **Concluding remarks**
 
-  As I mentioned previously, proving the continuum analog of the above result is not very difficult, but its worth noting that the two arguments are essentially identical in spirit. The key to both is coupling two independent copies of the process initialized at different points, and then concluding by a curvature bound (in the discrete case) or Gronwall's inequality (in the continuum case). 
+As I mentioned previously, proving the continuum analog of the above result is not very difficult, but its worth noting that the two arguments are essentially identical in spirit. The key to both is coupling two independent copies of the process initialized at different points, and then concluding by a curvature bound (in the discrete case) or Gronwall's inequality (in the continuum case). 
 
-  Nevertheless, one could imagine trying to use the discrete time result to prove convergence of the continuous Langevin diffusion. We sketch out one idea: It can be shown that a positive curvature bound for a Markov chain implies a spectral lower bound on the associated Markov operator (via Kantorovich duality). The Euler-Marayama discretization converges (in several senses) to $X_t$ as $\delta\rightarrow 0$, so it is reasonable to think that the generator of the continuous process is well approximated by these Markov operators for small $\delta$. As uniform Wasserstein bounds are very robust under these kinds of limiting operations, its likely one could obtain a spectral lower bound, or at least something equally useful on the generator, from which one could extract a rate of convergence for the process.
+Ollivier Ricci curvature is particularly convenient for discrete time Markov processes on discrete spaces. For continuum time and space Markov processes, there are other more suitable curvatures, including Bakry-Emry curvature and the synthetic Ricci curvature due to Lott, Villani and others, which I will perhaps talk about in a future post. These notions of curvature are theoretically richer than Ollivier Ricci curvature, and require a greater technical overhead. But the general idea remains the same between all notions, that a positive lower bound on curvature results in quantitative contraction in the Wasserstein distance. 
