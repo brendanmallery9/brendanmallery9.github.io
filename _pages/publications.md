@@ -11,15 +11,15 @@ nav_order: 1
 
 ### selected
 
-1. _Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport_, with Shuchin Aeron and James Murphy. **54 pages**. _Under review_.
+1. _Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport_, with Shuchin Aeron and James Murphy. _Under review_.
 
-2. _Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications_, with Shuchin Aeron, James Murphy, and Matthew Werenski. **31 pages**. _Under review_.
+2. _Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications_, with Shuchin Aeron, James Murphy, and Matthew Werenski. _Under review_.
 
 ### other
 
 #### Topological data analysis (TDA)
 
-1. _From Trees to Barcodes and Back Again II: Combinatorial and Probabilistic Aspects of a Topological Inverse Problem_, with Jordan DeSha, Adélie Garin, Kathryn Hess, and Lida Kanari. **39 pages**. _Accepted to CGTA Special Issue on Computational and Applied Topology Spring 2021_. [arXiv](https://arxiv.org/abs/2107.11212)
+1. _From Trees to Barcodes and Back Again II: Combinatorial and Probabilistic Aspects of a Topological Inverse Problem_, with Jordan DeSha, Adélie Garin, Kathryn Hess, and Lida Kanari. _Accepted to CGTA Special Issue on Computational and Applied Topology Spring 2021_. [arXiv](https://arxiv.org/abs/2107.11212)
 
 
 2. _A Lattice-Theoretic Perspective on the Persistence Map_, with Adélie Garin and Justin Curry. _Accepted March 1, 2022 to the 38th International Symposium on Computational Geometry Young Researchers Forum_. [arXiv](https://arxiv.org/abs/2203.00643)
