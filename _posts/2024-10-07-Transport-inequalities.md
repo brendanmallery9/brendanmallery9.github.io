@@ -2,7 +2,7 @@
 layout: distill
 title: Notes on Transport Inequalities
 description: 
-tags: Optimal Transport, Transport Inequalities, Concentration of Measure
+tags:
 giscus_comments: true
 date: 2024-10-07
 featured: true
