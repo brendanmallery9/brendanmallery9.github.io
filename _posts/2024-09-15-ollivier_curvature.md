@@ -1,8 +1,8 @@
 ---
 layout: distill
 title: Convexity and Ricci Curvature
-description: an example of a distill-style blog post and main elements
-tags: distill formatting
+description:
+tags: Ricci Curvature, Sampling, Optimal Transport
 giscus_comments: true
 date: 2024-10-07
 featured: true

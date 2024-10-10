@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: Transport Inequalities
-description: an example of a distill-style blog post and main elements
-tags: distill formatting
+title: Notes on Transport Inequalities
+description: 
+tags: Optimal Transport, Transport Inequalities, Concentration of Measure
 giscus_comments: true
 date: 2024-10-07
 featured: true
