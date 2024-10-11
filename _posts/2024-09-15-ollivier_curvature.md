@@ -51,7 +51,7 @@ _styles: >
 
   Recall that a function $f:\mathbb{R}^d\rightarrow \mathbb{R}$ is $\alpha$-strictly convex (for $\alpha\geq 0$) if it satisfies the following inequality: 
 
-  $$f(x)-f(y)\geq \langle \nabla f(y),x-y\rangle +\frac{\alpha}{2}||y-x||^2$$
+  $$f(x)-f(y)\geq \langle \nabla f(y),x-y\rangle +\frac{\alpha}{2}\|y-x\|^2$$
 
   for all $x$ and $y$. Observe that a $0$-strictly convex function is simply a convex function. Strict convexity is a strong condition for a function to satisfy, and has a number of important consequences. From an optimization perspective, the two that stand out are:
 
@@ -60,30 +60,30 @@ _styles: >
   2. It is easy to find this minimum by following the gradient.
 
   The first property is trivial to verify: Observe that if there were two minima $x_1^\star$ and $x_2^\star$, the above inequality reduces to 
-  $$0\geq \langle \nabla f(x_1^\star),x_1^\star-x_2^\star\rangle +\frac{\alpha}{2}||x_1^\star-x_2^\star||^2$$
+  $$0\geq \langle \nabla f(x_1^\star),x_1^\star-x_2^\star\rangle +\frac{\alpha}{2}\|x_1^\star-x_2^\star\|^2$$
 
   and since $\nabla f(x_1^\star)=0$ we have $x_1^\star=x_2^\star$. The second property can be proved in both discrete and continuous time, where in the first case, "following the gradient" means gradient descent, i.e. setting $x_t=x_{t-1}-\eta\nabla f(x_{t-1})$ for some initialization $x_0$ and stepsize $\eta>0$. The continuous time analog is gradient flow, which is defined by the differential equation 
   $$\dot{x}_t=-\nabla f(x_t),$$
 
   with some initial condition $x_0$. The discrete case is more relevant for this analogy, so we give the standard proof here. For convenience we assume $f$ is L-Lipschitz, in which case we can set $\eta=\frac{1}{L}$. Let $x_0\in \mathbb{R}^d$, and let $x_\star=\min_{y\in \mathbb{R}^d} f(y)$. Then: 
 
-  $$||x_{t+1}-x_\star||^2_2 = ||x_t-x_\star-\eta \nabla f(x_t)||^2_2 $$ 
+  $$\|x_{t+1}-x_\star\|^2_2 = \|x_t-x_\star-\eta \nabla f(x_t)\|^2_2 $$ 
   
-  $$=||x_t-x_\star||^2_2-2\eta\langle \nabla f(x_t),x_t-x_\star\rangle +\eta^2 ||\nabla f(x_t)||^2_2$$
+  $$=\|x_t-x_\star\|^2_2-2\eta\langle \nabla f(x_t),x_t-x_\star\rangle +\eta^2 \|\nabla f(x_t)\|^2_2$$
 
   By $\alpha$-strong convexity and $L$-smoothness, we may upper bound this by 
 
-  $$\leq (1-\eta \alpha)||x_t-x_\star||^2_2-2\eta(f(x_t)-f(x_\star))+2\eta^2 L(f(x_t)-f(x_\star))$$
+  $$\leq (1-\eta \alpha)\|x_t-x_\star\|^2_2-2\eta(f(x_t)-f(x_\star))+2\eta^2 L(f(x_t)-f(x_\star))$$
 
-  $$=(1-\eta \alpha)||x_t-x_\star||_2^2-2\alpha(1-\alpha L) (f(x_t)-f(x_\star))$$ 
+  $$=(1-\eta \alpha)\|x_t-x_\star\|_2^2-2\alpha(1-\alpha L) (f(x_t)-f(x_\star))$$ 
   
-  $$=(1-\eta\alpha)||x_t-x_\star||^2_2$$
+  $$=(1-\eta\alpha)\|x_t-x_\star\|^2_2$$
 
   Iterating this, we get that: 
   
-  $$||x_t-x_\star||_2^2\leq (1-\eta\alpha)^t||x_0-x_\star||_2^2$$
+  $$\|x_t-x_\star\|_2^2\leq (1-\eta\alpha)^t\|x_0-x_\star\|_2^2$$
 
-  which implies that $x_t$ converges to the solution in $||.||_2^2$ exponentially fast. We make two remarks:
+  which implies that $x_t$ converges to the solution in $\|.\|_2^2$ exponentially fast. We make two remarks:
   1. If we remove the smoothness assumption from $f$, one may still conclude that (a suitably generalized version of) gradient descent will converge provided one appropriately shrinks the step-size at each iteration (otherwise one is left with an error proportional to $\eta$).
   2. The same proof holds for all $0\leq \eta \leq \frac{1}{L}$.
 
@@ -134,16 +134,16 @@ _styles: >
 
   We may couple these two measures by pushing $\mu_1^x$ forward onto $\mu_1^y$ by translation by the vector $y_0-\frac{\delta}{2}\nabla V(y_0)-(x_0-\frac{\delta}{2}\nabla V(x_0))\in \mathbb{R}^d$, and hence we may upper bound $W_1(\mu_1^x,\mu^y_1)$ as follows:
 
-  $$W_1(\mu_1^x,\mu_1^y)\leq ||x_0-y_0-\frac{\delta}{2}(\nabla V(x_0)-\nabla V(y_0))||$$ 
+  $$W_1(\mu_1^x,\mu_1^y)\leq \|x_0-y_0-\frac{\delta}{2}(\nabla V(x_0)-\nabla V(y_0))\|$$ 
 
-  $$= ||x_0-y_0||\left(1-\frac{\delta}{2}\frac{\nabla V(x_0)-\nabla V(y_0)}{||x_0-y_0||}\right)||$$
+  $$= \|x_0-y_0\|\left(1-\frac{\delta}{2}\frac{\nabla V(x_0)-\nabla V(y_0)}{\|x_0-y_0\|}\right)\|$$
 
   If we now assume that $V$ is $\alpha$-strongly convex, we may upper bound this quantity by: 
 
-  $$||(x_0-y_0)\left(1-\frac{\delta}{2}\alpha\right)||$$
+  $$\|(x_0-y_0)\left(1-\frac{\delta}{2}\alpha\right)\|$$
 
   Plugging this bound into our formula for the curvature between $x_0$ and $y_0$, we have: 
-  $$\kappa(x_0,y_0)\geq \frac{||x_0-y_0||-||(x_0-y_0)(1-\frac{\delta}{2}\alpha)||}{||x_0-y_0||}$$
+  $$\kappa(x_0,y_0)\geq \frac{\|x_0-y_0\|-\|(x_0-y_0)(1-\frac{\delta}{2}\alpha)\|}{\|x_0-y_0\|}$$
 
   $$\geq \frac{\delta}{2}\alpha.$$
 
