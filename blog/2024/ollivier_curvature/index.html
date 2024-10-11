@@ -392,8 +392,13 @@
   <li>The same proof holds for all $0\leq \eta \leq \frac{1}{L}$.</li>
 </ol>
 
-<p>The first part to our analogy is that the exponential rate of convergence is governed by the strength of convexity $\alpha$: if we ignore $\eta$ by setting it equal to $1$ (hence assuming that $f$ is 1-Lipschitz), then we can consider $\mathbb{R}^d$ under the dynamical system defined by mapping \(T:\mathbb{R}^d\rightarrow \mathbb{R}^d\)\(T(x) =x-\nabla f(x).\)
-  for $f$ an $\alpha$-strongly convex function. Then $T^t$ contracts $\mathbb{R}^d$ by a factor of $(1-\alpha)^t$. Thus we may view $\alpha$ as the coefficient of contraction for the self map of $\mathbb{R}^d$ induced by the (discrete) gradient flow of $f$. Over many applications of the map, the entire metric space contracts to a point $x_\star$ which is the minima for $f$. This also constitutes a proof of the uniqueness of the minimal value for $f$.</p>
+<p>The first part to our analogy is that the exponential rate of convergence is governed by the strength of convexity $\alpha$: if we ignore $\eta$ by setting it equal to $1$ (hence assuming that $f$ is 1-Lipschitz), then we can consider $\mathbb{R}^d$ under the dynamical system defined by mapping</p>
+
+\[T:\mathbb{R}^d\rightarrow \mathbb{R}^d\]
+
+\[T(x) =x-\nabla f(x).\]
+
+<p>for $f$ an $\alpha$-strongly convex function. Then $T^t$ contracts $\mathbb{R}^d$ by a factor of $(1-\alpha)^t$. Thus we may view $\alpha$ as the coefficient of contraction for the self map of $\mathbb{R}^d$ induced by the (discrete) gradient flow of $f$. Over many applications of the map, the entire metric space contracts to a point $x_\star$ which is the minima for $f$. This also constitutes a proof of the uniqueness of the minimal value for $f$.</p>
 
 <p>## Ricci Curvature</p>
 
@@ -424,8 +429,9 @@
 
 <p>## Convexity meets curvature</p>
 
-<p>We’ve seen that both $\alpha$-convexity for a function $f$ and $\kappa&gt;\alpha$ for a Markov kernel imply contraction properties for dynamical systems associated to these objects. These two properties come together in a very nice way when considering Langevin diffusion. Langevin diffusion is a stochastic process on $\mathbb{R}^d$, governed by the following stochastic differential equation:
-  \(dX_t=-\nabla V(X_t)dt+dB_t\)</p>
+<p>We’ve seen that both $\alpha$-convexity for a function $f$ and $\kappa&gt;\alpha$ for a Markov kernel imply contraction properties for dynamical systems associated to these objects. These two properties come together in a very nice way when considering Langevin diffusion. Langevin diffusion is a stochastic process on $\mathbb{R}^d$, governed by the following stochastic differential equation:</p>
+
+\[dX_t=-\nabla V(X_t)dt+dB_t\]
 
 <p>where $V:\mathbb{R}^d\rightarrow\mathbb{R}$ is a potential function and $B_t$ is a standard Brownian motion. One can think of $X_t$ as the trajectory of a particle undergoing random motion in a force field $\nabla V$. As $t\rightarrow \infty$, the law of $X_t$ converges to a unique stationary distribution, given by the Gibbs measure $\mu_{\star}= \frac{1}{Z}e^{-V}$, with the normalizing constant $Z=\int_{\mathbb{R}^d} e^{-\nabla V(x)}dx$. The rate at which the process converges to its stationary distribution is a well-studied topic, as it suggests natural sampling schemes for distributions that can be written in the form $\frac{1}{Z}e^{-V}$. In particular, if one assumes that $V$ is $\alpha$-strongly convex, one is guaranteed exponential convergence of the Langevin diffusion to $\mu_\star$. This can be proved directly in a fairly straightforward manner, but we will take a nonstandard perspective on this, which was first made clear to me by the aforementioned blog post.</p>
 
@@ -434,22 +440,20 @@
 
 <p>for $\zeta$ distributed according to a standard normal $\mathcal{N}(0,1)$ and $\delta&gt;0$. This gives rise to a Markov chain, and so we may try to compute its Ollivier Ricci curvature. Let $x_0,y_0$ be two different initial points in $\mathbb{R}^d$, and let $M(x)=\mu_1^x$ and $M(y)=\mu_1^y$ be the laws of $x_1$ and $y_1$ respectively. Then we have:</p>
 
-<p>\(\mu_1^x=\mathcal{N}(x_0,\delta)\star\delta_{x_0-\frac{\delta}{2}\nabla V(x_0)}\) \(\mu_1^y=\mathcal{N}(y_0,\delta)\star\delta_{y_0-\frac{\delta}{2}\nabla V(y_0)}\)</p>
+\[\mu_1^x=\mathcal{N}(x_0,\delta)\star\delta_{x_0-\frac{\delta}{2}\nabla V(x_0)}\]
+
+\[\mu_1^y=\mathcal{N}(y_0,\delta)\star\delta_{y_0-\frac{\delta}{2}\nabla V(y_0)}\]
 
 <p>We may couple these two measures by pushing $\mu_1^x$ forward onto $\mu_1^y$ by translation by the vector $y_0-\frac{\delta}{2}\nabla V(y_0)-(x_0-\frac{\delta}{2}\nabla V(x_0))\in \mathbb{R}^d$, and hence we may upper bound $W_1(\mu_1^x,\mu^y_1)$ as follows:</p>
 
 \[W_1(\mu_1^x,\mu_1^y)\leq \|x_0-y_0-\frac{\delta}{2}(\nabla V(x_0)-\nabla V(y_0))\|\]
-
-\[= \|x_0-y_0\|\left(1-\frac{\delta}{2}\frac{\nabla V(x_0)-\nabla V(y_0)}{\|x_0-y_0\|}\right)\|\]
 
 <p>If we now assume that $V$ is $\alpha$-strongly convex, we may upper bound this quantity by:</p>
 
 \[\|(x_0-y_0)\left(1-\frac{\delta}{2}\alpha\right)\|\]
 
 <p>Plugging this bound into our formula for the curvature between $x_0$ and $y_0$, we have: 
-  \(\kappa(x_0,y_0)\geq \frac{\|x_0-y_0\|-\|(x_0-y_0)(1-\frac{\delta}{2}\alpha)\|}{\|x_0-y_0\|}\)</p>
-
-\[\geq \frac{\delta}{2}\alpha.\]
+  \(\kappa(x_0,y_0)\geq \frac{\|x_0-y_0\|-\|(x_0-y_0)(1-\frac{\delta}{2}\alpha)\|}{\|x_0-y_0\|}\geq \frac{\delta}{2}\alpha.\)</p>
 
 <p>As this is true for all initial points $x_0,y_0$, we have a global positive curvature bound of $\frac{\delta\alpha}{2}$, which guarantees that the Euler-Marayama discretization of $X_t$ converges to equilibrium at a rate of at least $(1-\frac{\delta}{2}\alpha)^t$. Thus we see that the convexity of $V$ directly implies a positive curvature bound for (a discrete approximation to) the Langevin diffusion with potential $V$, and together they imply an exponential rate of convergence for this process.</p>
 
