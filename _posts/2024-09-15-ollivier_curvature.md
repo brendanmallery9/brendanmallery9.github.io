@@ -67,13 +67,17 @@ _styles: >
 
   with some initial condition $x_0$. The discrete case is more relevant for this analogy, so we give the standard proof here. For convenience we assume $f$ is L-Lipschitz, in which case we can set $\eta=\frac{1}{L}$. Let $x_0\in \mathbb{R}^d$, and let $x_\star=\min_{y\in \mathbb{R}^d} f(y)$. Then: 
 
-  $$||x_{t+1}-x_\star||^2_2 = ||x_t-x_\star-\eta \nabla f(x_t)||^2_2 $$ $$=||x_t-x_\star||^2_2-2\eta\langle \nabla f(x_t),x_t-x_\star\rangle +\eta^2 ||\nabla f(x_t)||^2_2$$
+  $$||x_{t+1}-x_\star||^2_2 = ||x_t-x_\star-\eta \nabla f(x_t)||^2_2 $$ 
+  
+  $$=||x_t-x_\star||^2_2-2\eta\langle \nabla f(x_t),x_t-x_\star\rangle +\eta^2 ||\nabla f(x_t)||^2_2$$
 
   By $\alpha$-strong convexity and $L$-smoothness, we may upper bound this by 
 
   $$\leq (1-\eta \alpha)||x_t-x_\star||^2_2-2\eta(f(x_t)-f(x_\star))+2\eta^2 L(f(x_t)-f(x_\star))$$
 
-  $$=(1-\eta \alpha)||x_t-x_\star||_2^2-2\alpha(1-\alpha L) (f(x_t)-f(x_\star))$$ $$=(1-\eta\alpha)||x_t-x_\star||^2_2$$
+  $$=(1-\eta \alpha)||x_t-x_\star||_2^2-2\alpha(1-\alpha L) (f(x_t)-f(x_\star))$$ 
+  
+  $$=(1-\eta\alpha)||x_t-x_\star||^2_2$$
 
   Iterating this, we get that: 
   
