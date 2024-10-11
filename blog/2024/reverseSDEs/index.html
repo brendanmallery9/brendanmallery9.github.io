@@ -305,29 +305,11 @@
 
       <d-article>
         
-          <d-contents>
-            <nav class="l-text figcaption">
-              <h3>Contents</h3>
-              
-                <div>
-                  <a href="#introduction">Introduction</a>
-                </div>
-                
-              
-                <div>
-                  <a href="#proof-of-theorem-2">Proof of Theorem 2</a>
-                </div>
-                
-              
-                <div>
-                  <a href="#extension-to-strongly-log-concave-measures">Extension to strongly log-concave measures</a>
-                </div>
-                
-              
-            </nav>
-          </d-contents>
-        
-        <p>The following derivation is borrowed from <d-cite key="sarkka2019applied"></d-cite>.</p>
+        <p>I became interested in this topic for the same reason that everyone else is, that learning the parameters of a reverse SDE has turned out to be incredibly useful for <a href="https://en.wikipedia.org/wiki/Diffusion_model" rel="external nofollow noopener" target="_blank">generative modeling</a>.</p>
+
+<p>The following derivation is borrowed from <d-cite key="sarkka2019applied"></d-cite>.</p>
+
+<h2 id="the-fokker-planck-equation">The Fokker-Planck Equation</h2>
 
 <p>Let 
  \(X_t = b_t(X_t)dt + \sigma_t(X_t)dB_t, \; \; \; \; X_0 \sim \mu_0\)</p>
@@ -387,7 +369,11 @@
 
 \[\frac{\partial \mu_t(x)}{\partial t} + \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x,t)]_i \mu_t(x) \right) - \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]_{ij} \mu_t(x) \right) = 0\]
 
-<p>for $\mu_t$ almost every $x$. We will now construct the time reversal of the SDE. Let $X^\leftarrow$ be defined such that $Law(X_t^\leftarrow) = \pi_{T-t}$. For convenience, assume $\sigma_t$ is independent of the spatial variable. The Fokker-Planck equation gives:</p>
+<p>for $\mu_t$ almost every $x$.</p>
+
+<h2 id="time-reversal">Time-reversal</h2>
+
+<p>We will now construct the time reversal of the SDE. Let $X^\leftarrow$ be defined such that $Law(X_t^\leftarrow) = \pi_{T-t}$. For convenience, assume $\sigma_t$ is independent of the spatial variable. The Fokker-Planck equation gives:</p>
 
 \[\partial \mu_t^\leftarrow = - \frac{1}{2} \langle \sigma_{T-t} \sigma_{T-t}^\top, \nabla^2 \mu_t^\leftarrow \rangle + \text{div}(\mu_t^\leftarrow b_{T-t})\]
 
