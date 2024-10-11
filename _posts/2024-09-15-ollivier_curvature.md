@@ -20,12 +20,9 @@ bibliography: blog.bib
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
   - name: Convexity
-    # if a section has subsections, you can add them as follows:
-    # subsections:
-    #   - name: Example Child Subsection 1
-    #   - name: Example Child Subsection 2
-  - name: Curvature
+  - name: Ricci Curvature
   - name: Convexity Meets Curvature
+
 
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
@@ -49,6 +46,8 @@ _styles: >
   There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. A key part of these analogies is the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What's more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.
 
   ## Convexity
+
+
 
   Recall that a function $f:\mathbb{R}^d\rightarrow \mathbb{R}$ is $\alpha$-strictly convex (for $\alpha\geq 0$) if it satisfies the following inequality: 
 
@@ -89,6 +88,8 @@ _styles: >
 
   ## Ricci Curvature
 
+
+
   **Definition:** (Ollivier Ricci Curvature) Ollivier Ricci curvature, which is a notion of curvature that is defined for a Markov chain on a metric space $X$. Let $M:x\rightarrow \mathcal{P}(X)$ be Markov kernel, i.e. a measurable map from $X$ to $\mathcal{P}(X)$, the set of probability measures on $X$. Then the Ollivier Ricci curvature of $M$ is:
 
   $$\kappa(x,y)=\frac{d(x,y)-W_1(M(x),M(y))}{d(x,y)}.$$
@@ -112,6 +113,8 @@ _styles: >
   sending $\mu$ to $M\star\mu$. Then if $(M\star)^t$ has curvature bounded below by $\alpha>0$, $M\star$ is a contraction, and in particular contracts $(\mathcal{P}(\Omega),W_1)$ by a factor of $(1-\alpha)^t$. Over many applications of $M\star$, the entire space $\mathcal{P}(\Omega)$ contracts to the stationary distribution of $M\star$, which is necessarily unique. 
 
   ## Convexity meets curvature
+
+
 
   We've seen that both $\alpha$-convexity for a function $f$ and $\kappa>\alpha$ for a Markov kernel imply contraction properties for dynamical systems associated to these objects. These two properties come together in a very nice way when considering Langevin diffusion. Langevin diffusion is a stochastic process on $\mathbb{R}^d$, governed by the following stochastic differential equation:
   $$dX_t=-\nabla V(X_t)dt+dB_t$$
