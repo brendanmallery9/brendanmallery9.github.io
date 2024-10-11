@@ -45,7 +45,7 @@ _styles: >
 
   There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. A key part of these analogies is the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What's more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.
 
-  ## Convexity
+  **Convexity**
 
 
 
@@ -95,7 +95,7 @@ _styles: >
 
   for $f$ an $\alpha$-strongly convex function. Then $T^t$ contracts $\mathbb{R}^d$ by a factor of $(1-\alpha)^t$. Thus we may view $\alpha$ as the coefficient of contraction for the self map of $\mathbb{R}^d$ induced by the (discrete) gradient flow of $f$. Over many applications of the map, the entire metric space contracts to a point $x_\star$ which is the minima for $f$. This also constitutes a proof of the uniqueness of the minimal value for $f$.
 
-  ## Ricci Curvature
+  **Ricci Curvature**
 
 
   **Definition:** (Ollivier Ricci Curvature) Ollivier Ricci curvature, which is a notion of curvature that is defined for a Markov chain on a metric space $X$. Let $M:x\rightarrow \mathcal{P}(X)$ be Markov kernel, i.e. a measurable map from $X$ to $\mathcal{P}(X)$, the set of probability measures on $X$. Then the Ollivier Ricci curvature of $M$ is:
@@ -122,7 +122,7 @@ _styles: >
 
   sending $\mu$ to $M\star\mu$. Then if $(M\star)^t$ has curvature bounded below by $\alpha>0$, $M\star$ is a contraction, and in particular contracts $(\mathcal{P}(\Omega),W_1)$ by a factor of $(1-\alpha)^t$. Over many applications of $M\star$, the entire space $\mathcal{P}(\Omega)$ contracts to the stationary distribution of $M\star$, which is necessarily unique. 
 
-  ## Convexity meets curvature
+  **Convexity meets curvature**
 
 
 
