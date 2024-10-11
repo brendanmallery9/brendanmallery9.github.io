@@ -1,11 +1,11 @@
 ---
 layout: distill
-title: Notes on Transport Inequalities
+title: Notes on Transportation Inequalities
 description: 
-tags:
+tags: Optimal Transport, Concentration of Measure, Transportation Inequalities
 giscus_comments: true
 date: 2024-10-07
-featured: true
+featured: false
 
 authors:
   - name: Brendan Mallery

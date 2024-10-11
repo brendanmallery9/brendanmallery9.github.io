@@ -2,10 +2,10 @@
 layout: distill
 title: Convexity and Ricci Curvature
 description:
-tags:
+tags: Optimal Transportation, Ricci Curvature, Sampling, Gradient Flows
 giscus_comments: true
 date: 2024-10-07
-featured: true
+featured: false
 
 authors:
   - name: Brendan Mallery
