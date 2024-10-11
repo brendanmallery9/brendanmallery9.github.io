@@ -2,7 +2,7 @@
 layout: distill
 title: How to Reverse an SDE
 description:
-tags: Sampling, Diffusion Models
+tags: ["Sampling", "Diffusion Models"]
 giscus_comments: true
 date: 2024-10-07
 featured: false
