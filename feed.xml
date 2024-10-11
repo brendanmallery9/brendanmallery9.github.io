@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-10-11T13:28:14+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-10-11T15:29:34+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
 </subtitle><entry><title type="html">Convexity and Ricci Curvature</title><link href="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/" rel="alternate" type="text/html" title="Convexity and Ricci Curvature" /><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2024/ollivier_curvature</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/"><![CDATA[<p>There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. A key part of these analogies is the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What’s more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.</p>
 
 <p>## Convexity</p>
@@ -26,49 +26,17 @@
 
 <p>with some initial condition $x_0$. The discrete case is more relevant for this analogy, so we give the standard proof here. For convenience we assume $f$ is L-Lipschitz, in which case we can set $\eta=\frac{1}{L}$. Let $x_0\in \mathbb{R}^d$, and let $x_\star=\min_{y\in \mathbb{R}^d} f(y)$. Then:</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$$</td>
-      <td> </td>
-      <td>x_{t+1}-x_\star</td>
-      <td> </td>
-      <td>^2_2 =</td>
-      <td> </td>
-      <td>x_t-x_\star-\eta \nabla f(x_t)</td>
-      <td> </td>
-      <td>^2_2 \(\)=</td>
-      <td> </td>
-      <td>x_t-x_\star</td>
-      <td> </td>
-      <td>^2<em>2-2\eta\langle \nabla f(x_t),x_t-x</em>\star\rangle +\eta^2</td>
-      <td> </td>
-      <td>\nabla f(x_t)</td>
-      <td> </td>
-      <td>^2_2$$</td>
-    </tr>
-  </tbody>
-</table>
+\[||x_{t+1}-x_\star||^2_2 = ||x_t-x_\star-\eta \nabla f(x_t)||^2_2\]
+
+\[=||x_t-x_\star||^2_2-2\eta\langle \nabla f(x_t),x_t-x_\star\rangle +\eta^2 ||\nabla f(x_t)||^2_2\]
 
 <p>By $\alpha$-strong convexity and $L$-smoothness, we may upper bound this by</p>
 
 \[\leq (1-\eta \alpha)||x_t-x_\star||^2_2-2\eta(f(x_t)-f(x_\star))+2\eta^2 L(f(x_t)-f(x_\star))\]
 
-<table>
-  <tbody>
-    <tr>
-      <td>$$=(1-\eta \alpha)</td>
-      <td> </td>
-      <td>x_t-x_\star</td>
-      <td> </td>
-      <td><em>2^2-2\alpha(1-\alpha L) (f(x_t)-f(x</em>\star))\(\)=(1-\eta\alpha)</td>
-      <td> </td>
-      <td>x_t-x_\star</td>
-      <td> </td>
-      <td>^2_2$$</td>
-    </tr>
-  </tbody>
-</table>
+\[=(1-\eta \alpha)||x_t-x_\star||_2^2-2\alpha(1-\alpha L) (f(x_t)-f(x_\star))\]
+
+\[=(1-\eta\alpha)||x_t-x_\star||^2_2\]
 
 <p>Iterating this, we get that:</p>
 
