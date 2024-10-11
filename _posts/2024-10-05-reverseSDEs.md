@@ -19,14 +19,10 @@ bibliography: blog.bib
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
-  - name: Introduction
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
-  - name: Proof of Theorem 2
-  - name: Extension to strongly log-concave measures
-
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
 _styles: >
@@ -45,7 +41,11 @@ _styles: >
     font-size: 16px;
   }
 ---
-The following derivation is borrowed from <d-cite key="sarkka2019applied"></d-cite>.
+I became interested in this topic for the same reason that everyone else is, that learning the parameters of a reverse SDE has turned out to be incredibly useful for [generative modeling](https://en.wikipedia.org/wiki/Diffusion_model). 
+
+The following derivation is borrowed from <d-cite key="sarkka2019applied"></d-cite>. 
+
+## The Fokker-Planck Equation
 
 Let 
  $$ X_t = b_t(X_t)dt + \sigma_t(X_t)dB_t, \; \; \; \; X_0 \sim \mu_0 $$
@@ -107,7 +107,11 @@ This holds for all $\phi \in \mathcal{C}_c^2(\mathbb{R}^d)$, implying:
 
 $$ \frac{\partial \mu_t(x)}{\partial t} + \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x,t)]_i \mu_t(x) \right) - \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]_{ij} \mu_t(x) \right) = 0 $$
 
-for $\mu_t$ almost every $x$. We will now construct the time reversal of the SDE. Let $X^\leftarrow$ be defined such that $Law(X_t^\leftarrow) = \pi_{T-t}$. For convenience, assume $\sigma_t$ is independent of the spatial variable. The Fokker-Planck equation gives: 
+for $\mu_t$ almost every $x$. 
+
+## Time-reversal
+
+We will now construct the time reversal of the SDE. Let $X^\leftarrow$ be defined such that $Law(X_t^\leftarrow) = \pi_{T-t}$. For convenience, assume $\sigma_t$ is independent of the spatial variable. The Fokker-Planck equation gives: 
 
 $$ \partial \mu_t^\leftarrow = - \frac{1}{2} \langle \sigma_{T-t} \sigma_{T-t}^\top, \nabla^2 \mu_t^\leftarrow \rangle + \text{div}(\mu_t^\leftarrow b_{T-t}) $$
 
