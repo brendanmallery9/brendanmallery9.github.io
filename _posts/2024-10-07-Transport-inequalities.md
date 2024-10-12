@@ -129,6 +129,7 @@ H(\mu_A\mid\mu) & = \int \log (\frac{d\mu_A}{d\mu})d\mu_A \\ & = \frac{1}{\mu(A)
 $$
 
 and 
+
 $$ 
 \begin{align*}
 H(\mu_B\mid\mu) & = \frac{1}{\mu(B)}\int_B \log(\frac{1}{\mu(B)})d\mu \\ & = -\log(1-\mu(A^r))
