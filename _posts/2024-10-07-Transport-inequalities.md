@@ -92,7 +92,7 @@ A particularly famous one was proven by Talagrand:
 Before proving Theorem 2, we mention some applications:
 
 *Applications of transportation inequalities:*
-1. If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $T_2$ is particularly useful in that it ''tensorizes'', allowing one to establish \textit{dimension independent} concentration for $\mu^{\otimes n}$.
+1. If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $T_2$ is particularly useful in that it ''tensorizes'', allowing one to establish *dimension independent* concentration for $\mu^{\otimes n}$.
 2. Transportation inequalities can allow one to prove other functional inequalities of interest.
 3. Connections to positive curvature lower bounds
 
@@ -149,7 +149,7 @@ Hence we see $T_p\rightarrow$ subgaussian concentration for any $p$. Observe tha
 
 ## Proof of Theorem 2
 
-In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use \textit{tensorization} properties of $T_2$.
+In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use *tensorization* properties of $T_2$.
 
 **Lemma 1:** Let $V: \mathbb{R}\rightarrow \mathbb{R}_{\geq 0}$, and let $\mu\in \mathcal{P}_2(\mathbb{R})$ be defined by $d\mu(x)=e^{-V(x)}dx$. Then: 
 
