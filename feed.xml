@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-10-12T04:44:15+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-10-14T00:11:30+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
 </subtitle><entry><title type="html">Convexity and Ricci Curvature</title><link href="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/" rel="alternate" type="text/html" title="Convexity and Ricci Curvature" /><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2024/ollivier_curvature</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/"><![CDATA[<p>There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. A key part of these analogies is the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What’s more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.</p>
 
 <p><strong>Convexity</strong></p>
@@ -234,7 +234,7 @@
 
 <p><em>Applications of transportation inequalities:</em></p>
 <ol>
-  <li>If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $T_2$ is particularly useful in that it ‘‘tensorizes’’, allowing one to establish \textit{dimension independent} concentration for $\mu^{\otimes n}$.</li>
+  <li>If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $T_2$ is particularly useful in that it ‘‘tensorizes’’, allowing one to establish <em>dimension independent</em> concentration for $\mu^{\otimes n}$.</li>
   <li>Transportation inequalities can allow one to prove other functional inequalities of interest.</li>
   <li>Connections to positive curvature lower bounds</li>
 </ol>
@@ -280,7 +280,7 @@ for all $r\geq r_0$.</p>
 
 <h2 id="proof-of-theorem-2">Proof of Theorem 2</h2>
 
-<p>In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use \textit{tensorization} properties of $T_2$.</p>
+<p>In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use <em>tensorization</em> properties of $T_2$.</p>
 
 <p><strong>Lemma 1:</strong> Let $V: \mathbb{R}\rightarrow \mathbb{R}_{\geq 0}$, and let $\mu\in \mathcal{P}_2(\mathbb{R})$ be defined by $d\mu(x)=e^{-V(x)}dx$. Then:</p>
 
