@@ -23,7 +23,7 @@ I am a 4th year PhD candidate studying mathematics at Tufts University, working 
 My research is in optimal transportation, with a focus on statistical theory and applications to data science. In particular:
 
 - Statistical aspects of entropic optimal transport/Schrodinger bridges;
-- Nonlinear dimensionality reduction and component analysis using optimal transportation;
+- Dictionary learning and nonlinear dimensionality reduction via optimal transport;
 - Analysis of Wasserstein gradient flows/descent, and applications to inference, sampling, and generative modeling.
 
 In addition to my dissertation work, I am also interested in:

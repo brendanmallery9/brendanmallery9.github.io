@@ -9,14 +9,11 @@ nav_order: 1
 
 <!-- Plain text with hyperlinks for publications -->
 
-### selected
+### Optimization and Statistics over Probability Measures
 
-1. _Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport_, with Shuchin Aeron and James Murphy. _Under review_.
+1. _Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport_, with Shuchin Aeron and James Murphy. _Accepted to AISTATS 2025_[arXiv](https://arxiv.org/abs/2501.07446)
 
-2. _Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications_, with Shuchin Aeron, James Murphy, and Matthew Werenski. _Under review_. [arXiv](https://arxiv.org/abs/2410.23602)
-
-3. _Temporal Distance and Curvature for the Analysis of Time-Evolving Networks_, with William Bernardoni, Robert Cardona, Justin Curry, Alan Hylton, and Robert Kassouf-Short. _In progress_.
-
+2. _Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications_, with Shuchin Aeron, James Murphy, and Matthew Werenski. _Accepted to AISTATS 2025_ [arXiv](https://arxiv.org/abs/2410.23602)
 
 ### other
 
