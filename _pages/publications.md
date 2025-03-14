@@ -11,7 +11,7 @@ nav_order: 1
 
 ### Optimization and Statistics over Probability Measures
 
-1. _Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport_, with Shuchin Aeron and James Murphy. _Accepted to AISTATS 2025_[arXiv](https://arxiv.org/abs/2501.07446)
+1. _Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport_, with Shuchin Aeron and James Murphy. _Accepted to AISTATS 2025_ [arXiv](https://arxiv.org/abs/2501.07446)
 
 2. _Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications_, with Shuchin Aeron, James Murphy, and Matthew Werenski. _Accepted to AISTATS 2025_ [arXiv](https://arxiv.org/abs/2410.23602)
 
