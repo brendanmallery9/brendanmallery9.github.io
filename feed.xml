@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-05-04T11:41:46+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-05-04T11:42:52+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
 </subtitle><entry><title type="html">Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)</title><link href="https://brendanmallery9.github.io/blog/2025/ISTA/" rel="alternate" type="text/html" title="Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)" /><published>2025-03-10T00:00:00+00:00</published><updated>2025-03-10T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/ISTA</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/ISTA/"><![CDATA[<p>We are interested in solving:</p>
 
 \[\hat{x} = \text{argmin}_{x} \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1.\]
@@ -51,15 +51,9 @@ We compute the subdifferential</p>
 
 \[\tau^* = ST_\lambda(\gamma),\]
 
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Definition 1</strong> The soft-thresholding function is $$ST_\lambda(\gamma):=sgn(\gamma)\max(</td>
-      <td>\gamma</td>
-      <td>-\lambda,0).$$</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>Definition 1</strong> The soft-thresholding function is</p>
+
+\[ST_\lambda(\gamma):=sgn(\gamma)\max(|\gamma|-\lambda,0).\]
 
 <p>Hence we have characterized optimal $\hat{x}$ as having coordinates described by $ST_\lambda(b_i)$.</p>
 
