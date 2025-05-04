@@ -353,10 +353,10 @@
 
 <p>This function is a sum of functions of the form:</p>
 
-<p>\(g(\tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.\)
+<p>\(g( \tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.\)
 We compute the subdifferential</p>
 
-\[\partial g(\tau) = \tau - \gamma + \lambda \partial|\tau|,\]
+\[\partial g( \tau) = \tau - \gamma + \lambda \partial|\tau|,\]
 
 <p>where</p>
 
@@ -369,9 +369,9 @@ We compute the subdifferential</p>
 
 <p>which can be easily computed from the definition. At the unique optimal $\tau^*$ (for each $\lambda, \gamma$), we must have</p>
 
-\[0 \in \partial g(\tau^*).\]
+\[0 \in \partial g( \tau^*).\]
 
-<p>We can now compute an expression for an optimal $\tau^<em>$ as a function of $\lambda, \gamma$. If $\tau^</em> &gt; 0$, we have $0 \in \partial g(\tau^*)$, which implies that</p>
+<p>We can now compute an expression for an optimal $\tau^<em>$ as a function of $\lambda, \gamma$. If $\tau^</em> &gt; 0$, we have $0 \in \partial g( \tau^*)$, which implies that</p>
 
 \[\tau^* = \gamma - \lambda.\]
 
@@ -391,11 +391,11 @@ We compute the subdifferential</p>
 
 <p>This is a piecewise linear function. Another way of representing this is</p>
 
-\[\tau^* = ST_\lambda(\gamma),\]
+\[\tau^* = ST_\lambda( \gamma),\]
 
 <p><strong>Definition 1</strong> The soft-thresholding function is</p>
 
-\[ST_\lambda(\gamma):=sgn(\gamma)\max(|\gamma|-\lambda,0).\]
+\[ST_\lambda( \gamma):=sgn( \gamma)\max(|\gamma|-\lambda,0).\]
 
 <p>Hence we have characterized optimal $\hat{x}$ as having coordinates described by $ST_\lambda(b_i)$.</p>
 
@@ -421,7 +421,7 @@ We compute the subdifferential</p>
 
 <p>where $ C $ doesn’t depend on $ x $ or $ x^{(0)} $. From before, we see that this is minimized by:</p>
 
-\[x^{(0),*} = ST_{\frac{\lambda}{c}}(\nu_0) = ST_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)\]
+\[x^{(0),*} = ST_{\frac{\lambda}{c}}( \nu_0) = ST_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)\]
 
 <p>Thus,</p>
 
