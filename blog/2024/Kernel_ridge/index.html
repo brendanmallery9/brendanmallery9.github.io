@@ -15,7 +15,7 @@
   
   
     
-      Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA) | Brendan Mallery
+      Kernel Ridge Regression | Brendan Mallery
     
   
 </title>
@@ -58,7 +58,7 @@
   <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="https://brendanmallery9.github.io/blog/2025/ISTA/">
+<link rel="canonical" href="https://brendanmallery9.github.io/blog/2024/Kernel_ridge/">
 
 <!-- Dark Mode -->
 <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -131,9 +131,9 @@
 <d-front-matter>
     <script async type="text/json">
       {
-            "title": "Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)",
+            "title": "Kernel Ridge Regression",
             "description": "asdfasdf",
-            "published": "March 10, 2025",
+            "published": "November 24, 2024",
             "authors": [
               
               {
@@ -325,7 +325,7 @@
     <!-- Content -->
     <div class="post distill">
       <d-title>
-        <h1>Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)</h1>
+        <h1>Kernel Ridge Regression</h1>
         <p>asdfasdf</p>
       </d-title>
       
@@ -334,106 +334,110 @@
 
       <d-article>
         
-        <p>We are interested in solving:</p>
+        <h2 id="constructing-reproducing-kernel-hilbert-spaces">Constructing Reproducing Kernel Hilbert Spaces</h2>
 
-\[\hat{x} = \text{argmin}_{x} \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1.\]
+<p><strong>Definition 1</strong> Let $\mathcal{X}$ be a metric space. A positive semidefinite kernel is a symmetric function $\mathcal{K}:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}$ such that for all ${x_i}<em>{i=1}^n\subset \mathcal{X}$, the matrix $K</em>{ij}:=\mathcal{K}(x_i,x_j)$ is PSD.</p>
 
-<p>Denote the objective function as $f(x) = \frac{1}{2} |b - Ax|_2^2 + \lambda |x|_1$. We will derive an algorithm for solving this.</p>
+<p><strong>Example 1</strong>
+Let $\mathcal{X}=\mathbb{R}^d$, $\mathcal{K}(x,x’)=\langle x,x’\rangle$. Let ${x_i}<em>{i=1}^n$ be an arbitrary set of points. Then for any vector $\alpha\in \mathbb{R}^d$, we have:
+\begin{equation*}
+\alpha^\top K \alpha=\sum</em>{i,j=1}^n\alpha_i\alpha_j\langle x_i,x_j\rangle=|\sum_{i=1}^n \alpha_i x_i|^2\geq 0
+\end{equation*}</p>
 
-<p>Let $A = I$. Then the problem has the objective:</p>
+<p><strong>Example 2</strong> Let $\mathcal{X}=\mathcal{P}<em>2(\mathbb{R}^d)$. For any $\rho\in \mathcal{P}_2(\mathbb{R}^d)$, define the function $\mathcal{K}</em>\rho(\mu,\nu)=\langle Id-T_{\rho\rightarrow \mu}, Id-T_{\rho\rightarrow \nu}\rangle <em>{L^2(\rho)}$. Then for any $\mathcal{V}:={\nu_1,…,\nu_m}$, $K</em>\mathcal{V}$ is PSD.</p>
 
-\[f(x) = \frac{1}{2} \|b - x\|_2^2 + \lambda \|x\|_1 = \sum_{i=1}^n \left( \frac{1}{2} |b_i - x_i|^2 + \lambda |x_i| \right).\]
+<h2 id="function-interpolation">Function Interpolation</h2>
 
-<p>This function is a sum of functions of the form:</p>
+<p>We want to solve the following problem:</p>
 
-<p>\(g(\tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.\)
-We compute the subdifferential</p>
+<p><strong>Problem 1</strong> (Minimal Norm Interpolation) Let $\mathcal{D}:={(x_i,y_i)}<em>{i=1}^n$ be data-response pairs, where $x_i\in \mathcal{X}$ and $y_i\in \mathbb{R}$. Let $\mathcal{A}</em>\mathcal{D}\subset \mathcal{H}<em>\mathcal{K}$ be the set of functions such that $f(x_i)=y_i$ for all $1\leq i\leq n.$ Choose $\bar{f}\in \texttt{argmin}</em>{f\in \mathcal{A}<em>\mathcal{D}}|f|</em>{\mathcal{H}_\mathcal{K}}$.</p>
 
-\[\partial g(\tau) = \tau - \gamma + \lambda \partial|\tau|,\]
+<p>In the RKHS case, this problem is greatly simplified.</p>
 
-<p>where</p>
+<p><strong>Proposition 1</strong> 
+Let $\mathcal{K}$ be a kernel on $\mathcal{X}$, let $K\in \mathbb{R}^{n\times n}$ be the matrix defined
+\begin{equation<em>}
+K_{ij}=\frac{1}{n}\mathcal{K}(x_i,x_j).
+\end{equation</em>}
+Then Problem 1 is feasible iff $y=(y_1,…,y_n)\in \text{range}(K)$. If this holds, then the optimal solution can be written:
+\begin{equation<em>}
+\hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n \hat{\alpha}_i \mathcal{K}(-,x_i), \; \; \; \; K\hat{\alpha}=\frac{y}{\sqrt{n}}
+\end{equation</em>}
+where $\hat{\alpha}\in \mathbb{R}^n.$</p>
 
-\[\partial|\tau| = 
-\begin{cases} 
--1 &amp; \text{for } \tau &lt; 0, \\
-1 &amp; \text{for } \tau &gt; 0, \\
-[-1, 1] &amp; \text{for } \tau = 0,
-\end{cases}\]
+<p><em>Proof:</em></p>
 
-<p>which can be easily computed from the definition. At the unique optimal $\tau^*$ (for each $\lambda, \gamma$), we must have</p>
+<p>For any vector $ \alpha \in \mathbb{R}^n $, define</p>
 
-\[0 \in \partial g(\tau^*).\]
+\[\mathcal{F} := \left\{ f_\alpha(-) := \frac{1}{\sqrt{n}} \sum_{i=1}^n \alpha_i \mathcal{K}(-, x_i) \right\}.\]
 
-<p>We can now compute an expression for an optimal $\tau^<em>$ as a function of $\lambda, \gamma$. If $\tau^</em> &gt; 0$, we have $0 \in \partial g(\tau^*)$, which implies that</p>
+<p>For any $ f_\alpha \in \mathcal{F} $, we have:</p>
 
-\[\tau^* = \gamma - \lambda.\]
+\[f_\alpha(x_j) = \frac{1}{\sqrt{n}} \sum_{i=1}^n \alpha_i \mathcal{K}(x_j, x_i) = \sqrt{n} [K\alpha]_j,\]
 
-<p>Since $\tau^*&gt;0$, this can only be true when $\gamma \geq \lambda$, and $\gamma \geq 0$, and hence we have determined</p>
+<p>i.e., $ \sqrt{n} $ times the $ j $-th entry of $ K\alpha $. Hence, $ f_\alpha \in \mathcal{F} $ solves Problem 1 if and only if</p>
 
-\[\tau^* = \gamma - \lambda \quad \text{on} \quad [\lambda, \infty).\]
+\[K\alpha = \frac{y}{\sqrt{n}}.\]
 
-<p>Similarly, we compute that</p>
+<p>We conclude by showing that the solution must be in $ \mathcal{F} $: Given any $ f \in \mathcal{H}_\mathcal{K} $, we can decompose</p>
 
-\[\tau^* = \gamma + \lambda \quad \text{on} \quad (-\infty, \lambda].\]
+\[f = f_\alpha + f_\perp,\]
 
-<p>Finally, we have the case of $\tau^* = 0$, which implies that</p>
+<p>where $ f_\alpha \in \mathcal{F} $ and $ f_\perp \in \mathcal{F}^\perp $ (since $ \mathcal{F} $ is finite-dimensional and hence closed, this decomposition is always possible). By the reproducing property, we have:</p>
 
-\[0 \in -\gamma + \lambda [-1, 1],\]
+\[f(x_j) = \langle f, \mathcal{K}(-, x_j) \rangle_{\mathcal{H}_\mathcal{K}} = \langle f_\alpha + f_\perp, \mathcal{K}(-, x_j) \rangle_{\mathcal{H}_\mathcal{K}} = f_\alpha(x_j),\]
 
-<p>and hence $\gamma \in [-\lambda, \lambda]$.</p>
+<p>since ( \mathcal{K}(-, x_j) \in \mathcal{F} ) and is hence orthogonal to ( f_\perp ). This, along with the fact that</p>
 
-<p>This is a piecewise linear function. Another way of representing this is</p>
+\[\|f_\alpha + f_\perp\|^2_{\mathcal{H}_\mathcal{K}} = \|f_\alpha\|^2_{\mathcal{H}_\mathcal{K}} + \|f_\perp\|^2_{\mathcal{H}_\mathcal{K}},\]
 
-\[\tau^* = ST_\lambda(\gamma),\]
+<p>implies that the solution must lie in ( \mathcal{F} ), if it exists. \blacksquare</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>
-<strong>Definition 1</strong> The soft-thresholding function is $ST_\lambda(\gamma):=sgn(\gamma)\max(</td>
-      <td>\gamma</td>
-      <td>-\lambda,0).$</td>
-    </tr>
-  </tbody>
-</table>
+<p>We now consider a harder problem: Suppose we observe $n$-i.i.d. data points $y_i=f^*(x_i)+w_i$ where $f$ is some function of data $x_i$ and $w=(w_1,…,w_n)$ is a noise vector. We will solve this via a relaxation of the previous method:</p>
 
-<p>Hence we have characterized optimal $\hat{x}$ as having coordinates described by $ST_\lambda(b_i)$.</p>
+<p><strong>Problem 2</strong>
+(Kernel ridge regression) For some $\lambda_n&gt;0$, define, find:</p>
 
-<p>We now prove the result for general PSD $A$:</p>
+<p>\begin{equation<em>} \hat{f}=\texttt{argmin}_{f\in \mathcal{H}_\mathcal{K}}\left{\frac{1}{2n}\sum_{i=1}^n(y_i-f(x_i))^2+\lambda_n |f|^2_{\mathcal{H}_\mathcal{K}}\right}\end{equation</em>}</p>
 
-\[h(x, x^{(0)}) = \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
+<p><strong>Proposition 2</strong>
+For all $\lambda_n&gt;0$, Problem 2 can be written as:
+\begin{equation}\label{eqn:krr solution}
+\hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n\hat{\alpha}_i\mathcal{K}(-,x_i),
+\end{equation}
+where the optimal weight vector $\hat{\alpha}\in \mathbb{R}^n$ is given by:
+\begin{equation<em>}
+\hat{\alpha}=(K+\lambda_n I_n)^{-1}\frac{y}{\sqrt{n}}.
+\end{equation</em>}</p>
 
-<p>For this function to be strictly convex in $x$, we must have:</p>
+<p><em>Proof:</em>
+The formula for the optimal $\hat{f}$ follows the same reasoning as in the previous proof. To compute the optimal weight vector, first notice that for any function $f$ of the above form, for each $j = 1, 2, …, n$ we have:</p>
 
-\[c &gt; \|A^\top A\|_2 = \lambda_{\max}(A^\top A).\]
+\[f(x_j) = \frac{1}{\sqrt{n}} \sum_{i=1}^n \alpha_i \mathcal{K}(x_j, x_i) = \sqrt{n} \, e_j^\top K \alpha,\]
 
-<p>Define the new objective function:</p>
+<p>where $e_j$ is a basis vector and $K_{ij} = \mathcal{K}(x_i, x_j)/n$. Similarly, we have:</p>
 
-\[\tilde{f}(x, x^{(0)}) = f(x) + h(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
+\[\|f\|^2_{\mathcal{H}_\mathcal{K}} = \frac{1}{n} \left\langle \sum_{i=1}^n \alpha_i \mathcal{K}(-, x_i), \sum_{j=1}^n \alpha_j \mathcal{K}(-, x_j) \right\rangle_{\mathcal{H}_\mathcal{K}} = \alpha^\top K \alpha.\]
 
-<p>Our goal will be to reduce this to something resembling the case with $A=I$, so we introduce the variable:</p>
+<p>Plugging these into the cost function we get:</p>
 
-\[\nu_0 = x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}).\]
+\[\frac{1}{2n} \sum_{i=1}^n \left( y_i - \sqrt{n} [K \alpha]_i \right)^2 + \lambda_n \|f\|^2_{\mathcal{H}_\mathcal{K}} = \frac{1}{n} \|y - \sqrt{n} K \alpha\|^2_2 + \lambda \alpha^\top K \alpha,\]
 
-<p>Then, by some algebra, we have:</p>
+<p>which expands to:</p>
 
-\[\tilde{f}(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2 = C + \lambda \|x\|_1 + \frac{c}{2} \|x - \nu_0\|_2^2\]
+\[\frac{1}{n} \|y\|^2_2 + \alpha^\top (K^2 + \lambda K) \alpha - \frac{2}{\sqrt{n}} y^\top K \alpha.\]
 
-<p>where $ C $ doesn’t depend on $ x $ or $ x^{(0)} $. From before, we see that this is minimized by:</p>
+<p>Taking the gradient with respect to $\alpha$ and setting it equal to zero, we get:</p>
 
-\[x^{(0),*} = ST_{\frac{\lambda}{c}}(\nu_0) = ST_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)\]
+\[K(K + \lambda I_n)\alpha - \frac{1}{\sqrt{n}} K y = 0,\]
 
-<p>Thus,</p>
+<p>which implies:</p>
 
-\[x^{(0),*} = \text{argmin}_x \tilde{f}(x, x^{(0)}) = \text{argmin}_x f(x) + h(x, x^{(0)}).\]
+\[K(K + \lambda I_n)\alpha = \frac{1}{\sqrt{n}} K y.\]
 
-<p>This suggests (and derives) the proximal algorithm for this objective function and regularization:</p>
+<p>Solving for $\alpha$ gives us our solution.</p>
 
-\[x^{(i+1)} = ST_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
-
-<p>This is the ISTA algorithm. More generally, we can change the $ \ell^1 $ regularization to get iterates of the form:</p>
-
-\[x^{(i+1)} = T_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
+<p>\blacksquare</p>
 
       </d-article>
 
