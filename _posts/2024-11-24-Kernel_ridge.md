@@ -43,6 +43,8 @@ _styles: >
   }
 ---
 
+The following is shamelessly taken from Wainwright's High Dimensional Statistics.
+
 ## Constructing Reproducing Kernel Hilbert Spaces
 
 **Definition 1** Let $\mathcal{X}$ be a metric space. A positive semidefinite kernel is a symmetric function $\mathcal{K}:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}$ such that for all $\{x_i\}_{i=1}^n\subset \mathcal{X}$, the matrix $K_{ij}:=\mathcal{K}(x_i,x_j)$ is PSD.
