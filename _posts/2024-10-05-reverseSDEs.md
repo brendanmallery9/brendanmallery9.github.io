@@ -41,7 +41,6 @@ _styles: >
     font-size: 16px;
   }
 ---
-I became interested in this topic for the same reason that everyone else is, that learning the parameters of a reverse SDE has turned out to be incredibly useful for [generative modeling](https://en.wikipedia.org/wiki/Diffusion_model). 
 
 The following derivation is borrowed from <d-cite key="sarkka2019applied"></d-cite>. 
 

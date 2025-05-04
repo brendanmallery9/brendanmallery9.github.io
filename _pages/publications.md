@@ -27,6 +27,4 @@ nav_order: 1
 
 5. _From Trees to Barcodes and Back Again II: Combinatorial and Probabilistic Aspects of a Topological Inverse Problem_, with Jordan DeSha, Adélie Garin, Kathryn Hess, and Lida Kanari. _Accepted to CGTA Special Issue on Computational and Applied Topology Spring 2021_. [arXiv](https://arxiv.org/abs/2107.11212)
 
-6. _A Survey of Mathematical Structures for Lunar Networks_, with Alan Hylton, Robert Short, Jacob Cleveland, Olivia Freides, Zara Memon, Robert Cardona, Robert Green, Justin Curry, Sriram Gopalakrishnan, Devavrat Vivek Dabke, Brittany Story, and Michael Moy. _Accepted November 16, 2021 to the 2022 IEEE Aerospace Conference_. [IEEE](https://ieeexplore.ieee.org/document/9843305)
-
-7. _Medium-scale Curvature at Larger Radii in Finitely Generated Groups_, with Robert Kropholler. _Submitted to The Journal of Algebra and Computation Spring 2020_. [arXiv](https://arxiv.org/abs/2004.10801)
+6. _Medium-scale Curvature at Larger Radii in Finitely Generated Groups_, with Robert Kropholler. _Submitted to The Journal of Algebra and Computation Spring 2020_. [arXiv](https://arxiv.org/abs/2004.10801)
