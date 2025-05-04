@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-05-04T10:27:54+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
-</subtitle><entry><title type="html">Kl_divergence_barycenters</title><link href="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/" rel="alternate" type="text/html" title="Kl_divergence_barycenters" /><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/"><![CDATA[<!DOCTYPE html>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-05-04T10:54:26+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
+</subtitle><entry><title type="html">Ista</title><link href="https://brendanmallery9.github.io/blog/2025/ISTA/" rel="alternate" type="text/html" title="Ista" /><published>2025-03-10T00:00:00+00:00</published><updated>2025-03-10T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/ISTA</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/ISTA/"><![CDATA[<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>kl_divergence_barycenters</title>
+<title>ista</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,16 +24,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="2025-01-05-KL_divergence_barycenters_files/libs/clipboard/clipboard.min.js"></script>
-<script src="2025-01-05-KL_divergence_barycenters_files/libs/quarto-html/quarto.js"></script>
-<script src="2025-01-05-KL_divergence_barycenters_files/libs/quarto-html/popper.min.js"></script>
-<script src="2025-01-05-KL_divergence_barycenters_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="2025-01-05-KL_divergence_barycenters_files/libs/quarto-html/anchor.min.js"></script>
-<link href="2025-01-05-KL_divergence_barycenters_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="2025-01-05-KL_divergence_barycenters_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="2025-01-05-KL_divergence_barycenters_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="2025-01-05-KL_divergence_barycenters_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="2025-01-05-KL_divergence_barycenters_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="2025-03-10-ISTA_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2025-03-10-ISTA_files/libs/quarto-html/quarto.js"></script>
+<script src="2025-03-10-ISTA_files/libs/quarto-html/popper.min.js"></script>
+<script src="2025-03-10-ISTA_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2025-03-10-ISTA_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2025-03-10-ISTA_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2025-03-10-ISTA_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2025-03-10-ISTA_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2025-03-10-ISTA_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2025-03-10-ISTA_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -48,71 +48,94 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let <span class="math inline">\(\Delta^m := \{(\lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0,\ \sum_{j=1}^m \lambda_j = 1\}\)</span> be the <span class="math inline">\(m\)</span>-dimensional probability simplex. Let <span class="math inline">\(\mathcal{V} = \{\nu_1, \dots, \nu_m\}\)</span> be a family of probability measures on <span class="math inline">\(\Omega \subseteq \mathbb{R}^d\)</span> such that <span class="math inline">\(\nu_j \propto \exp(-V_j)\)</span> for some nonnegative continuous functions <span class="math inline">\(V_j\)</span>.</p>
-<p>For any <span class="math inline">\(\lambda \in \Delta^m\)</span>, define <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}(\mu) := \sum_{j=1}^m \lambda_j\ \mathrm{KL}(\mu \mid \nu_j)\)</span>, where <span class="math inline">\(\mathrm{KL}\)</span> denotes the Kullback–Leibler divergence.</p>
-<p>Let <span class="math inline">\(\mu_\lambda := \operatorname*{argmin}_{\rho \in \mathcal{P}(\Omega)} \mathcal{K}_{\lambda, \mathcal{V}}(\rho)\)</span>. We wish to characterize the set <span class="math inline">\(M := \{\mu_\lambda \mid \lambda \in \Delta^m\}\)</span>.</p>
-<p>We will do this using first-order calculus on the space of probability measures.</p>
-<p><strong>Definition 1</strong><br>
-Let <span class="math inline">\(\mathcal{P}_{\text{abs}}(\Omega) \subseteq \mathcal{P}(\Omega)\)</span> be the set of probability measures which are absolutely continuous with respect to the Lebesgue measure, and let <span class="math inline">\(\mathcal{F} : \mathcal{P}(\Omega) \to \mathbb{R} \cup \{+\infty\}\)</span> be a functional.<br>
-If <span class="math inline">\(\mathcal{F}(\rho) &lt; \infty\)</span> for all <span class="math inline">\(\rho \in \mathcal{P}_{\text{abs}}(\Omega)\)</span>, we say that <span class="math inline">\(\mathcal{F}\)</span> is <strong>regular</strong>.</p>
-<p><strong>Definition 2</strong><br>
-Let <span class="math inline">\(\mathcal{F}\)</span> be a regular functional, let <span class="math inline">\(\mu \in \mathcal{P}_{\text{abs}}(\Omega)\)</span>, and suppose that there exists a continuous function<br>
-<span class="math inline">\(\frac{\delta \mathcal{F}}{\delta \mu}(\mu): \mathbb{R}^d \to \mathbb{R}\)</span> such that, for all <span class="math inline">\(\rho \in \mathcal{P}_{\text{abs}}(\Omega)\)</span>:</p>
+<p>We are interested in solving:</p>
 <p><span class="math display">\[
-\lim_{\epsilon \to 0} \frac{\mathcal{F}(\mu + \epsilon \chi) - \mathcal{F}(\mu)}{\epsilon} = \int \frac{\delta \mathcal{F}}{\delta \mu}(\mu) \, d\chi, \quad \chi := \rho - \mu.
+\hat{x} = \text{argmin}_{x} \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1.
 \]</span></p>
-<p>Then we call <span class="math inline">\(\frac{\delta \mathcal{F}}{\delta \mu}(\mu)\)</span> the <strong>first variation</strong> of <span class="math inline">\(\mathcal{F}\)</span> at <span class="math inline">\(\mu\)</span>.</p>
-<p>The first variation provides a useful necessary condition for optimality:</p>
-<p><strong>Lemma 1</strong><br>
-Let <span class="math inline">\(\mathcal{F}\)</span> be a regular functional which admits a first variation for all <span class="math inline">\(\mu \in \mathcal{P}_{\text{abs}}(\Omega)\)</span>. Suppose that <span class="math inline">\(\mathcal{F}\)</span> admits a minimizer <span class="math inline">\(\mu^\star \in \mathcal{P}_{\text{abs}}(\Omega)\)</span>. Then <span class="math inline">\(\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)\)</span> is <span class="math inline">\(\mu^\star\)</span>-almost everywhere constant.</p>
-<p><em>Proof:</em><br>
-If <span class="math inline">\(\mu^*\)</span> is a minimizer, then for any <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\chi := \rho - \mu^*\)</span>, we have:</p>
+<p>Denote the objective function as <span class="math inline">\(f(x) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1\)</span>. We will derive an algorithm for solving this.</p>
+<p>Let <span class="math inline">\(A = I\)</span>. Then the problem has the objective:</p>
 <p><span class="math display">\[
-\frac{\mathcal{F}(\mu^* + \epsilon \chi) - \mathcal{F}(\mu^*)}{\epsilon} \geq 0.
+f(x) = \frac{1}{2} \|b - x\|_2^2 + \lambda \|x\|_1 = \sum_{i=1}^n \left( \frac{1}{2} |b_i - x_i|^2 + \lambda |x_i| \right).
 \]</span></p>
-<p>Taking the limit as <span class="math inline">\(\epsilon \rightarrow 0\)</span>, we get that</p>
+<p>This function is a sum of functions of the form:</p>
 <p><span class="math display">\[
-\int \frac{\delta \mathcal{F}}{\delta \mu}(\mu^*) \, d\mu^* \leq \int \frac{\delta \mathcal{F}}{\delta \mu}(\mu^*) \, d\rho
-\]</span></p>
-<p>for any <span class="math inline">\(\chi\)</span>.</p>
-<p>Suppose that <span class="math inline">\(\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)\)</span> is not <span class="math inline">\(\mu^\star\)</span>-almost everywhere constant. Define <span class="math inline">\(Q := \int \frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star) \, d\mu^\star\)</span>, and let <span class="math inline">\(U := \{x \in \mathbb{R}^d \mid \frac{\delta \mathcal{F}}{\delta \mu}(x) &lt; Q\}\)</span>, which is nonempty by assumption. Since <span class="math inline">\(\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)\)</span> is continuous, <span class="math inline">\(U\)</span> is measurable. By assumption, <span class="math inline">\(\mu^\star(U) &gt; 0\)</span>, and since <span class="math inline">\(\mu^\star\)</span> is absolutely continuous, this implies we may find an absolutely continuous probability measure <span class="math inline">\(\rho\)</span> such that the support of <span class="math inline">\(\rho\)</span> is contained in <span class="math inline">\(U\)</span>. Then:</p>
+g(\tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.
+\]</span> We compute the subdifferential</p>
 <p><span class="math display">\[
-\int \frac{d\mathcal{F}}{d\mu}(\mu^\star) \, d\rho &lt; \int \frac{d\mathcal{F}}{d\mu}(\mu^\star) \, d\mu^\star,
+\partial g(\tau) = \tau - \gamma + \lambda \partial|\tau|,
 \]</span></p>
-<p>which is a contradiction. Hence <span class="math inline">\(\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)\)</span> is <span class="math inline">\(\mu^\star\)</span>-almost everywhere constant. <span class="math inline">\(\blacksquare\)</span></p>
-<p>We will use the above characterization to describe the set of minimizers of <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}\)</span>. For convenience, let <span class="math inline">\(\Omega\)</span> be compact. We claim that <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}\)</span> admits a minimizer. This requires an application of Prokhorov’s theorem:</p>
-<p><strong>Theorem 1</strong> (Prokhorov’s Theorem) Let <span class="math inline">\((\mathcal{X},d)\)</span> be a complete, compact, separable metric space. Then any sequence of probability measures <span class="math inline">\(\{\mu_n\}_{n=1}^\infty\subseteq \mathcal{P}(\mathcal{X})\)</span> contains a convergent subsequence (in the weak topology).</p>
-<p>We remark that the compactness assumption in Theorem 1 can be dropped if the sequence of probability measures is <em>tight</em> (in a compact metric space, any <span class="math inline">\(\{\mu_n\}_{n=1}^\infty\)</span> is tight).</p>
-<p><strong>Lemma 2</strong> Let <span class="math inline">\(\Omega\subset \mathbb{R}^d\)</span> be compact, and let <span class="math inline">\(\mathcal{V}=\{\nu_1,..,\nu_m\}\subset \mathcal{P}_{abs}(\Omega)\)</span>. Then for any <span class="math inline">\(\lambda\in\Delta^m\)</span>, <span class="math inline">\(\mathcal{K}_{\lambda,\mathcal{V}}\)</span> admits an absolutely continuous minimizer.</p>
-<p><em>Proof:</em><br>
-As <span class="math inline">\(KL(-, \nu_j)\)</span> is nonnegative and lower-semicontinuous for all <span class="math inline">\(1 \leq j \leq m\)</span>, <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}\)</span> is as well, and <span class="math inline">\(|\inf_{\rho \in \mathcal{P}(\Omega)} \mathcal{K}_{\lambda, \mathcal{V}}(\rho)| &lt; \infty\)</span>. Let <span class="math inline">\(S := \{\mu_n\}_{n=1}^\infty\)</span> be an infimizing sequence for <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}\)</span>. By Theorem 1, <span class="math inline">\(\{\mu_n\}_{n=1}^\infty\)</span> contains a subsequence <span class="math inline">\(\{\mu_n'\}_{n=1}^\infty\)</span>, which converges to a limit point <span class="math inline">\(\mu^\star \in \mathcal{P}(\Omega)\)</span>.</p>
-<p>As <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}(\rho) = \infty\)</span> for all <span class="math inline">\(\rho \in \mathcal{P}(\Omega) \setminus \mathcal{P}_{\text{abs}}(\Omega)\)</span>, it must be the case that <span class="math inline">\(S \subset \mathcal{P}_{\text{abs}}(\Omega)\)</span>. Furthermore, by lower semicontinuity of <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}\)</span>, we have that:</p>
+<p>where</p>
 <p><span class="math display">\[
-\mathcal{K}_{\lambda, \mathcal{V}}(\mu^\star) \leq \liminf_{n \to \infty} \mathcal{K}_{\lambda, \mathcal{V}}(\mu_n').
+\partial|\tau| =
+\begin{cases}
+-1 &amp; \text{for } \tau &lt; 0, \\
+1 &amp; \text{for } \tau &gt; 0, \\
+[-1, 1] &amp; \text{for } \tau = 0,
+\end{cases}
 \]</span></p>
-<p>This shows that <span class="math inline">\(\mu^\star\)</span> minimizes <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}\)</span>, and furthermore that <span class="math inline">\(\mu^\star \in \mathcal{P}_{\text{abs}}(\Omega)\)</span>.</p>
-<p>We compute the first variation of</p>
+<p>which can be easily computed from the definition. At the unique optimal <span class="math inline">\(\tau^*\)</span> (for each <span class="math inline">\(\lambda, \gamma\)</span>), we must have</p>
 <p><span class="math display">\[
-\frac{\delta \mathcal{K}_{\lambda, \mathcal{V}}}{\delta \mu}(\mu) = \sum_{j=1}^m \lambda_j \log\left(\frac{d\mu}{dx}\right) - \sum_{j=1}^m \lambda_j \log\left(\frac{d\nu_j}{dx}\right)
+0 \in \partial g(\tau^*).
 \]</span></p>
+<p>We can now compute an expression for an optimal <span class="math inline">\(\tau^*\)</span> as a function of <span class="math inline">\(\lambda, \gamma\)</span>. If <span class="math inline">\(\tau^* &gt; 0\)</span>, we have <span class="math inline">\(0 \in \partial g(\tau^*)\)</span>, which implies that</p>
 <p><span class="math display">\[
-= \log\left(\frac{d\mu}{dx}\right) + \sum_{j=1}^m \lambda_j V_j.
+\tau^* = \gamma - \lambda.
 \]</span></p>
-<p>Let <span class="math inline">\(\mu^\star\)</span> minimize <span class="math inline">\(\mathcal{K}_{\lambda, \mathcal{V}}\)</span>. Then by Lemma 1, there exists a constant <span class="math inline">\(C\)</span> such that, for (Lebesgue) almost-every <span class="math inline">\(x \in \Omega\)</span>:</p>
+<p>Since <span class="math inline">\(\tau^*&gt;0\)</span>, this can only be true when <span class="math inline">\(\gamma \geq \lambda\)</span>, and <span class="math inline">\(\gamma \geq 0\)</span>, and hence we have determined</p>
 <p><span class="math display">\[
-C = \log\left(\frac{d\mu^\star}{dx}(x)\right) + \sum_{j=1}^m \lambda_j V_j(x)
+\tau^* = \gamma - \lambda \quad \text{on} \quad [\lambda, \infty).
 \]</span></p>
+<p>Similarly, we compute that</p>
 <p><span class="math display">\[
-\Rightarrow \frac{d\mu^\star}{dx}(x) = \exp\left(C - \sum_{j=1}^m \lambda_j V_j(x)\right).
+\tau^* = \gamma + \lambda \quad \text{on} \quad (-\infty, \lambda].
 \]</span></p>
-<p>As <span class="math inline">\(\mu^\star\)</span> is a probability measure, its density must integrate to 1, and hence we have (uniquely) identified the constant <span class="math inline">\(C\)</span> as the normalization constant</p>
+<p>Finally, we have the case of <span class="math inline">\(\tau^* = 0\)</span>, which implies that</p>
 <p><span class="math display">\[
-\ln\left(\int_\Omega \exp\left(-\sum_{j=1}^m \lambda_j V_j(x)\right) dx\right).
+0 \in -\gamma + \lambda [-1, 1],
 \]</span></p>
-<p>We have thus established the theorem:</p>
-<p><strong>Theorem 2</strong> Let <span class="math inline">\(\Omega\subset \mathbb{R}^d\)</span> be compact, and let <span class="math inline">\(\mathcal{V}=\{\nu_1,...,\nu_m\}\subset \mathcal{P}_{abs}(\Omega)\)</span>, where for all <span class="math inline">\(1\leq j\leq m\)</span>, <span class="math inline">\(\nu_j\propto \exp(-V_j)\)</span> for some continuous and nonnegative <span class="math inline">\(V_j\)</span>. Then for any <span class="math inline">\(\lambda\in\Delta^m\)</span>: <span class="math display">\[\begin{equation*}
-\texttt{argmin}_{\mu\in \mathcal{P}(\Omega)}\mathcal{K}_{\lambda,\mathcal{V}}(\mu) =\frac{1}{Z_\lambda}\exp\left(-\sum_{j=1}^m\lambda_j V_j\right)
-\end{equation*}\]</span> where <span class="math inline">\(Z_\lambda=\int_\Omega \exp(-\sum_{j=1}^m\lambda_j V_j(x))dx\)</span> is a normalization constant.</p>
+<p>and hence <span class="math inline">\(\gamma \in [-\lambda, \lambda]\)</span>.</p>
+<p>This is a piecewise linear function. Another way of representing this is</p>
+<p><span class="math display">\[
+\tau^* = ST_\lambda(\gamma),
+\]</span></p>
+<p><strong>Definition 1</strong> The soft-thresholding function is <span class="math inline">\(ST_\lambda(\gamma):=sgn(\gamma)\max(|\gamma|-\lambda,0).\)</span></p>
+<p>Hence we have characterized optimal <span class="math inline">\(\hat{x}\)</span> as having coordinates described by <span class="math inline">\(ST_\lambda(b_i)\)</span>.</p>
+<p>We now prove the result for general PSD <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+h(x, x^{(0)}) = \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.
+\]</span></p>
+<p>For this function to be strictly convex in <span class="math inline">\(x\)</span>, we must have:</p>
+<p><span class="math display">\[
+c &gt; \|A^\top A\|_2 = \lambda_{\max}(A^\top A).
+\]</span></p>
+<p>Define the new objective function:</p>
+<p><span class="math display">\[
+\tilde{f}(x, x^{(0)}) = f(x) + h(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.
+\]</span></p>
+<p>Our goal will be to reduce this to something resembling the case with <span class="math inline">\(A=I\)</span>, so we introduce the variable:</p>
+<p><span class="math display">\[
+\nu_0 = x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}).
+\]</span></p>
+<p>Then, by some algebra, we have:</p>
+<p><span class="math display">\[
+\tilde{f}(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2 = C + \lambda \|x\|_1 + \frac{c}{2} \|x - \nu_0\|_2^2
+\]</span></p>
+<p>where $ C $ doesn’t depend on $ x $ or $ x^{(0)} $. From before, we see that this is minimized by:</p>
+<p><span class="math display">\[
+x^{(0),*} = ST_{\frac{\lambda}{c}}(\nu_0) = ST_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+x^{(0),*} = \text{argmin}_x \tilde{f}(x, x^{(0)}) = \text{argmin}_x f(x) + h(x, x^{(0)}).
+\]</span></p>
+<p>This suggests (and derives) the proximal algorithm for this objective function and regularization:</p>
+<p><span class="math display">\[
+x^{(i+1)} = ST_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).
+\]</span></p>
+<p>This is the ISTA algorithm. More generally, we can change the $ ^1 $ regularization to get iterates of the form:</p>
+<p><span class="math display">\[
+x^{(i+1)} = T_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).
+\]</span></p>
 
 </main>
 <!-- /main column -->
@@ -437,7 +460,105 @@ As $KL(-, \nu_j)$ is nonnegative and lower-semicontinuous for all $1 \leq j \leq
 \begin{equation*}
 \texttt{argmin}</em>{\mu\in \mathcal{P}(\Omega)}\mathcal{K}<em>{\lambda,\mathcal{V}}(\mu) =\frac{1}{Z</em>\lambda}\exp\left(-\sum_{j=1}^m\lambda_j V_j\right)
 \end{equation*}
-where $Z_\lambda=\int_\Omega \exp(-\sum_{j=1}^m\lambda_j V_j(x))dx$ is a normalization constant.</p>]]></content><author><name>Brendan Mallery</name></author><category term="Information Theory" /><category term="Barycenters" /><summary type="html"><![CDATA[In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {(\lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0,\ \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.]]></summary></entry><entry><title type="html">Convexity and Ricci Curvature</title><link href="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/" rel="alternate" type="text/html" title="Convexity and Ricci Curvature" /><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2024/ollivier_curvature</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/"><![CDATA[<p>There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. A key part of these analogies is the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What’s more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.</p>
+where $Z_\lambda=\int_\Omega \exp(-\sum_{j=1}^m\lambda_j V_j(x))dx$ is a normalization constant.</p>]]></content><author><name>Brendan Mallery</name></author><category term="Information Theory" /><category term="Barycenters" /><summary type="html"><![CDATA[In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {(\lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0,\ \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.]]></summary></entry><entry><title type="html">Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)</title><link href="https://brendanmallery9.github.io/blog/2025/ISTA/" rel="alternate" type="text/html" title="Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)" /><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/ISTA</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/ISTA/"><![CDATA[<p>We are interested in solving:</p>
+
+\[\hat{x} = \text{argmin}_{x} \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1.\]
+
+<p>Denote the objective function as $f(x) = \frac{1}{2} |b - Ax|_2^2 + \lambda |x|_1$. We will derive an algorithm for solving this.</p>
+
+<p>Let $A = I$. Then the problem has the objective:</p>
+
+\[f(x) = \frac{1}{2} \|b - x\|_2^2 + \lambda \|x\|_1 = \sum_{i=1}^n \left( \frac{1}{2} |b_i - x_i|^2 + \lambda |x_i| \right).\]
+
+<p>This function is a sum of functions of the form:</p>
+
+<p>\(g(\tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.\)
+We compute the subdifferential</p>
+
+\[\partial g(\tau) = \tau - \gamma + \lambda \partial|\tau|,\]
+
+<p>where</p>
+
+\[\partial|\tau| = 
+\begin{cases} 
+-1 &amp; \text{for } \tau &lt; 0, \\
+1 &amp; \text{for } \tau &gt; 0, \\
+[-1, 1] &amp; \text{for } \tau = 0,
+\end{cases}\]
+
+<p>which can be easily computed from the definition. At the unique optimal $\tau^*$ (for each $\lambda, \gamma$), we must have</p>
+
+\[0 \in \partial g(\tau^*).\]
+
+<p>We can now compute an expression for an optimal $\tau^<em>$ as a function of $\lambda, \gamma$. If $\tau^</em> &gt; 0$, we have $0 \in \partial g(\tau^*)$, which implies that</p>
+
+\[\tau^* = \gamma - \lambda.\]
+
+<p>Since $\tau^*&gt;0$, this can only be true when $\gamma \geq \lambda$, and $\gamma \geq 0$, and hence we have determined</p>
+
+\[\tau^* = \gamma - \lambda \quad \text{on} \quad [\lambda, \infty).\]
+
+<p>Similarly, we compute that</p>
+
+\[\tau^* = \gamma + \lambda \quad \text{on} \quad (-\infty, \lambda].\]
+
+<p>Finally, we have the case of $\tau^* = 0$, which implies that</p>
+
+\[0 \in -\gamma + \lambda [-1, 1],\]
+
+<p>and hence $\gamma \in [-\lambda, \lambda]$.</p>
+
+<p>This is a piecewise linear function. Another way of representing this is</p>
+
+\[\tau^* = ST_\lambda(\gamma),\]
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Definition 1</strong> The soft-thresholding function is $ST_\lambda(\gamma):=sgn(\gamma)\max(</td>
+      <td>\gamma</td>
+      <td>-\lambda,0).$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Hence we have characterized optimal $\hat{x}$ as having coordinates described by $ST_\lambda(b_i)$.</p>
+
+<p>We now prove the result for general PSD $A$:</p>
+
+\[h(x, x^{(0)}) = \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
+
+<p>For this function to be strictly convex in $x$, we must have:</p>
+
+\[c &gt; \|A^\top A\|_2 = \lambda_{\max}(A^\top A).\]
+
+<p>Define the new objective function:</p>
+
+\[\tilde{f}(x, x^{(0)}) = f(x) + h(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
+
+<p>Our goal will be to reduce this to something resembling the case with $A=I$, so we introduce the variable:</p>
+
+\[\nu_0 = x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}).\]
+
+<p>Then, by some algebra, we have:</p>
+
+\[\tilde{f}(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2 = C + \lambda \|x\|_1 + \frac{c}{2} \|x - \nu_0\|_2^2\]
+
+<p>where $ C $ doesn’t depend on $ x $ or $ x^{(0)} $. From before, we see that this is minimized by:</p>
+
+\[x^{(0),*} = ST_{\frac{\lambda}{c}}(\nu_0) = ST_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)\]
+
+<p>Thus,</p>
+
+\[x^{(0),*} = \text{argmin}_x \tilde{f}(x, x^{(0)}) = \text{argmin}_x f(x) + h(x, x^{(0)}).\]
+
+<p>This suggests (and derives) the proximal algorithm for this objective function and regularization:</p>
+
+\[x^{(i+1)} = ST_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
+
+<p>This is the ISTA algorithm. More generally, we can change the $ \ell^1 $ regularization to get iterates of the form:</p>
+
+\[x^{(i+1)} = T_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]]]></content><author><name>Brendan Mallery</name></author><category term="Convex Optimization" /><category term="Dictionary Learning" /><summary type="html"><![CDATA[asdfasdf]]></summary></entry><entry><title type="html">Convexity and Ricci Curvature</title><link href="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/" rel="alternate" type="text/html" title="Convexity and Ricci Curvature" /><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2024/ollivier_curvature</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2024/ollivier_curvature/"><![CDATA[<p>There is a very rich connection between convexity and notions of curvature for Markov processes, which has given rise to a number of fruitful analogies. A key part of these analogies is the following idea: Just as (strict) convexity is often just the right condition to guarantee (fast) convergence of a gradient flow to a minima, (positive) curvature for a Markov process is the right condition to guarantee (fast) convergence of a Markov process to equilibrium. What’s more, these conditions also ensure uniqueness of the limiting object for these dynamical systems. In this post, we will outline an elementary instance of this connection for the notion of Ollivier Ricci curvature.</p>
 
 <p><strong>Convexity</strong></p>
 
