@@ -116,6 +116,24 @@
     <script src="/assets/js/distillpub/transforms.v2.js"></script>
     <script src="/assets/js/distillpub/overrides.js"></script>
     
+      <!-- Page/Post style -->
+      <style type="text/css">
+        .fake-img {
+  background: #bbb;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+} .fake-img p {
+  font-family: monospace;
+  color: white;
+  text-align: left;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+      </style>
+    
   </head>
 
   <body>
@@ -325,13 +343,13 @@
         
         <p>We are interested in solving:</p>
 
-\[\hat{x} = \text{argmin}\_{x} \frac{1}{2} \|b - Ax\|\_2^2 + \lambda \|x\|\_1.\]
+\[\hat{x} = \text{argmin}_{x} \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1.\]
 
 <p>Denote the objective function as $f(x) = \frac{1}{2} |b - Ax|_2^2 + \lambda |x|_1$. We will derive an algorithm for solving this.</p>
 
 <p>Let $A = I$. Then the problem has the objective:</p>
 
-\[f(x) = \frac{1}{2} \|b - x\|\_2^2 + \lambda \|x\|\_1 = \sum\_{i=1}^n \left( \frac{1}{2} |b\_i - x\_i|^2 + \lambda |x\_i| \right).\]
+\[f(x) = \frac{1}{2} \|b - x\|_2^2 + \lambda \|x\|_1 = \sum_{i=1}^n \left( \frac{1}{2} |b_i - x_i|^2 + \lambda |x_i| \right).\]
 
 <p>This function is a sum of functions of the form:</p>
 
@@ -373,49 +391,49 @@ We compute the subdifferential</p>
 
 <p>This is a piecewise linear function. Another way of representing this is</p>
 
-\[\tau^* = ST\_\lambda( \gamma),\]
+\[\tau^* = ST_\lambda( \gamma),\]
 
 <p><strong>Definition 1</strong> The soft-thresholding function is</p>
 
-\[ST\_\lambda( \gamma):=sgn( \gamma)\max(|\gamma|-\lambda,0).\]
+\[ST_\lambda( \gamma):=sgn( \gamma)\max(|\gamma|-\lambda,0).\]
 
 <p>Hence we have characterized optimal $\hat{x}$ as having coordinates described by $ST_\lambda(b_i)$.</p>
 
 <p>We now prove the result for general PSD $A$:</p>
 
-\[h(x, x^{(0)}) = \frac{c}{2} \|x - x^{(0)}\|\_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|\_2^2.\]
+\[h(x, x^{(0)}) = \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
 
 <p>For this function to be strictly convex in $x$, we must have:</p>
 
-\[c &gt; \|A^\top A\|\_2 = \lambda\_{\max}(A^\top A).\]
+\[c &gt; \|A^\top A\|_2 = \lambda_{\max}(A^\top A).\]
 
 <p>Define the new objective function:</p>
 
-\[\tilde{f}(x, x^{(0)}) = f(x) + h(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|\_2^2 + \lambda \|x\|\_1 + \frac{c}{2} \|x - x^{(0)}\|\_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|\_2^2.\]
+\[\tilde{f}(x, x^{(0)}) = f(x) + h(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
 
 <p>Our goal will be to reduce this to something resembling the case with $A=I$, so we introduce the variable:</p>
 
-\[\nu\_0 = x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}).\]
+\[\nu_0 = x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}).\]
 
 <p>Then, by some algebra, we have:</p>
 
-\[\tilde{f}(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|\_2^2 + \lambda \|x\|\_1 + \frac{c}{2} \|x - x^{(0)}\|\_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|\_2^2 = C + \lambda \|x\|\_1 + \frac{c}{2} \|x - \nu\_0\|\_2^2\]
+\[\tilde{f}(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2 = C + \lambda \|x\|_1 + \frac{c}{2} \|x - \nu_0\|_2^2\]
 
 <p>where $ C $ doesn’t depend on $ x $ or $ x^{(0)} $. From before, we see that this is minimized by:</p>
 
-\[x^{(0),*} = ST\_{\frac{\lambda}{c}}( \nu\_0) = ST\_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)\]
+\[x^{(0),*} = ST_{\frac{\lambda}{c}}( \nu_0) = ST_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)\]
 
 <p>Thus,</p>
 
-\[x^{(0),*} = \text{argmin}\_x \tilde{f}(x, x^{(0)}) = \text{argmin}\_x f(x) + h(x, x^{(0)}).\]
+\[x^{(0),*} = \text{argmin}_x \tilde{f}(x, x^{(0)}) = \text{argmin}_x f(x) + h(x, x^{(0)}).\]
 
 <p>This suggests (and derives) the proximal algorithm for this objective function and regularization:</p>
 
-\[x^{(i+1)} = ST\_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
+\[x^{(i+1)} = ST_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
 
 <p>This is the ISTA algorithm. More generally, we can change the $ \ell^1 $ regularization to get iterates of the form:</p>
 
-\[x^{(i+1)} = T\_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
+\[x^{(i+1)} = T_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
 
       </d-article>
 
@@ -427,6 +445,37 @@ We compute the subdifferential</p>
       <d-bibliography src="/assets/bibliography/blog.bib"></d-bibliography>
 
       
+      
+        <div id="giscus_thread" style="max-width: 930px; margin: 0 auto;">
+  
+    <script>
+      let giscusTheme = determineComputedTheme();
+      let giscusAttributes = {
+        src: 'https://giscus.app/client.js',
+        'data-repo': 'brendanmallery9/brendanmallery9.github.io',
+        'data-repo-id': '',
+        'data-category': 'Comments',
+        'data-category-id': '',
+        'data-mapping': 'title',
+        'data-strict': '1',
+        'data-reactions-enabled': '1',
+        'data-emit-metadata': '0',
+        'data-input-position': 'bottom',
+        'data-theme': giscusTheme,
+        'data-lang': 'en',
+        crossorigin: 'anonymous',
+        async: '',
+      };
+
+      let giscusScript = document.createElement('script');
+      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+      document.getElementById('giscus_thread').appendChild(giscusScript);
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a>
+</noscript>
+  
+</div>
+
       
     </div>
 
