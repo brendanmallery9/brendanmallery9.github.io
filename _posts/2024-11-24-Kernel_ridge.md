@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: Kernel Ridge Regression
-description: asdfasdf
+description: 
 tags: ["Convex Optimization","Dictionary Learning","Regularization"]
 giscus_comments: true
 date: 2024-11-24
