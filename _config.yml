@@ -225,6 +225,10 @@ kramdown:
     block:
       line_numbers: false
       start_line: 1
+  math_engine: mathjax
+  mathjax:
+    url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 
 # Includes & excludes
 include: ["_pages"]
@@ -650,3 +654,5 @@ jsonresume:
   - languages
   - interests
   - references
+
+

@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: Characterization of KL-divergence Barycenters
-description: 
+description:
 tags: ["Information Theory", "Barycenters"]
 giscus_comments: true
 date: 2025-01-05
