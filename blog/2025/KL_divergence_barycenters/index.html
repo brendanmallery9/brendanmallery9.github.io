@@ -341,24 +341,19 @@
 
       <d-article>
         
-        <p>In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {(\lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0,\ \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.</p>
+        <p>In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {(\lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0, \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.</p>
 
-<p>For any $\lambda \in \Delta^m$, define 
-$\mathcal{K}<em>{\lambda, \mathcal{V}}(\mu) := \sum</em>{j=1}^m \lambda_j\ \mathrm{KL}(\mu \mid \nu_j)$, 
-where $\mathrm{KL}$ denotes the Kullback–Leibler divergence.</p>
+<p>For any $\lambda \in \Delta^m$, define $\mathcal{K}<em>{\lambda, \mathcal{V}}(\mu) := \sum</em>{j=1}^m \lambda_j\ \mathrm{KL}(\mu \mid \nu_j)$, where $\mathrm{KL}$ denotes the Kullback–Leibler divergence.</p>
 
-<p>Let $\mu_\lambda := \operatorname*{argmin}<em>{\rho \in \mathcal{P}(\Omega)} \mathcal{K}</em>{\lambda, \mathcal{V}}(\rho)$. We wish to characterize the set 
-$M := {\mu_\lambda \mid \lambda \in \Delta^m}$.</p>
+<p>Let $\mu_\lambda := \text{argmin}<em>{\rho \in \mathcal{P}(\Omega)} \mathcal{K}</em>{\lambda, \mathcal{V}}(\rho)$. We wish to characterize the set $M := {\mu_\lambda \mid \lambda \in \Delta^m}$.</p>
 
 <p>We will do this using first-order calculus on the space of probability measures.</p>
 
 <p><strong>Definition 1</strong><br>
-Let $\mathcal{P}<em>{\text{abs}}(\Omega) \subseteq \mathcal{P}(\Omega)$ be the set of probability measures which are absolutely continuous with respect to the Lebesgue measure, and let $\mathcal{F} : \mathcal{P}(\Omega) \to \mathbb{R} \cup {+\infty}$ be a functional.<br>
-If $\mathcal{F}(\rho) &lt; \infty$ for all $\rho \in \mathcal{P}</em>{\text{abs}}(\Omega)$, we say that $\mathcal{F}$ is <strong>regular</strong>.</p>
+Let $\mathcal{P}<em>{\text{abs}}(\Omega) \subseteq \mathcal{P}(\Omega)$ be the set of probability measures which are absolutely continuous with respect to the Lebesgue measure, and let $\mathcal{F} : \mathcal{P}(\Omega) \to \mathbb{R} \cup {+\infty}$ be a functional. If $\mathcal{F}(\rho) &lt; \infty$ for all $\rho \in \mathcal{P}</em>{\text{abs}}(\Omega)$, we say that $\mathcal{F}$ is <strong>regular</strong>.</p>
 
 <p><strong>Definition 2</strong><br>
-Let $\mathcal{F}$ be a regular functional, let $\mu \in \mathcal{P}<em>{\text{abs}}(\Omega)$, and suppose that there exists a continuous function<br>
-$\frac{\delta \mathcal{F}}{\delta \mu}(\mu): \mathbb{R}^d \to \mathbb{R}$ such that, for all $\rho \in \mathcal{P}</em>{\text{abs}}(\Omega)$:</p>
+Let $\mathcal{F}$ be a regular functional, let $\mu \in \mathcal{P}<em>{\text{abs}}(\Omega)$, and suppose that there exists a continuous function $\frac{\delta \mathcal{F}}{\delta \mu}(\mu): \mathbb{R}^d \to \mathbb{R}$ such that, for all $\rho \in \mathcal{P}</em>{\text{abs}}(\Omega)$:</p>
 
 \[\lim_{\epsilon \to 0} \frac{\mathcal{F}(\mu + \epsilon \chi) - \mathcal{F}(\mu)}{\epsilon} = \int \frac{\delta \mathcal{F}}{\delta \mu}(\mu) \, d\chi, \quad \chi := \rho - \mu.\]
 
@@ -380,7 +375,7 @@ If $\mu^<em>$ is a minimizer, then for any $\epsilon$ and $\chi := \rho - \mu^</
 
 <p>for any $\chi$.</p>
 
-<p>Suppose that $\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)$ is not $\mu^\star$-almost everywhere constant. Define $Q := \int \frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star) \, d\mu^\star$, and let $U := {x \in \mathbb{R}^d \mid \frac{\delta \mathcal{F}}{\delta \mu}(x) &lt; Q}$, which is nonempty by assumption. Since $\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)$ is continuous, $U$ is measurable. By assumption, $\mu^\star(U) &gt; 0$, and since $\mu^\star$ is absolutely continuous, this implies we may find an absolutely continuous probability measure $\rho$ such that the support of $\rho$ is contained in $U$. Then:</p>
+<p>Suppose that $\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)$ is not $\mu^\star$-almost everywhere constant. Define $Q := \int \frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star) d\mu^\star$, and let $U := {x \in \mathbb{R}^d \mid \frac{\delta \mathcal{F}}{\delta \mu}(x) &lt; Q}$, which is nonempty by assumption. Since $\frac{\delta \mathcal{F}}{\delta \mu}(\mu^\star)$ is continuous, $U$ is measurable. By assumption, $\mu^\star(U) &gt; 0$, and since $\mu^\star$ is absolutely continuous, this implies we may find an absolutely continuous probability measure $\rho$ such that the support of $\rho$ is contained in $U$. Then:</p>
 
 \[\int \frac{d\mathcal{F}}{d\mu}(\mu^\star) \, d\rho &lt; \int \frac{d\mathcal{F}}{d\mu}(\mu^\star) \, d\mu^\star,\]
 
