@@ -56,7 +56,7 @@ $$
 \alpha^\top K \alpha=\sum_{i,j=1}^n\alpha_i\alpha_j\langle x_i,x_j\rangle=\|\sum_{i=1}^n \alpha_i x_i\|^2\geq 0
 $$
 
-**Example 2** Let $\mathcal{X}=\mathcal{P}_2(\mathbb{R}^d)$. For any $\rho\in \mathcal{P}_2(\mathbb{R}^d)$, define the function $\mathcal{K}_\rho(\mu,\nu)=\langle Id-T_{\rho\rightarrow \mu}, Id-T_{\rho\rightarrow \nu}\rangle _{L^2(\rho)}$. Then for any $\mathcal{V}:=\{\nu_1,...,\nu_m\}$, $K_\mathcal{V}$ is PSD.  
+**Example 2** Let $\mathcal{X}=\mathcal{P}_2( \mathbb{R}^d)$. For any $\rho\in \mathcal{P}_2( \mathbb{R}^d)$, define the function $\mathcal{K}_\rho( \mu,\nu)=\langle Id-T_{\rho\rightarrow \mu}, Id-T_{\rho\rightarrow \nu}\rangle _{L^2( \rho)}$. Then for any $\mathcal{V}:=\{\nu_1,...,\nu_m\}$, $K_\mathcal{V}$ is PSD.  
 
 ## Function Interpolation
 
@@ -117,13 +117,13 @@ $$
 f(x_j) = \langle f, \mathcal{K}(-, x_j) \rangle_{\mathcal{H}_\mathcal{K}} = \langle f_\alpha + f_\perp, \mathcal{K}(-, x_j) \rangle_{\mathcal{H}_\mathcal{K}} = f_\alpha(x_j),
 $$
 
-since \( \mathcal{K}(-, x_j) \in \mathcal{F} \) and is hence orthogonal to \( f_\perp \). This, along with the fact that
+since $$ \mathcal{K}(-, x_j) \in \mathcal{F} $$ and is hence orthogonal to $$ f_\perp $$. This, along with the fact that
 
 $$
 \|f_\alpha + f_\perp\|^2_{\mathcal{H}_\mathcal{K}} = \|f_\alpha\|^2_{\mathcal{H}_\mathcal{K}} + \|f_\perp\|^2_{\mathcal{H}_\mathcal{K}},
 $$
 
-implies that the solution must lie in \( \mathcal{F} \), if it exists. \blacksquare
+implies that the solution must lie in $$ \mathcal{F} $$, if it exists. \blacksquare
 
 
 We now consider a harder problem: Suppose we observe $n$-i.i.d. data points $y_i=f^*(x_i)+w_i$ where $f$ is some function of data $x_i$ and $w=(w_1,...,w_n)$ is a noise vector. We will solve this via a relaxation of the previous method:
