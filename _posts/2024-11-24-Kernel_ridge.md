@@ -52,10 +52,9 @@ The following is shamelessly taken from Wainwright's High Dimensional Statistics
 
 **Example 1**
 Let $\mathcal{X}=\mathbb{R}^d$, $\mathcal{K}(x,x')=\langle x,x'\rangle$. Let $\{x_i\}_{i=1}^n$ be an arbitrary set of points. Then for any vector $\alpha\in \mathbb{R}^d$, we have:
-\begin{equation*}
+$$
 \alpha^\top K \alpha=\sum_{i,j=1}^n\alpha_i\alpha_j\langle x_i,x_j\rangle=\|\sum_{i=1}^n \alpha_i x_i\|^2\geq 0
-\end{equation*}
-
+$$
 
 **Example 2** Let $\mathcal{X}=\mathcal{P}_2(\mathbb{R}^d)$. For any $\rho\in \mathcal{P}_2(\mathbb{R}^d)$, define the function $\mathcal{K}_\rho(\mu,\nu)=\langle Id-T_{\rho\rightarrow \mu}, Id-T_{\rho\rightarrow \nu}\rangle _{L^2(\rho)}$. Then for any $\mathcal{V}:=\{\nu_1,...,\nu_m\}$, $K_\mathcal{V}$ is PSD.  
 
@@ -73,13 +72,16 @@ In the RKHS case, this problem is greatly simplified.
 
 **Proposition 1** 
 Let $\mathcal{K}$ be a kernel on $\mathcal{X}$, let $K\in \mathbb{R}^{n\times n}$ be the matrix defined
-\begin{equation*}
+
+$$
 K_{ij}=\frac{1}{n}\mathcal{K}(x_i,x_j).
-\end{equation*}
+$$
+
 Then Problem 1 is feasible iff $y=(y_1,...,y_n)\in \text{range}(K)$. If this holds, then the optimal solution can be written:
-\begin{equation*}
+$$
 \hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n \hat{\alpha}_i \mathcal{K}(-,x_i), \; \; \; \; K\hat{\alpha}=\frac{y}{\sqrt{n}}
-\end{equation*}
+$$
+
 where $\hat{\alpha}\in \mathbb{R}^n.$
 
 *Proof:*
@@ -130,17 +132,23 @@ We now consider a harder problem: Suppose we observe $n$-i.i.d. data points $y_i
 **Problem 2**
 (Kernel ridge regression) For some $\lambda_n>0$, define, find: 
 
-\begin{equation*} \hat{f}=\texttt{argmin}_{f\in \mathcal{H}_\mathcal{K}}\left\{\frac{1}{2n}\sum_{i=1}^n(y_i-f(x_i))^2+\lambda_n \|f\|^2_{\mathcal{H}_\mathcal{K}}\right\}\end{equation*}
+$$ 
+\hat{f}=\texttt{argmin}_{f\in \mathcal{H}_\mathcal{K}}\left\{\frac{1}{2n}\sum_{i=1}^n(y_i-f(x_i))^2+\lambda_n \|f\|^2_{\mathcal{H}_\mathcal{K}}\right\}
+$$
 
 **Proposition 2**
 For all $\lambda_n>0$, Problem 2 can be written as:
-\begin{equation}\label{eqn:krr solution}
+
+$$
 \hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n\hat{\alpha}_i\mathcal{K}(-,x_i),
-\end{equation}
+$$
+
 where the optimal weight vector $\hat{\alpha}\in \mathbb{R}^n$ is given by:
-\begin{equation*}
+
+$$
 \hat{\alpha}=(K+\lambda_n I_n)^{-1}\frac{y}{\sqrt{n}}.
-\end{equation*}
+$$
+
 
 *Proof:*
 The formula for the optimal $\hat{f}$ follows the same reasoning as in the previous proof. To compute the optimal weight vector, first notice that for any function $f$ of the above form, for each $j = 1, 2, ..., n$ we have:

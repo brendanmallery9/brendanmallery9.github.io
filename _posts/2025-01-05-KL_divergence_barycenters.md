@@ -151,7 +151,9 @@ We have thus established the theorem:
 
 
 **Theorem 2** Let $\Omega\subset \mathbb{R}^d$ be compact, and let $\mathcal{V}=\{\nu_1,...,\nu_m\}\subset \mathcal{P}_{abs}(\Omega)$, where for all $1\leq j\leq m$, $\nu_j\propto \exp(-V_j)$ for some continuous and nonnegative $V_j$. Then for any $\lambda\in\Delta^m$:
-\begin{equation*}
+
+$$
 \texttt{argmin}_{\mu\in \mathcal{P}(\Omega)}\mathcal{K}_{\lambda,\mathcal{V}}(\mu) =\frac{1}{Z_\lambda}\exp\left(-\sum_{j=1}^m\lambda_j V_j\right)
-\end{equation*}
+$$
+
 where $Z_\lambda=\int_\Omega \exp(-\sum_{j=1}^m\lambda_j V_j(x))dx$ is a normalization constant.
