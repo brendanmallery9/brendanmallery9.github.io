@@ -348,10 +348,8 @@
 <p><strong>Definition 1</strong> Let $\mathcal{X}$ be a metric space. A positive semidefinite kernel is a symmetric function $\mathcal{K}:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}$ such that for all ${x_i}<em>{i=1}^n\subset \mathcal{X}$, the matrix $K</em>{ij}:=\mathcal{K}(x_i,x_j)$ is PSD.</p>
 
 <p><strong>Example 1</strong>
-Let $\mathcal{X}=\mathbb{R}^d$, $\mathcal{K}(x,x’)=\langle x,x’\rangle$. Let ${x_i}<em>{i=1}^n$ be an arbitrary set of points. Then for any vector $\alpha\in \mathbb{R}^d$, we have:
-\begin{equation*}
-\alpha^\top K \alpha=\sum</em>{i,j=1}^n\alpha_i\alpha_j\langle x_i,x_j\rangle=|\sum_{i=1}^n \alpha_i x_i|^2\geq 0
-\end{equation*}</p>
+Let $\mathcal{X}=\mathbb{R}^d$, $\mathcal{K}(x,x’)=\langle x,x’\rangle$. Let ${x_i}_{i=1}^n$ be an arbitrary set of points. Then for any vector $\alpha\in \mathbb{R}^d$, we have:
+\(\alpha^\top K \alpha=\sum_{i,j=1}^n\alpha_i\alpha_j\langle x_i,x_j\rangle=\|\sum_{i=1}^n \alpha_i x_i\|^2\geq 0\)</p>
 
 <p><strong>Example 2</strong> Let $\mathcal{X}=\mathcal{P}<em>2(\mathbb{R}^d)$. For any $\rho\in \mathcal{P}_2(\mathbb{R}^d)$, define the function $\mathcal{K}</em>\rho(\mu,\nu)=\langle Id-T_{\rho\rightarrow \mu}, Id-T_{\rho\rightarrow \nu}\rangle <em>{L^2(\rho)}$. Then for any $\mathcal{V}:={\nu_1,…,\nu_m}$, $K</em>\mathcal{V}$ is PSD.</p>
 
@@ -364,15 +362,14 @@ Let $\mathcal{X}=\mathbb{R}^d$, $\mathcal{K}(x,x’)=\langle x,x’\rangle$. Let
 <p>In the RKHS case, this problem is greatly simplified.</p>
 
 <p><strong>Proposition 1</strong> 
-Let $\mathcal{K}$ be a kernel on $\mathcal{X}$, let $K\in \mathbb{R}^{n\times n}$ be the matrix defined
-\begin{equation<em>}
-K_{ij}=\frac{1}{n}\mathcal{K}(x_i,x_j).
-\end{equation</em>}
-Then Problem 1 is feasible iff $y=(y_1,…,y_n)\in \text{range}(K)$. If this holds, then the optimal solution can be written:
-\begin{equation<em>}
-\hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n \hat{\alpha}_i \mathcal{K}(-,x_i), \; \; \; \; K\hat{\alpha}=\frac{y}{\sqrt{n}}
-\end{equation</em>}
-where $\hat{\alpha}\in \mathbb{R}^n.$</p>
+Let $\mathcal{K}$ be a kernel on $\mathcal{X}$, let $K\in \mathbb{R}^{n\times n}$ be the matrix defined</p>
+
+\[K_{ij}=\frac{1}{n}\mathcal{K}(x_i,x_j).\]
+
+<p>Then Problem 1 is feasible iff $y=(y_1,…,y_n)\in \text{range}(K)$. If this holds, then the optimal solution can be written:
+\(\hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n \hat{\alpha}_i \mathcal{K}(-,x_i), \; \; \; \; K\hat{\alpha}=\frac{y}{\sqrt{n}}\)</p>
+
+<p>where $\hat{\alpha}\in \mathbb{R}^n.$</p>
 
 <p><em>Proof:</em></p>
 
@@ -407,17 +404,16 @@ where $\hat{\alpha}\in \mathbb{R}^n.$</p>
 <p><strong>Problem 2</strong>
 (Kernel ridge regression) For some $\lambda_n&gt;0$, define, find:</p>
 
-<p>\begin{equation<em>} \hat{f}=\texttt{argmin}_{f\in \mathcal{H}_\mathcal{K}}\left{\frac{1}{2n}\sum_{i=1}^n(y_i-f(x_i))^2+\lambda_n |f|^2_{\mathcal{H}_\mathcal{K}}\right}\end{equation</em>}</p>
+\[\hat{f}=\texttt{argmin}_{f\in \mathcal{H}_\mathcal{K}}\left\{\frac{1}{2n}\sum_{i=1}^n(y_i-f(x_i))^2+\lambda_n \|f\|^2_{\mathcal{H}_\mathcal{K}}\right\}\]
 
 <p><strong>Proposition 2</strong>
-For all $\lambda_n&gt;0$, Problem 2 can be written as:
-\begin{equation}\label{eqn:krr solution}
-\hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n\hat{\alpha}_i\mathcal{K}(-,x_i),
-\end{equation}
-where the optimal weight vector $\hat{\alpha}\in \mathbb{R}^n$ is given by:
-\begin{equation<em>}
-\hat{\alpha}=(K+\lambda_n I_n)^{-1}\frac{y}{\sqrt{n}}.
-\end{equation</em>}</p>
+For all $\lambda_n&gt;0$, Problem 2 can be written as:</p>
+
+\[\hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n\hat{\alpha}_i\mathcal{K}(-,x_i),\]
+
+<p>where the optimal weight vector $\hat{\alpha}\in \mathbb{R}^n$ is given by:</p>
+
+\[\hat{\alpha}=(K+\lambda_n I_n)^{-1}\frac{y}{\sqrt{n}}.\]
 
 <p><em>Proof:</em>
 The formula for the optimal $\hat{f}$ follows the same reasoning as in the previous proof. To compute the optimal weight vector, first notice that for any function $f$ of the above form, for each $j = 1, 2, …, n$ we have:</p>
