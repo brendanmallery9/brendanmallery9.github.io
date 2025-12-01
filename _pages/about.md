@@ -28,5 +28,3 @@ In addition to my dissertation work, I am also interested in:
 - Interactions between optimal transport and Ricci curvature;
 
 I was introduced to the first topic through my work at NASA Glenn Research & Goddard Space Flight Centers (2020-2023). I have also published work in topological data analysis and geometric group theory.
-
-In my free time, I make [art](https://www.instagram.com/mostly.faces/). 
