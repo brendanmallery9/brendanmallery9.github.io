@@ -17,6 +17,9 @@ nav_order: 1
 
 2. _Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications_, with Shuchin Aeron, James Murphy, and Matthew Werenski. _Accepted to AISTATS 2025_ [arXiv](https://arxiv.org/abs/2410.23602)
 
+3. _From Trees to Barcodes and Back Again II: Combinatorial and Probabilistic Aspects of a Topological Inverse Problem_, with Jordan DeSha, Adélie Garin, Kathryn Hess, and Lida Kanari. _Accepted to CGTA Special Issue on Computational and Applied Topology Spring 2021_. [arXiv](https://arxiv.org/abs/2107.11212)
+
+
 
 
 ### Other
@@ -31,6 +34,4 @@ nav_order: 1
 
 4. _Sheaf Theoretic Models for Routing in Delay Tolerant Networks_, with Robert Short, Alan Hylton, Jacob Cleveland, Michael Moy, Robert Cardona, Robert Green, Justin Curry, Gabriel Bainbridge, and Zara Memon. _Accepted November 16, 2021 to the 2022 IEEE Aerospace Conference_. [IEEE](https://ieeexplore.ieee.org/document/9843504)
 
-5. _From Trees to Barcodes and Back Again II: Combinatorial and Probabilistic Aspects of a Topological Inverse Problem_, with Jordan DeSha, Adélie Garin, Kathryn Hess, and Lida Kanari. _Accepted to CGTA Special Issue on Computational and Applied Topology Spring 2021_. [arXiv](https://arxiv.org/abs/2107.11212)
-
-6. _Medium-scale Curvature at Larger Radii in Finitely Generated Groups_, with Robert Kropholler. _Submitted to The Journal of Algebra and Computation Spring 2020_. [arXiv](https://arxiv.org/abs/2004.10801)
+5. _Medium-scale Curvature at Larger Radii in Finitely Generated Groups_, with Robert Kropholler. _Submitted to The Journal of Algebra and Computation Spring 2020_. [arXiv](https://arxiv.org/abs/2004.10801)
