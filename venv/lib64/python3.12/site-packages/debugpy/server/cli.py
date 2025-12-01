@@ -7,7 +7,7 @@ import os
 import re
 import sys
 from importlib.util import find_spec
-from typing import Any, Union, Tuple, Dict
+from typing import Any, Union, Tuple, Dict, Literal
 
 # debugpy.__main__ should have preloaded pydevd properly before importing this module.
 # Otherwise, some stdlib modules above might have had imported threading before pydevd
@@ -20,9 +20,10 @@ from _pydevd_bundle import pydevd_runpy as runpy
 
 import debugpy
 import debugpy.server
-from debugpy.common import log
+from debugpy.common import log, sockets
 from debugpy.server import api
 
+TargetKind = Literal["file", "module", "code", "pid"]
 
 TARGET = "<filename> | -m <module> | -c <code> | --pid <pid>"
 
@@ -34,6 +35,8 @@ Usage: debugpy --listen | --connect
                [--wait-for-client]
                [--configure-<name> <value>]...
                [--log-to <path>] [--log-to-stderr]
+               [--parent-session-pid <pid>]]
+               [--adapter-access-token <token>]
                {1}
                [<arg>]...
 """.format(
@@ -41,16 +44,18 @@ Usage: debugpy --listen | --connect
 )
 
 
+# Changes here should be aligned with the public API CliOptions.
 class Options(object):
-    mode = None
+    mode: Union[Literal["connect", "listen"], None] = None
     address: Union[Tuple[str, int], None] = None
     log_to = None
     log_to_stderr = False
     target: Union[str, None] = None
-    target_kind: Union[str, None] = None
+    target_kind: Union[TargetKind, None] = None
     wait_for_client = False
     adapter_access_token = None
     config: Dict[str, Any] = {}
+    parent_session_pid: Union[int, None] = None
 
 
 options = Options()
@@ -104,9 +109,10 @@ def set_address(mode):
 
         # It's either host:port, or just port.
         value = next(it)
-        host, sep, port = value.partition(":")
+        host, sep, port = value.rpartition(":")
+        host = host.strip("[]")
         if not sep:
-            host = "127.0.0.1"
+            host = sockets.get_default_localhost()
             port = value
         try:
             port = int(port)
@@ -142,7 +148,7 @@ def set_config(arg, it):
     options.config[name] = value
 
 
-def set_target(kind: str, parser=(lambda x: x), positional=False):
+def set_target(kind: TargetKind, parser=(lambda x: x), positional=False):
     def do(arg, it):
         options.target_kind = kind
         target = parser(arg if positional else next(it))
@@ -178,8 +184,7 @@ switches = [
     ("--connect",               "<address>",        set_address("connect")),
     ("--wait-for-client",       None,               set_const("wait_for_client", True)),
     ("--configure-.+",          "<value>",          set_config),
-
-    # Switches that are used internally by the client or debugpy itself.
+    ("--parent-session-pid",    "<pid>",            set_arg("parent_session_pid", lambda x: int(x) if x else None)),
     ("--adapter-access-token",   "<token>",         set_arg("adapter_access_token")),
 
     # Targets. The "" entry corresponds to positional command line arguments,
@@ -229,6 +234,8 @@ def parse_args():
         raise ValueError("either --listen or --connect is required")
     if options.adapter_access_token is not None and options.mode != "connect":
         raise ValueError("--adapter-access-token requires --connect")
+    if options.parent_session_pid is not None and options.mode != "connect":
+        raise ValueError("--parent-session-pid requires --connect")
     if options.target_kind == "pid" and options.wait_for_client:
         raise ValueError("--pid does not support --wait-for-client")
 
@@ -320,7 +327,7 @@ def start_debugging(argv_0):
         if options.mode == "listen" and options.address is not None:
             debugpy.listen(options.address)
         elif options.mode == "connect" and options.address is not None:
-            debugpy.connect(options.address, access_token=options.adapter_access_token)
+            debugpy.connect(options.address, access_token=options.adapter_access_token, parent_session_pid=options.parent_session_pid)
         else:
             raise AssertionError(repr(options.mode))
 

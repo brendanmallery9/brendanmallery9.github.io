@@ -7,11 +7,10 @@ from __future__ import annotations
 
 ## Standard Library
 from datetime import datetime, timezone
-import importlib
 import logging
 import re
 import sys
-from typing import Optional, Union, Callable, List, Dict, Container, Any, Sequence
+from typing import Optional, Union, List, Dict, Container, Any, Sequence
 
 if sys.version_info >= (3, 10):
     from typing import TypeAlias
@@ -72,31 +71,15 @@ STYLE_PERCENT_REGEX = re.compile(r"%\((.+?)\)", re.IGNORECASE)  # % style
 
 ## Type Aliases
 ## -----------------------------------------------------------------------------
-OptionalCallableOrStr: TypeAlias = Optional[Union[Callable, str]]
-"""Type alias"""
+LogData: TypeAlias = Dict[str, Any]
+"""Type alias
 
-LogRecord: TypeAlias = Dict[str, Any]
-"""Type alias"""
+*Changed in 4.0*: renamed from `LogRecord` to `LogData`
+"""
 
 
 ### FUNCTIONS
 ### ============================================================================
-def str_to_object(obj: Any) -> Any:
-    """Import strings to an object, leaving non-strings as-is.
-
-    Args:
-        obj: the object or string to process
-
-    *New in 3.1*
-    """
-
-    if not isinstance(obj, str):
-        return obj
-
-    module_name, attribute_name = obj.rsplit(".", 1)
-    return getattr(importlib.import_module(module_name), attribute_name)
-
-
 def merge_record_extra(
     record: logging.LogRecord,
     target: Dict,
@@ -135,7 +118,7 @@ class BaseJsonFormatter(logging.Formatter):
 
     *Changed in 3.2*: `defaults` argument is no longer ignored.
 
-    *Added in UNRELEASED*: `exc_info_as_array` and `stack_info_as_array` options are added.
+    *Added in 3.3*: `exc_info_as_array` and `stack_info_as_array` options are added.
     """
 
     _style: Union[logging.PercentStyle, str]  # type: ignore[assignment]
@@ -145,7 +128,7 @@ class BaseJsonFormatter(logging.Formatter):
     # pylint: disable=too-many-arguments,super-init-not-called
     def __init__(
         self,
-        fmt: Optional[str] = None,
+        fmt: Optional[Union[str, Sequence[str]]] = None,
         datefmt: Optional[str] = None,
         style: str = "%",
         validate: bool = True,
@@ -162,11 +145,11 @@ class BaseJsonFormatter(logging.Formatter):
     ) -> None:
         """
         Args:
-            fmt: string representing fields to log
+            fmt: String format or `Sequence` of field names of fields to log.
             datefmt: format to use when formatting `asctime` field
-            style: how to extract log fields from `fmt`
+            style: how to extract log fields from `fmt`. Ignored if `fmt` is a `Sequence[str]`.
             validate: validate `fmt` against style, if implementing a custom `style` you
-                must set this to `False`.
+                must set this to `False`. Ignored if `fmt` is a `Sequence[str]`.
             defaults: a dictionary containing default fields that are added before all other fields and
                 may be overridden. The supplied fields are still subject to `rename_fields`.
             prefix: an optional string prefix added at the beginning of
@@ -192,36 +175,61 @@ class BaseJsonFormatter(logging.Formatter):
         - Renaming fields now preserves the order that fields were added in and avoids adding
           missing fields. The original behaviour, missing fields have a value of `None`, is still
           available by setting `rename_fields_keep_missing` to `True`.
+
+        *Added in 4.0*:
+
+        - `fmt` now supports comma seperated lists (`style=","`). Note that this style is specific
+          to `python-json-logger` and thus care should be taken to not to pass this format to other
+          logging Formatter implementations.
+        - `fmt` now supports sequences of strings (e.g. lists and tuples) of field names.
         """
         ## logging.Formatter compatibility
         ## ---------------------------------------------------------------------
-        # Note: validate added in 3.8, defaults added in 3.10
-        if style in logging._STYLES:
-            _style = logging._STYLES[style][0](fmt)  # type: ignore[operator]
-            if validate:
-                _style.validate()
-            self._style = _style
-            self._fmt = _style._fmt
+        # Note: validate added in python 3.8, defaults added in 3.10
+        if fmt is None or isinstance(fmt, str):
+            if style in logging._STYLES:
+                _style = logging._STYLES[style][0](fmt)  # type: ignore[operator]
+                if validate:
+                    _style.validate()
+                self._style = _style
+                self._fmt = _style._fmt
 
-        elif not validate:
-            self._style = style
-            self._fmt = fmt
+            elif style == "," or not validate:
+                self._style = style
+                self._fmt = fmt
+                # TODO: Validate comma format
 
-        else:
-            raise ValueError(f"Style must be one of: {','.join(logging._STYLES.keys())}")
+            else:
+                raise ValueError("Style must be one of: '%{$,'")
+
+            self._required_fields = self.parse()
+
+        # Note: we do this check second as string is still a Sequence[str]
+        elif isinstance(fmt, Sequence):
+            self._style = "__sequence__"
+            self._fmt = str(fmt)
+            self._required_fields = list(fmt)
 
         self.datefmt = datefmt
 
         ## JSON Logging specific
         ## ---------------------------------------------------------------------
         self.prefix = prefix
-        self.rename_fields = rename_fields if rename_fields is not None else {}
+
+        # We recreate the dict in rename_fields and static_fields to support internal/external
+        # references which require getting the item to do the conversion.
+        # For more details see: https://github.com/nhairs/python-json-logger/pull/45
+        self.rename_fields = (
+            {key: rename_fields[key] for key in rename_fields} if rename_fields is not None else {}
+        )
+        self.static_fields = (
+            {key: static_fields[key] for key in static_fields} if static_fields is not None else {}
+        )
+
         self.rename_fields_keep_missing = rename_fields_keep_missing
-        self.static_fields = static_fields if static_fields is not None else {}
         self.reserved_attrs = set(reserved_attrs if reserved_attrs is not None else RESERVED_ATTRS)
         self.timestamp = timestamp
 
-        self._required_fields = self.parse()
         self._skip_fields = set(self._required_fields)
         self._skip_fields.update(self.reserved_attrs)
         self.defaults = defaults if defaults is not None else {}
@@ -260,11 +268,11 @@ class BaseJsonFormatter(logging.Formatter):
         if record.stack_info and not message_dict.get("stack_info"):
             message_dict["stack_info"] = self.formatStack(record.stack_info)
 
-        log_record: LogRecord = {}
-        self.add_fields(log_record, record, message_dict)
-        log_record = self.process_log_record(log_record)
+        log_data: LogData = {}
+        self.add_fields(log_data, record, message_dict)
+        log_data = self.process_log_record(log_data)
 
-        return self.serialize_log_record(log_record)
+        return self.serialize_log_record(log_data)
 
     ## JSON Formatter Specific Methods
     ## -------------------------------------------------------------------------
@@ -279,6 +287,18 @@ class BaseJsonFormatter(logging.Formatter):
         Returns:
             list of fields to be extracted and serialized
         """
+        if self._fmt is None:
+            return []
+
+        if isinstance(self._style, str):
+            if self._style == "__sequence__":
+                raise RuntimeError("Must not call parse when fmt is a sequence of strings")
+
+            if self._style == ",":
+                return [field.strip() for field in self._fmt.split(",") if field.strip()]
+
+            raise ValueError(f"Style {self._style!r} is not supported")
+
         if isinstance(self._style, logging.StringTemplateStyle):
             formatter_style_pattern = STYLE_STRING_TEMPLATE_REGEX
 
@@ -293,22 +313,21 @@ class BaseJsonFormatter(logging.Formatter):
         else:
             raise ValueError(f"Style {self._style!r} is not supported")
 
-        if self._fmt:
-            return formatter_style_pattern.findall(self._fmt)
+        return formatter_style_pattern.findall(self._fmt)
 
-        return []
-
-    def serialize_log_record(self, log_record: LogRecord) -> str:
-        """Returns the final representation of the log record.
+    def serialize_log_record(self, log_data: LogData) -> str:
+        """Returns the final representation of the data to be logged
 
         Args:
-            log_record: the log record
+            log_data: the data
+
+        *Changed in 4.0*: `log_record` renamed to `log_data`
         """
-        return self.prefix + self.jsonify_log_record(log_record)
+        return self.prefix + self.jsonify_log_record(log_data)
 
     def add_fields(
         self,
-        log_record: Dict[str, Any],
+        log_data: Dict[str, Any],
         record: logging.LogRecord,
         message_dict: Dict[str, Any],
     ) -> None:
@@ -317,38 +336,40 @@ class BaseJsonFormatter(logging.Formatter):
         This method can be overridden to implement custom logic for adding fields.
 
         Args:
-            log_record: data that will be logged
+            log_data: data that will be logged
             record: the record to extract data from
             message_dict: dictionary that was logged instead of a message. e.g
                 `logger.info({"is_this_message_dict": True})`
+
+        *Changed in 4.0*: `log_record` renamed to `log_data`
         """
         for field in self.defaults:
-            log_record[self._get_rename(field)] = self.defaults[field]
+            log_data[self._get_rename(field)] = self.defaults[field]
 
         for field in self._required_fields:
-            log_record[self._get_rename(field)] = record.__dict__.get(field)
+            log_data[self._get_rename(field)] = record.__dict__.get(field)
 
         for data_dict in [self.static_fields, message_dict]:
             for key, value in data_dict.items():
-                log_record[self._get_rename(key)] = value
+                log_data[self._get_rename(key)] = value
 
         merge_record_extra(
             record,
-            log_record,
+            log_data,
             reserved=self._skip_fields,
             rename_fields=self.rename_fields,
         )
 
         if self.timestamp:
             key = self.timestamp if isinstance(self.timestamp, str) else "timestamp"
-            log_record[self._get_rename(key)] = datetime.fromtimestamp(
+            log_data[self._get_rename(key)] = datetime.fromtimestamp(
                 record.created, tz=timezone.utc
             )
 
         if self.rename_fields_keep_missing:
             for field in self.rename_fields.values():
-                if field not in log_record:
-                    log_record[field] = None
+                if field not in log_data:
+                    log_data[field] = None
         return
 
     def _get_rename(self, key: str) -> str:
@@ -356,26 +377,30 @@ class BaseJsonFormatter(logging.Formatter):
 
     # Child Methods
     # ..........................................................................
-    def jsonify_log_record(self, log_record: LogRecord) -> str:
-        """Convert this log record into a JSON string.
+    def jsonify_log_record(self, log_data: LogData) -> str:
+        """Convert the log data into a JSON string.
 
         Child classes MUST override this method.
 
         Args:
-            log_record: the data to serialize
+            log_data: the data to serialize
+
+        *Changed in 4.0*: `log_record` renamed to `log_data`
         """
         raise NotImplementedError()
 
-    def process_log_record(self, log_record: LogRecord) -> LogRecord:
-        """Custom processing of the log record.
+    def process_log_record(self, log_data: LogData) -> LogData:
+        """Custom processing of the data to be logged.
 
         Child classes can override this method to alter the log record before it
         is serialized.
 
         Args:
-            log_record: incoming data
+            log_data: incoming data
+
+        *Changed in 4.0*: `log_record` renamed to `log_data`
         """
-        return log_record
+        return log_data
 
     def formatException(self, ei) -> Union[str, list[str]]:  # type: ignore
         """Format and return the specified exception information.

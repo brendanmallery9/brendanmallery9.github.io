@@ -286,6 +286,17 @@ export async function main() {
       console.error(e);
     }
   }
+  if (!queuedFederated.includes('@jupyterlab/audio-extension')) {
+    try {
+      let ext = require('@jupyterlab/audio-extension');
+      ext.__scope__ = '@jupyterlab/audio-extension';
+      for (let plugin of activePlugins(ext)) {
+        register.push(plugin);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
   if (!queuedFederated.includes('@jupyterlab/cell-toolbar-extension')) {
     try {
       let ext = require('@jupyterlab/cell-toolbar-extension');
@@ -741,6 +752,17 @@ export async function main() {
     try {
       let ext = require('@jupyterlab/ui-components-extension');
       ext.__scope__ = '@jupyterlab/ui-components-extension';
+      for (let plugin of activePlugins(ext)) {
+        register.push(plugin);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  if (!queuedFederated.includes('@jupyterlab/video-extension')) {
+    try {
+      let ext = require('@jupyterlab/video-extension');
+      ext.__scope__ = '@jupyterlab/video-extension';
       for (let plugin of activePlugins(ext)) {
         register.push(plugin);
       }
