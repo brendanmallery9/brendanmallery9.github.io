@@ -618,15 +618,15 @@ class ExecutionMagics(Magics):
           must be an integer indicating how many times you want the script to
           run.  The final timing report will include total and per run results.
 
-          For example (testing the script uniq_stable.py)::
+          For example (testing the script myscript.py)::
 
-              In [1]: run -t uniq_stable
+              In [1]: run -t myscript
 
               IPython CPU timings (estimated):
                 User  :    0.19597 s.
                 System:        0.0 s.
 
-              In [2]: run -t -N5 uniq_stable
+              In [2]: run -t -N5 myscript
 
               IPython CPU timings (estimated):
               Total runs performed: 5
@@ -929,11 +929,6 @@ class ExecutionMagics(Magics):
         if not deb:
             self.shell.InteractiveTB.pdb = self.shell.InteractiveTB.debugger_cls()
             deb = self.shell.InteractiveTB.pdb
-
-        # deb.checkline() fails if deb.curframe exists but is None; it can
-        # handle it not existing. https://github.com/ipython/ipython/issues/10028
-        if hasattr(deb, 'curframe'):
-            del deb.curframe
 
         # reset Breakpoint state, which is moronically kept
         # in a class

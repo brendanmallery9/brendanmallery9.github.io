@@ -76,7 +76,8 @@ import types
 import warnings
 from collections.abc import Sequence
 from types import TracebackType
-from typing import Any, Callable, List, Optional, Tuple
+from typing import Any, List, Optional, Tuple
+from collections.abc import Callable
 
 import stack_data
 from pygments.formatters.terminal256 import Terminal256Formatter
@@ -632,7 +633,11 @@ class VerboseTB(TBTools):
             raw_lines = raw_lines[start:stop]
 
             # Jan 2025: may need _line_format(py3ompat.cast_unicode(s))
-            raw_color_err = [(s, _line_format(s, "str")) for s in raw_lines]
+            raw_color_err = []
+            for s in raw_lines:
+                formatted, is_error = _line_format(s, "str")
+                assert formatted is not None, "format2 should return str when out='str'"
+                raw_color_err.append((s, (formatted, is_error)))
 
             tb_tokens = _simple_format_traceback_lines(
                 current_line,
