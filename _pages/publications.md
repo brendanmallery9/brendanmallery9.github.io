@@ -17,7 +17,7 @@ nav_order: 1
 
 3. *From Trees to Barcodes and Back Again II: Combinatorial and Probabilistic Aspects of a Topological Inverse Problem*, with Jordan DeSha, Adélie Garin, Kathryn Hess, and Lida Kanari. Published in *Computational Geometry: Theory and Applications*, Special Issue on Computational and Applied Topology, 2021.
 
-### Network Science and Delay Tolerant Networking
+### Geometry and Topology for Delay Tolerant Networking
 
 1. *Multi-domain Routing in Delay Tolerant Networks*, with Alan Hylton, Jihun Hwang, Mark Ronnenberg, Miguel Opez, Oliver Chiriac, Sriram Gopalakrishnan, and Tatum Rask. Published in the *Proceedings of the IEEE Aerospace Conference*, 2023.
 
