@@ -86,7 +86,7 @@ $$
 AB \ge \left(\frac{1}{4\pi}\right)^2 = \frac{1}{16\pi^2},
 $$
 
-i.e. (H) in the normalized case. For general $f$, write $f=\|f\|_{L^2}\,g$ with $\|g\|_{L^2}=1$ and apply the normalized inequality to $g$, which yields (H).
+i.e. (H) in the normalized case. For general $f$, write $f=g\|f\|_{L^2}$ with $\|g\|_{L^2}=1$ and apply the normalized inequality to $g$, which yields (H).
 
 ---
 
