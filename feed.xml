@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-15T02:59:37+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-15T04:53:31+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
 </subtitle><entry><title type="html">Characterization of KL-divergence Barycenters</title><link href="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/" rel="alternate" type="text/html" title="Characterization of KL-divergence Barycenters" /><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/"><![CDATA[<p>In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {( \lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0, \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.</p>
 
 <p>For any $\lambda \in \Delta^m$, define $\mathcal{K}_{\lambda, \mathcal{V}}( \mu) := \sum_{j=1}^m \lambda_j\ \mathrm{KL}( \mu \mid \nu_j)$, where $\mathrm{KL}$ denotes the Kullback–Leibler divergence.</p>
@@ -78,7 +78,153 @@ As $KL(-, \nu_j)$ is nonnegative and lower-semicontinuous for all $1 \leq j \leq
 
 \[\texttt{argmin}_{\mu\in \mathcal{P}( \Omega)}\mathcal{K}_{\lambda,\mathcal{V}}( \mu) =\frac{1}{Z_\lambda}\exp\left(-\sum_{j=1}^m\lambda_j V_j\right)\]
 
-<p>where $Z_\lambda=\int_\Omega \exp(-\sum_{j=1}^m\lambda_j V_j(x))dx$ is a normalization constant.</p>]]></content><author><name>Brendan Mallery</name></author><category term="Information Theory" /><category term="Barycenters" /><summary type="html"><![CDATA[In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {( \lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0, \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.]]></summary></entry><entry><title type="html">Kernel Ridge Regression</title><link href="https://brendanmallery9.github.io/blog/2024/Kernel_ridge/" rel="alternate" type="text/html" title="Kernel Ridge Regression" /><published>2024-11-24T00:00:00+00:00</published><updated>2024-11-24T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2024/Kernel_ridge</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2024/Kernel_ridge/"><![CDATA[<p>The following is shamelessly taken from Wainwright’s High Dimensional Statistics.</p>
+<p>where $Z_\lambda=\int_\Omega \exp(-\sum_{j=1}^m\lambda_j V_j(x))dx$ is a normalization constant.</p>]]></content><author><name>Brendan Mallery</name></author><category term="Information Theory" /><category term="Barycenters" /><summary type="html"><![CDATA[In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {( \lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0, \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.]]></summary></entry><entry><title type="html">A Proof of the Heisenberg Uncertainty Principle</title><link href="https://brendanmallery9.github.io/blog/2025/Uncertainty/" rel="alternate" type="text/html" title="A Proof of the Heisenberg Uncertainty Principle" /><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/Uncertainty</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/Uncertainty/"><![CDATA[<h2 id="proof-of-the-uncertainty-principle">Proof of the Uncertainty Principle</h2>
+
+<p><strong>Theorem (Heisenberg Uncertainty Principle).</strong><br />
+Let $f \in \mathcal{S}(\mathbb{R})$. Then:</p>
+
+\[\left(\int_{\mathbb{R}} x^2 |f(x)|^2\,dx\right)
+\left(\int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi\right)
+\ge
+\frac{\|f\|_{L^2}^4}{16\pi^2}.
+\tag{H}\]
+
+<p>Equality is achieved by $f(x) \propto \exp(-x^2/2)$.</p>
+
+<hr />
+
+<h3 id="proof">Proof</h3>
+
+<p>We claim that (H) is equivalent to</p>
+
+\[\int_{\mathbb{R}} x^2 |f(x)|^2\,dx
+\;+\;
+\int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi
+\ge
+\frac{\|f\|_{L^2}^2}{2\pi}.
+\tag{1}\]
+
+<p>Assume first that $|f|_{L^2}=1$. If we set</p>
+
+\[A := \int_{\mathbb{R}} x^2 |f(x)|^2\,dx,
+\qquad
+B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,\]
+
+<p>then (1) says $A+B \ge \frac{1}{2\pi}$. Among all $A,B&gt;0$ with $A+B=C$, the product $AB$ is maximized at $A=B=C/2$; in particular the best universal lower bound on $AB$ given a lower bound on $A+B$ is obtained in the symmetric case. Thus from $A+B \ge \frac{1}{2\pi}$ we obtain</p>
+
+\[AB \ge \left(\frac{1}{4\pi}\right)^2 = \frac{1}{16\pi^2},\]
+
+<p>i.e. (H) in the normalized case. For general $f$, write $f=|f|<em>{L^2}\,g$ with $|g|</em>{L^2}=1$ and apply the normalized inequality to $g$, which yields (H).</p>
+
+<hr />
+
+<h3 id="harmonic-oscillator-formulation">Harmonic Oscillator Formulation</h3>
+
+<p>Let</p>
+
+\[H = -\frac{1}{2\pi}\frac{d^2}{dx^2} + \frac{1}{2\pi}x^2\]
+
+<p>be the harmonic oscillator. For any $f \in \mathcal{S}(\mathbb{R})$,</p>
+
+\[\begin{aligned}
+2\pi\langle Hf,f\rangle
+&amp;=
+\int_{\mathbb{R}} \left(-f''(x)\right)\overline{f(x)}\,dx
++
+\int_{\mathbb{R}} x^2|f(x)|^2\,dx \\
+&amp;=
+\int_{\mathbb{R}} |f'(x)|^2\,dx
++
+\int_{\mathbb{R}} x^2|f(x)|^2\,dx
+\qquad \text{(IBP)}\\
+&amp;=
+\int_{\mathbb{R}} |\widehat{f'}(\xi)|^2\,d\xi
++
+\int_{\mathbb{R}} x^2|f(x)|^2\,dx
+\qquad \text{(Plancherel)}\\
+&amp;=
+\int_{\mathbb{R}} \xi^2|\hat f(\xi)|^2\,d\xi
++
+\int_{\mathbb{R}} x^2|f(x)|^2\,dx.
+\end{aligned}\]
+
+<p>Therefore (1) is equivalent to the spectral gap estimate</p>
+
+\[\langle Hf,f\rangle \ge \frac{1}{2\pi}\|f\|_{L^2}^2.
+\tag{2}\]
+
+<hr />
+
+<h3 id="creation-and-annihilation-operators">Creation and Annihilation Operators</h3>
+
+<p>We compute</p>
+
+\[\begin{aligned}
+H
+&amp;=
+-\frac{1}{2\pi}\frac{d^2}{dx^2}
++\frac{1}{2\pi}x^2 \\
+&amp;=
+\frac{1}{2\pi}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
++\frac{1}{2\pi}\left(\frac{d}{dx}x-x\frac{d}{dx}\right).
+\end{aligned}\]
+
+<p>Since</p>
+
+\[\left(x\frac{d}{dx}-\frac{d}{dx}x\right)f(x)
+= xf'(x) - (xf(x))'
+= xf'(x) - (xf'(x)+f(x))
+= -f(x),\]
+
+<p>we have $\frac{d}{dx}x - x\frac{d}{dx} = \mathrm{Id}$, and hence</p>
+
+\[H
+=
+\frac{1}{2\pi}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
++\frac{1}{2\pi}\mathrm{Id}.\]
+
+<p>Define</p>
+
+\[a=\frac{1}{\sqrt{2\pi}}\left(x+\frac{d}{dx}\right),
+\qquad
+a^*=\frac{1}{\sqrt{2\pi}}\left(x-\frac{d}{dx}\right).\]
+
+<p>Then</p>
+
+\[H = a^*a + \frac{1}{2\pi}\mathrm{Id}.\]
+
+<p>Consequently, for any $f$,</p>
+
+\[\begin{aligned}
+\langle Hf,f\rangle
+&amp;=
+\langle a^*af,f\rangle + \frac{1}{2\pi}\langle f,f\rangle \\
+&amp;=
+\|af\|_{L^2}^2 + \frac{1}{2\pi}\|f\|_{L^2}^2 \\
+&amp;\ge
+\frac{1}{2\pi}\|f\|_{L^2}^2,
+\end{aligned}\]
+
+<p>which is exactly (2), and hence proves (1) and (H).</p>
+
+<hr />
+
+<h3 id="equality-case">Equality Case</h3>
+
+<p>Equality holds if and only if $af=0$, i.e.</p>
+
+\[\left(x+\frac{d}{dx}\right)f(x)=0.\]
+
+<p>Equivalently,</p>
+
+\[f'(x) = -x f(x),\]
+
+<p>so</p>
+
+\[f(x)=C\exp\left(-\frac{x^2}{2}\right)\]
+
+<p>for some constant $C&gt;0$.<br />
+This completes the proof.</p>]]></content><author><name>Brendan Mallery</name></author><category term="Uncertainty Principles" /><category term="Harmonic Analysis" /><summary type="html"><![CDATA[Proof of the Uncertainty Principle]]></summary></entry><entry><title type="html">Kernel Ridge Regression</title><link href="https://brendanmallery9.github.io/blog/2024/Kernel_ridge/" rel="alternate" type="text/html" title="Kernel Ridge Regression" /><published>2024-11-24T00:00:00+00:00</published><updated>2024-11-24T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2024/Kernel_ridge</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2024/Kernel_ridge/"><![CDATA[<p>The following is shamelessly taken from Wainwright’s High Dimensional Statistics.</p>
 
 <h2 id="constructing-reproducing-kernel-hilbert-spaces">Constructing Reproducing Kernel Hilbert Spaces</h2>
 
