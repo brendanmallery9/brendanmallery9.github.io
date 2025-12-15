@@ -68,7 +68,7 @@ $$
 \;+\;
 \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi
 \ge
-\frac{\|f\|_{L^2}^2}{2\pi}.
+\frac{\|f\|_{L^2}^2}{2}.
 \tag{1}
 $$
 
@@ -80,10 +80,10 @@ A := \int_{\mathbb{R}} x^2 |f(x)|^2\,dx,
 B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,
 $$
 
-then (1) says $A+B \ge \frac{1}{2\pi}$. Among all $A,B>0$ with $A+B=C$, the product $AB$ is maximized at $A=B=C/2$; in particular the best universal lower bound on $AB$ given a lower bound on $A+B$ is obtained in the symmetric case. Thus from $A+B \ge \frac{1}{2\pi}$ we obtain
+then (1) says $A+B \ge \frac{1}{2}$. Among all $A,B>0$ with $A+B=C$, the product $AB$ is maximized at $A=B=C/2$; in particular the best universal lower bound on $AB$ given a lower bound on $A+B$ is obtained in the symmetric case. Thus from $A+B \ge \frac{1}{2}$ we obtain
 
 $$
-AB \ge \left(\frac{1}{4\pi}\right)^2 = \frac{1}{16\pi^2},
+AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},
 $$
 
 i.e. (H) in the normalized case. For general $f$, write $f=g\|f\|_{L^2}$ with $\|g\|_{L^2}=1$ and apply the normalized inequality to $g$, which yields (H).
@@ -95,14 +95,14 @@ i.e. (H) in the normalized case. For general $f$, write $f=g\|f\|_{L^2}$ with $\
 Let
 
 $$
-H = -\frac{1}{2\pi}\frac{d^2}{dx^2} + \frac{1}{2\pi}x^2
+H = -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}x^2
 $$
 
 be the harmonic oscillator. For any $f \in \mathcal{S}(\mathbb{R})$,
 
 $$
 \begin{aligned}
-2\pi\langle Hf,f\rangle
+2\langle Hf,f\rangle
 &=
 \int_{\mathbb{R}} \left(-f''(x)\right)\overline{f(x)}\,dx
 +
@@ -127,7 +127,7 @@ $$
 Therefore (1) is equivalent to the spectral gap estimate
 
 $$
-\langle Hf,f\rangle \ge \frac{1}{2\pi}\|f\|_{L^2}^2.
+\langle Hf,f\rangle \ge \frac{1}{2}\|f\|_{L^2}^2.
 \tag{2}
 $$
 
@@ -141,11 +141,11 @@ $$
 \begin{aligned}
 H
 &=
--\frac{1}{2\pi}\frac{d^2}{dx^2}
-+\frac{1}{2\pi}x^2 \\
+-\frac{1}{2}\frac{d^2}{dx^2}
++\frac{1}{2}x^2 \\
 &=
-\frac{1}{2\pi}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
-+\frac{1}{2\pi}\left(\frac{d}{dx}x-x\frac{d}{dx}\right).
+\frac{1}{2}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
++\frac{1}{2}\left(\frac{d}{dx}x-x\frac{d}{dx}\right).
 \end{aligned}
 $$
 
@@ -163,22 +163,22 @@ we have $\frac{d}{dx}x - x\frac{d}{dx} = \mathrm{Id}$, and hence
 $$
 H
 =
-\frac{1}{2\pi}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
-+\frac{1}{2\pi}\mathrm{Id}.
+\frac{1}{2}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
++\frac{1}{2}\mathrm{Id}.
 $$
 
 Define
 
 $$
-a=\frac{1}{\sqrt{2\pi}}\left(x+\frac{d}{dx}\right),
+a=\frac{1}{\sqrt{2}}\left(x+\frac{d}{dx}\right),
 \qquad
-a^*=\frac{1}{\sqrt{2\pi}}\left(x-\frac{d}{dx}\right).
+a^*=\frac{1}{\sqrt{2}}\left(x-\frac{d}{dx}\right).
 $$
 
 Then
 
 $$
-H = a^*a + \frac{1}{2\pi}\mathrm{Id}.
+H = a^*a + \frac{1}{2}\mathrm{Id}.
 $$
 
 Consequently, for any $f$,
@@ -187,11 +187,11 @@ $$
 \begin{aligned}
 \langle Hf,f\rangle
 &=
-\langle a^*af,f\rangle + \frac{1}{2\pi}\langle f,f\rangle \\
+\langle a^*af,f\rangle + \frac{1}{2}\langle f,f\rangle \\
 &=
-\|af\|_{L^2}^2 + \frac{1}{2\pi}\|f\|_{L^2}^2 \\
+\|af\|_{L^2}^2 + \frac{1}{2}\|f\|_{L^2}^2 \\
 &\ge
-\frac{1}{2\pi}\|f\|_{L^2}^2,
+\frac{1}{2}\|f\|_{L^2}^2,
 \end{aligned}
 $$
 
