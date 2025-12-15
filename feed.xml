@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-15T07:47:16+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-15T07:51:22+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
 </subtitle><entry><title type="html">Characterization of KL-divergence Barycenters</title><link href="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/" rel="alternate" type="text/html" title="Characterization of KL-divergence Barycenters" /><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/"><![CDATA[<p>In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {( \lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0, \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.</p>
 
 <p>For any $\lambda \in \Delta^m$, define $\mathcal{K}_{\lambda, \mathcal{V}}( \mu) := \sum_{j=1}^m \lambda_j\ \mathrm{KL}( \mu \mid \nu_j)$, where $\mathrm{KL}$ denotes the Kullback–Leibler divergence.</p>
@@ -101,7 +101,7 @@ Let $f \in \mathcal{S}(\mathbb{R})$. Then:</p>
 \;+\;
 \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi
 \ge
-\frac{\|f\|_{L^2}^2}{2\pi}.
+\frac{\|f\|_{L^2}^2}{2}.
 \tag{1}\]
 
 <p>Assume first that $|f|_{L^2}=1$. If we set</p>
@@ -110,9 +110,9 @@ Let $f \in \mathcal{S}(\mathbb{R})$. Then:</p>
 \qquad
 B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,\]
 
-<p>then (1) says $A+B \ge \frac{1}{2\pi}$. Among all $A,B&gt;0$ with $A+B=C$, the product $AB$ is maximized at $A=B=C/2$; in particular the best universal lower bound on $AB$ given a lower bound on $A+B$ is obtained in the symmetric case. Thus from $A+B \ge \frac{1}{2\pi}$ we obtain</p>
+<p>then (1) says $A+B \ge \frac{1}{2}$. Among all $A,B&gt;0$ with $A+B=C$, the product $AB$ is maximized at $A=B=C/2$; in particular the best universal lower bound on $AB$ given a lower bound on $A+B$ is obtained in the symmetric case. Thus from $A+B \ge \frac{1}{2}$ we obtain</p>
 
-\[AB \ge \left(\frac{1}{4\pi}\right)^2 = \frac{1}{16\pi^2},\]
+\[AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},\]
 
 <p>i.e. (H) in the normalized case. For general $f$, write $f=g|f|<em>{L^2}$ with $|g|</em>{L^2}=1$ and apply the normalized inequality to $g$, which yields (H).</p>
 
@@ -122,12 +122,12 @@ B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,\]
 
 <p>Let</p>
 
-\[H = -\frac{1}{2\pi}\frac{d^2}{dx^2} + \frac{1}{2\pi}x^2\]
+\[H = -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}x^2\]
 
 <p>be the harmonic oscillator. For any $f \in \mathcal{S}(\mathbb{R})$,</p>
 
 \[\begin{aligned}
-2\pi\langle Hf,f\rangle
+2\langle Hf,f\rangle
 &amp;=
 \int_{\mathbb{R}} \left(-f''(x)\right)\overline{f(x)}\,dx
 +
@@ -150,7 +150,7 @@ B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,\]
 
 <p>Therefore (1) is equivalent to the spectral gap estimate</p>
 
-\[\langle Hf,f\rangle \ge \frac{1}{2\pi}\|f\|_{L^2}^2.
+\[\langle Hf,f\rangle \ge \frac{1}{2}\|f\|_{L^2}^2.
 \tag{2}\]
 
 <hr />
@@ -162,11 +162,11 @@ B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,\]
 \[\begin{aligned}
 H
 &amp;=
--\frac{1}{2\pi}\frac{d^2}{dx^2}
-+\frac{1}{2\pi}x^2 \\
+-\frac{1}{2}\frac{d^2}{dx^2}
++\frac{1}{2}x^2 \\
 &amp;=
-\frac{1}{2\pi}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
-+\frac{1}{2\pi}\left(\frac{d}{dx}x-x\frac{d}{dx}\right).
+\frac{1}{2}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
++\frac{1}{2}\left(\frac{d}{dx}x-x\frac{d}{dx}\right).
 \end{aligned}\]
 
 <p>Since</p>
@@ -180,29 +180,29 @@ H
 
 \[H
 =
-\frac{1}{2\pi}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
-+\frac{1}{2\pi}\mathrm{Id}.\]
+\frac{1}{2}\left(x+\frac{d}{dx}\right)\left(x-\frac{d}{dx}\right)
++\frac{1}{2}\mathrm{Id}.\]
 
 <p>Define</p>
 
-\[a=\frac{1}{\sqrt{2\pi}}\left(x+\frac{d}{dx}\right),
+\[a=\frac{1}{\sqrt{2}}\left(x+\frac{d}{dx}\right),
 \qquad
-a^*=\frac{1}{\sqrt{2\pi}}\left(x-\frac{d}{dx}\right).\]
+a^*=\frac{1}{\sqrt{2}}\left(x-\frac{d}{dx}\right).\]
 
 <p>Then</p>
 
-\[H = a^*a + \frac{1}{2\pi}\mathrm{Id}.\]
+\[H = a^*a + \frac{1}{2}\mathrm{Id}.\]
 
 <p>Consequently, for any $f$,</p>
 
 \[\begin{aligned}
 \langle Hf,f\rangle
 &amp;=
-\langle a^*af,f\rangle + \frac{1}{2\pi}\langle f,f\rangle \\
+\langle a^*af,f\rangle + \frac{1}{2}\langle f,f\rangle \\
 &amp;=
-\|af\|_{L^2}^2 + \frac{1}{2\pi}\|f\|_{L^2}^2 \\
+\|af\|_{L^2}^2 + \frac{1}{2}\|f\|_{L^2}^2 \\
 &amp;\ge
-\frac{1}{2\pi}\|f\|_{L^2}^2,
+\frac{1}{2}\|f\|_{L^2}^2,
 \end{aligned}\]
 
 <p>which is exactly (2), and hence proves (1) and (H).</p>
