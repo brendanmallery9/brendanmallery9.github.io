@@ -22,7 +22,7 @@ I am a 5th year PhD candidate studying mathematics at Tufts University, working 
 
 I am broadly interested in applications of optimal transportation to data science and machine learning. I am particularly intersted in developing ideas from sparse-signal processing and representation learning in Wasserstein space. My ongoing projects are:
 
-- Developing dictionary learning with transportation maps, for nonlinear dimensionality reduction on probability measure valued data.
+- Developing theory and algorithms for transport map dictionary learning, for nonlinear dimensionality reduction on probability measure valued data.
 - Establishing quantitative regularity results for entropy-regularized optimal transportation, with applications to Wasserstein gradient flows.
 
 In addition to my dissertation work, I am also interested in:
