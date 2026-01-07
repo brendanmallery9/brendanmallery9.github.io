@@ -85,8 +85,8 @@ then (1) says $A+B \ge \frac{1}{2}$. Among all $A,B>0$ with $A+B=C$, the product
 $$
 AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},
 $$
-
-i.e. (H) in the normalized case. For general $f$, write $f=g ||f||_{L^2}$ with $||g||_{L^2}=1$ and apply the normalized inequality to $g$, which yields (H).
+i.e. $(H)$ in the normalized case. For general $f$, write 
+$f = g \, \|f\|_{L^2}$ with $\|g\|_{L^2} = 1$ and apply the normalized inequality to $g$, which yields $(H)$.
 
 ---
 

@@ -8,7 +8,7 @@ nav_order: 3
 ---
 ### Teaching Assistant (Fall 2021-Ongoing)
 Location: Tufts University Medford, MA
-- Led weekly recitation sessions, wrote problem sets, held office hours and graded problem sets for the following
+- Led weekly recitation sessions, wrote problem sets and solutions, held office hours and graded for the following
 classes: Graduate Probability (Spring 2026), Graduate Analysis (Fall 2025),Stochastic Processes (Spring 2025), Introduction to Mathematical Statistics with R (Spring 2024), Ordinary Differential Equations (Spring
 2023), Introduction to Mathematical Modeling with Python (Spring 2022),Calculus III (Fall 2021)
 
