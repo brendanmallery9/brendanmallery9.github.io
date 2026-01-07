@@ -1,5 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-06T20:53:40+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
-</subtitle><entry><title type="html">Characterization of KL-divergence Barycenters</title><link href="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/" rel="alternate" type="text/html" title="Characterization of KL-divergence Barycenters" /><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/"><![CDATA[<p>In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {( \lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0, \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://brendanmallery9.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brendanmallery9.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-07T15:48:21+00:00</updated><id>https://brendanmallery9.github.io/feed.xml</id><title type="html">Brendan Mallery</title><subtitle>&apos;PhD candidate studying optimal transport&apos;
+</subtitle><entry><title type="html">Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)</title><link href="https://brendanmallery9.github.io/blog/2025/ISTA/" rel="alternate" type="text/html" title="Derivation of the Iterative Shrinkage and Thresholding Algorithm (ISTA)" /><published>2025-03-10T00:00:00+00:00</published><updated>2025-03-10T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/ISTA</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/ISTA/"><![CDATA[<p>We are interested in solving:</p>
+
+\[\hat{x} = \text{argmin}_{x} \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1.\]
+
+<p>Denote the objective function as $f(x) = \frac{1}{2} |b - Ax|_2^2 + \lambda |x|_1$. We will derive an algorithm for solving this.</p>
+
+<p>Let $A = I$. Then the problem has the objective:</p>
+
+\[f(x) = \frac{1}{2} \|b - x\|_2^2 + \lambda \|x\|_1 = \sum_{i=1}^n \left( \frac{1}{2} |b_i - x_i|^2 + \lambda |x_i| \right).\]
+
+<p>This function is a sum of functions of the form:</p>
+
+<p>\(g( \tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.\)
+We compute the subdifferential</p>
+
+\[\partial g( \tau) = \tau - \gamma + \lambda \partial|\tau|,\]
+
+<p>where</p>
+
+\[\partial|\tau| = 
+\begin{cases} 
+-1 &amp; \text{for } \tau &lt; 0, \\
+1 &amp; \text{for } \tau &gt; 0, \\
+[-1, 1] &amp; \text{for } \tau = 0,
+\end{cases}\]
+
+<p>which can be easily computed from the definition. At the unique optimal $\tau^*$ (for each $\lambda, \gamma$), we must have</p>
+
+\[0 \in \partial g( \tau^*).\]
+
+<p>We can now compute an expression for an optimal $\tau^<em>$ as a function of $\lambda, \gamma$. If $\tau^</em> &gt; 0$, we have $0 \in \partial g( \tau^*)$, which implies that</p>
+
+\[\tau^* = \gamma - \lambda.\]
+
+<p>Since $\tau^*&gt;0$, this can only be true when $\gamma \geq \lambda$, and $\gamma \geq 0$, and hence we have determined</p>
+
+\[\tau^* = \gamma - \lambda \quad \text{on} \quad [\lambda, \infty).\]
+
+<p>Similarly, we compute that</p>
+
+\[\tau^* = \gamma + \lambda \quad \text{on} \quad (-\infty, \lambda].\]
+
+<p>Finally, we have the case of $\tau^* = 0$, which implies that</p>
+
+\[0 \in -\gamma + \lambda [-1, 1],\]
+
+<p>and hence $\gamma \in [-\lambda, \lambda]$.</p>
+
+<p>This is a piecewise linear function. Another way of representing this is</p>
+
+\[\tau^* = ST_\lambda( \gamma),\]
+
+<p><strong>Definition 1</strong> The soft-thresholding function is</p>
+
+\[ST_\lambda( \gamma):=sgn( \gamma)\max(|\gamma|-\lambda,0).\]
+
+<p>Hence we have characterized optimal $\hat{x}$ as having coordinates described by $ST_\lambda(b_i)$.</p>
+
+<p>We now prove the result for general PSD $A$:</p>
+
+\[h(x, x^{(0)}) = \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
+
+<p>For this function to be strictly convex in $x$, we must have:</p>
+
+\[c &gt; \|A^\top A\|_2 = \lambda_{\max}(A^\top A).\]
+
+<p>Define the new objective function:</p>
+
+\[\tilde{f}(x, x^{(0)}) = f(x) + h(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2.\]
+
+<p>Our goal will be to reduce this to something resembling the case with $A=I$, so we introduce the variable:</p>
+
+\[\nu_0 = x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}).\]
+
+<p>Then, by some algebra, we have:</p>
+
+\[\tilde{f}(x, x^{(0)}) = \frac{1}{2} \|b - Ax\|_2^2 + \lambda \|x\|_1 + \frac{c}{2} \|x - x^{(0)}\|_2^2 - \frac{1}{2} \|Ax - Ax^{(0)}\|_2^2 = C + \lambda \|x\|_1 + \frac{c}{2} \|x - \nu_0\|_2^2\]
+
+<p>where $ C $ doesn’t depend on $ x $ or $ x^{(0)} $. From before, we see that this is minimized by:</p>
+
+\[x^{(0),*} = ST_{\frac{\lambda}{c}}( \nu_0) = ST_{\frac{\lambda}{c}} \left( x^{(0)} + \frac{1}{c} A^\top (b - Ax^{(0)}) \right)\]
+
+<p>Thus,</p>
+
+\[x^{(0),*} = \text{argmin}_x \tilde{f}(x, x^{(0)}) = \text{argmin}_x f(x) + h(x, x^{(0)}).\]
+
+<p>This suggests (and derives) the proximal algorithm for this objective function and regularization:</p>
+
+\[x^{(i+1)} = ST_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]
+
+<p>This is the ISTA algorithm. More generally, we can change the $ \ell^1 $ regularization to get iterates of the form:</p>
+
+\[x^{(i+1)} = T_{\frac{\lambda}{c}} \left( x^{(i)} + \frac{1}{c} A^\top (b - Ax^{(i)}) \right).\]]]></content><author><name>Brendan Mallery</name></author><category term="Convex Optimization" /><category term="Dictionary Learning" /><category term="Regularization" /><summary type="html"><![CDATA[We are interested in solving:]]></summary></entry><entry><title type="html">Characterization of KL-divergence Barycenters</title><link href="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/" rel="alternate" type="text/html" title="Characterization of KL-divergence Barycenters" /><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters</id><content type="html" xml:base="https://brendanmallery9.github.io/blog/2025/KL_divergence_barycenters/"><![CDATA[<p>In this post I’ll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := {( \lambda_1, \lambda_2, \dots, \lambda_m) \in \mathbb{R}^m \mid \lambda_j \geq 0, \sum_{j=1}^m \lambda_j = 1}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = {\nu_1, \dots, \nu_m}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu_j \propto \exp(-V_j)$ for some nonnegative continuous functions $V_j$.</p>
 
 <p>For any $\lambda \in \Delta^m$, define $\mathcal{K}_{\lambda, \mathcal{V}}( \mu) := \sum_{j=1}^m \lambda_j\ \mathrm{KL}( \mu \mid \nu_j)$, where $\mathrm{KL}$ denotes the Kullback–Leibler divergence.</p>
 
@@ -112,23 +204,9 @@ B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,\]
 
 <p>then (1) says $A+B \ge \frac{1}{2}$. Among all $A,B&gt;0$ with $A+B=C$, the product $AB$ is maximized at $A=B=C/2$; in particular the best universal lower bound on $AB$ given a lower bound on $A+B$ is obtained in the symmetric case. Thus from $A+B \ge \frac{1}{2}$ we obtain</p>
 
-\[AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},\]
-
-<table>
-  <tbody>
-    <tr>
-      <td>i.e. (H) in the normalized case. For general $f$, write $f=g</td>
-      <td> </td>
-      <td>f</td>
-      <td> </td>
-      <td>_{L^2}$ with $</td>
-      <td> </td>
-      <td>g</td>
-      <td> </td>
-      <td>_{L^2}=1$ and apply the normalized inequality to $g$, which yields (H).</td>
-    </tr>
-  </tbody>
-</table>
+<p>\(AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},\)
+i.e. $(H)$ in the normalized case. For general $f$, write 
+$f = g \, |f|<em>{L^2}$ with $|g|</em>{L^2} = 1$ and apply the normalized inequality to $g$, which yields $(H)$.</p>
 
 <hr />
 
