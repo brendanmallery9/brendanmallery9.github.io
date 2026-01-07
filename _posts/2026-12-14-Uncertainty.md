@@ -4,7 +4,7 @@ title: A Proof of the Heisenberg Uncertainty Principle
 description:
 tags: ["Uncertainty Principles","Harmonic Analysis"]
 giscus_comments: true
-date: 2025-01-05
+date: 2025-12-12
 featured: false
 
 authors:
@@ -86,7 +86,7 @@ $$
 AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},
 $$
 i.e. $(H)$ in the normalized case. For general $f$, write 
-$f = g \, \|f\|_{L^2}$ with $\|g\|_{L^2} = 1$ and apply the normalized inequality to $g$, which yields $(H)$.
+$f = g * \| f \|_{L^2}$ with $\| g \|_{L^2} = 1$ and apply the normalized inequality to $g$, which yields $(H)$.
 
 ---
 
