@@ -214,7 +214,13 @@ class ThreadedZMQSocketChannel:
 
     def _flush(self) -> None:
         """Callback for :method:`self.flush`."""
-        assert self.stream is not None
+        # Race condition: flush() checks stream validity then schedules this
+        # callback on the ioloop thread. Between scheduling and execution,
+        # stop_channels() may close the stream (e.g., during teardown).
+        # Handle gracefully rather than asserting, since this is an expected
+        # edge case during shutdown, not a programming error.
+        if self.stream is None or self.stream.closed():
+            return
         self.stream.flush()
         self._flushed = True
 
@@ -229,6 +235,13 @@ class IOLoopThread(Thread):
         """Initialize an io loop thread."""
         super().__init__()
         self.daemon = True
+
+        # Instance variable to track exit state for this specific thread.
+        # The class variable _exiting is used by _notice_exit for interpreter shutdown.
+        # Without this instance variable, stopping one IOLoopThread sets the class-level
+        # _exiting = True, causing all subsequent IOLoopThread instances to exit immediately
+        # in _async_run(). This breaks sequential kernel usage (e.g., qtconsole tests).
+        self._exiting = False
 
     @staticmethod
     @atexit.register
@@ -333,6 +346,19 @@ class ThreadedKernelClient(KernelClient):
 
     def stop_channels(self) -> None:
         """Stop the channels on the client."""
+        # Close channel streams while ioloop is still running
+        # This must happen before stopping the ioloop thread, otherwise
+        # the ZMQ streams can't be properly unregistered from the event loop
+        if self.ioloop_thread and self.ioloop_thread.is_alive():
+            if self._shell_channel is not None:
+                self._shell_channel.close()
+            if self._iopub_channel is not None:
+                self._iopub_channel.close()
+            if self._stdin_channel is not None:
+                self._stdin_channel.close()
+            if self._control_channel is not None:
+                self._control_channel.close()
+
         super().stop_channels()
         if self.ioloop_thread and self.ioloop_thread.is_alive():
             self.ioloop_thread.stop()
