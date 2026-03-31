@@ -3,7 +3,7 @@ layout: page
 permalink: /teaching/
 title: teaching
 description: 
-nav: true
+nav: false
 nav_order: 3
 ---
 ### Teaching Assistant (Fall 2021-Ongoing)
