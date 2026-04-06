@@ -1,8 +1,8 @@
 ---
 layout: distill
 title: Kernel Ridge Regression
-description: 
-tags: ["Convex Optimization","Dictionary Learning","Regularization"]
+description:
+tags: ["Convex Optimization", "Dictionary Learning", "Regularization"]
 giscus_comments: true
 date: 2024-11-24
 featured: false
@@ -22,7 +22,6 @@ bibliography: blog.bib
 #  - name: Convexity
 #  - name: Ricci Curvature
 #  - name: Convexity Meets Curvature
-
 
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
@@ -49,28 +48,24 @@ The following is shamelessly taken from Wainwright's High Dimensional Statistics
 
 **Definition 1** Let $\mathcal{X}$ be a metric space. A positive semidefinite kernel is a symmetric function $\mathcal{K}:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}$ such that for all $\{x\_i\}\_{i=1}^n\subset \mathcal{X}$, the matrix $K\_{ij}:=\mathcal{K}(x\_i,x\_j)$ is PSD.
 
-
 **Example 1**
 Let $\mathcal{X}=\mathbb{R}^d$, $\mathcal{K}(x,x')=\langle x,x'\rangle$. Let $\{x\_i\}\_{i=1}^n$ be an arbitrary set of points. Then for any vector $\alpha\in \mathbb{R}^d$, we have:
+
 $$
 \alpha^\top K \alpha=\sum_{i,j=1}^n\alpha_i\alpha_j\langle x_i,x_j\rangle=\|\sum_{i=1}^n \alpha_i x_i\|^2\geq 0
 $$
 
-**Example 2** Let $\mathcal{X}=\mathcal{P}\_2( \mathbb{R}^d)$. For any $\rho\in \mathcal{P}\_2( \mathbb{R}^d)$, define the function $\mathcal{K}\_\rho( \mu,\nu)=\langle Id-T\_{\rho\rightarrow \mu}, Id-T\_{\rho\rightarrow \nu}\rangle \_{L^2( \rho)}$. Then for any $\mathcal{V}:=\{\nu\_1,...,\nu\_m\}$, $K\_\mathcal{V}$ is PSD.  
+**Example 2** Let $\mathcal{X}=\mathcal{P}\_2( \mathbb{R}^d)$. For any $\rho\in \mathcal{P}\_2( \mathbb{R}^d)$, define the function $\mathcal{K}\_\rho( \mu,\nu)=\langle Id-T\_{\rho\rightarrow \mu}, Id-T\_{\rho\rightarrow \nu}\rangle \_{L^2( \rho)}$. Then for any $\mathcal{V}:=\{\nu\_1,...,\nu\_m\}$, $K\_\mathcal{V}$ is PSD.
 
 ## Function Interpolation
 
-We want to solve the following problem: 
+We want to solve the following problem:
 
-
-**Problem 1** (Minimal Norm Interpolation) Let $\mathcal{D}:=\{(x\_i,y\_i)\}\_{i=1}^n$ be data-response pairs, where $x\_i\in \mathcal{X}$ and $y\_i\in \mathbb{R}$. Let $\mathcal{A}\_\mathcal{D}\subset \mathcal{H}\_\mathcal{K}$ be the set of functions such that $f(x\_i)=y\_i$ for all $1\leq i\leq n.$ Choose $\bar{f}\in \texttt{argmin}\_{f\in \mathcal{A}\_\mathcal{D}}\|f\|\_{\mathcal{H}\_\mathcal{K}}$. 
-
+**Problem 1** (Minimal Norm Interpolation) Let $\mathcal{D}:=\{(x\_i,y\_i)\}\_{i=1}^n$ be data-response pairs, where $x\_i\in \mathcal{X}$ and $y\_i\in \mathbb{R}$. Let $\mathcal{A}\_\mathcal{D}\subset \mathcal{H}\_\mathcal{K}$ be the set of functions such that $f(x\_i)=y\_i$ for all $1\leq i\leq n.$ Choose $\bar{f}\in \texttt{argmin}\_{f\in \mathcal{A}\_\mathcal{D}}\|f\|\_{\mathcal{H}\_\mathcal{K}}$.
 
 In the RKHS case, this problem is greatly simplified.
 
-
-
-**Proposition 1** 
+**Proposition 1**
 Let $\mathcal{K}$ be a kernel on $\mathcal{X}$, let $K\in \mathbb{R}^{n\times n}$ be the matrix defined
 
 $$
@@ -78,13 +73,14 @@ K_{ij}=\frac{1}{n}\mathcal{K}(x_i,x_j).
 $$
 
 Then Problem 1 is feasible iff $y=(y\_1,...,y\_n)\in \text{range}(K)$. If this holds, then the optimal solution can be written:
+
 $$
 \hat{f}(-)=\frac{1}{\sqrt{n}}\sum_{i=1}^n \hat{\alpha}_i \mathcal{K}(-,x_i), \; \; \; \; K\hat{\alpha}=\frac{y}{\sqrt{n}}
 $$
 
 where $\hat{\alpha}\in \mathbb{R}^n.$
 
-*Proof:*
+_Proof:_
 
 For any vector $ \alpha \in \mathbb{R}^n $, define
 
@@ -112,12 +108,11 @@ $$
 
 where $ f\_\alpha \in \mathcal{F} $ and $ f\_\perp \in \mathcal{F}^\perp $ (since $ \mathcal{F} $ is finite-dimensional and hence closed, this decomposition is always possible). By the reproducing property, we have:
 
-
 $$
 f(x_j) = \langle f, \mathcal{K}(-, x_j) \rangle_{\mathcal{H}_\mathcal{K}} = \langle f_\alpha + f_\perp, \mathcal{K}(-, x_j) \rangle_{\mathcal{H}_\mathcal{K}} = f_\alpha(x_j),
 $$
 
-since $ \mathcal{K}(-, x\_j) \in \mathcal{F} $ and is hence orthogonal to $ f\_\perp $. This, along with the fact that
+since $ \mathcal{K}(-, x_j) \in \mathcal{F} $ and is hence orthogonal to $ f\_\perp $. This, along with the fact that
 
 $$
 \|f_\alpha + f_\perp\|^2_{\mathcal{H}_\mathcal{K}} = \|f_\alpha\|^2_{\mathcal{H}_\mathcal{K}} + \|f_\perp\|^2_{\mathcal{H}_\mathcal{K}},
@@ -125,14 +120,12 @@ $$
 
 implies that the solution must lie in $$ \mathcal{F} $$, if it exists. \blacksquare
 
-
 We now consider a harder problem: Suppose we observe $n$-i.i.d. data points $y\_i=f^*(x\_i)+w\_i$ where $f$ is some function of data $x\_i$ and $w=(w\_1,...,w\_n)$ is a noise vector. We will solve this via a relaxation of the previous method:
 
-
 **Problem 2**
-(Kernel ridge regression) For some $\lambda\_n>0$, define, find: 
+(Kernel ridge regression) For some $\lambda\_n>0$, define, find:
 
-$$ 
+$$
 \hat{f}=\texttt{argmin}_{f\in \mathcal{H}_\mathcal{K}}\left\{\frac{1}{2n}\sum_{i=1}^n(y_i-f(x_i))^2+\lambda_n \|f\|^2_{\mathcal{H}_\mathcal{K}}\right\}
 $$
 
@@ -149,8 +142,7 @@ $$
 \hat{\alpha}=(K+\lambda_n I_n)^{-1}\frac{y}{\sqrt{n}}.
 $$
 
-
-*Proof:*
+_Proof:_
 The formula for the optimal $\hat{f}$ follows the same reasoning as in the previous proof. To compute the optimal weight vector, first notice that for any function $f$ of the above form, for each $j = 1, 2, ..., n$ we have:
 
 $$

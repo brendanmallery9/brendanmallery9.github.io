@@ -23,7 +23,6 @@ bibliography: blog.bib
 #  - name: Ricci Curvature
 #  - name: Convexity Meets Curvature
 
-
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
 _styles: >
@@ -43,14 +42,13 @@ _styles: >
   }
 ---
 
-In this post I'll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := \{( \lambda\_1, \lambda\_2, \dots, \lambda\_m) \in \mathbb{R}^m \mid \lambda\_j \geq 0, \sum\_{j=1}^m \lambda\_j = 1\}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = \{\nu\_1, \dots, \nu\_m\}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu\_j \propto \exp(-V\_j)$ for some nonnegative continuous functions $V\_j$. 
+In this post I'll record a simple but instructive calculation, giving a basic template for characterizing optimizers of functionals on probability space: Let $\Delta^m := \{( \lambda\_1, \lambda\_2, \dots, \lambda\_m) \in \mathbb{R}^m \mid \lambda\_j \geq 0, \sum\_{j=1}^m \lambda\_j = 1\}$ be the $m$-dimensional probability simplex. Let $\mathcal{V} = \{\nu\_1, \dots, \nu\_m\}$ be a family of probability measures on $\Omega \subseteq \mathbb{R}^d$ such that $\nu\_j \propto \exp(-V\_j)$ for some nonnegative continuous functions $V\_j$.
 
-For any $\lambda \in \Delta^m$, define $\mathcal{K}\_{\lambda, \mathcal{V}}( \mu) := \sum\_{j=1}^m \lambda\_j\ \mathrm{KL}( \mu \mid \nu\_j)$, where $\mathrm{KL}$ denotes the Kullback–Leibler divergence. 
+For any $\lambda \in \Delta^m$, define $\mathcal{K}\_{\lambda, \mathcal{V}}( \mu) := \sum\_{j=1}^m \lambda\_j\ \mathrm{KL}( \mu \mid \nu\_j)$, where $\mathrm{KL}$ denotes the Kullback–Leibler divergence.
 
-Let $\mu\_\lambda := \text{argmin}\_{\rho \in \mathcal{P}( \Omega)} \mathcal{K}\_{\lambda, \mathcal{V}}( \rho)$. We wish to characterize the set $M := \{\mu\_\lambda \mid \lambda \in \Delta^m\}$. 
+Let $\mu\_\lambda := \text{argmin}\_{\rho \in \mathcal{P}( \Omega)} \mathcal{K}\_{\lambda, \mathcal{V}}( \rho)$. We wish to characterize the set $M := \{\mu\_\lambda \mid \lambda \in \Delta^m\}$.
 
 We will do this using first-order calculus on the space of probability measures.
-
 
 **Definition 1**  
 Let $\mathcal{P}\_{\text{abs}}( \Omega) \subseteq \mathcal{P}( \Omega)$ be the set of probability measures which are absolutely continuous with respect to the Lebesgue measure, and let $\mathcal{F} : \mathcal{P}( \Omega) \to \mathbb{R} \cup \{+\infty\}$ be a functional. If $\mathcal{F}( \rho) < \infty$ for all $\rho \in \mathcal{P}\_{\text{abs}}( \Omega)$, we say that $\mathcal{F}$ is **regular**.
@@ -69,7 +67,7 @@ The first variation provides a useful necessary condition for optimality:
 **Lemma 1**  
 Let $\mathcal{F}$ be a regular functional which admits a first variation for all $\mu \in \mathcal{P}\_{\text{abs}}( \Omega)$. Suppose that $\mathcal{F}$ admits a minimizer $\mu^\star \in \mathcal{P}\_{\text{abs}}( \Omega)$. Then $\frac{\delta \mathcal{F}}{\delta \mu}( \mu^\star)$ is $\mu^\star$-almost everywhere constant.
 
-*Proof:*  
+_Proof:_  
 If $\mu^*$ is a minimizer, then for any $\epsilon$ and $\chi := \rho - \mu^*$, we have:
 
 $$
@@ -82,10 +80,9 @@ $$
 \int \frac{\delta \mathcal{F}}{\delta \mu}( \mu^*) \, d\mu^* \leq \int \frac{\delta \mathcal{F}}{\delta \mu}( \mu^*) \, d\rho
 $$
 
-for any $\chi$. 
+for any $\chi$.
 
 Suppose that $\frac{\delta \mathcal{F}}{\delta \mu}( \mu^\star)$ is not $\mu^\star$-almost everywhere constant. Define $Q := \int \frac{\delta \mathcal{F}}{\delta \mu}( \mu^\star) d\mu^\star$, and let $U := \{x \in \mathbb{R}^d \mid \frac{\delta \mathcal{F}}{\delta \mu}(x) < Q\}$, which is nonempty by assumption. Since $\frac{\delta \mathcal{F}}{\delta \mu}( \mu^\star)$ is continuous, $U$ is measurable. By assumption, $\mu^\star(U) > 0$, and since $\mu^\star$ is absolutely continuous, this implies we may find an absolutely continuous probability measure $\rho$ such that the support of $\rho$ is contained in $U$. Then:
-
 
 $$
 \int \frac{d\mathcal{F}}{d\mu}( \mu^\star) \, d\rho < \int \frac{d\mathcal{F}}{d\mu}( \mu^\star) \, d\mu^\star,
@@ -93,20 +90,16 @@ $$
 
 which is a contradiction. Hence $\frac{\delta \mathcal{F}}{\delta \mu}( \mu^\star)$ is $\mu^\star$-almost everywhere constant. $\blacksquare$
 
-
 We will use the above characterization to describe the set of minimizers of $\mathcal{K}\_{\lambda, \mathcal{V}}$. For convenience, let $\Omega$ be compact. We claim that $\mathcal{K}\_{\lambda, \mathcal{V}}$ admits a minimizer. This requires an application of Prokhorov's theorem:
-
-
 
 **Theorem 1** (Prokhorov's Theorem) Let $( \mathcal{X},d)$ be a complete, compact, separable metric space. Then any sequence of probability measures $\{\mu\_n\}\_{n=1}^\infty\subseteq \mathcal{P}( \mathcal{X})$ contains a convergent subsequence (in the weak topology).
 
-
-We remark that the compactness assumption in Theorem 1 can be dropped if the sequence of probability measures is *tight* (in a compact metric space, any $\{\mu\_n\}\_{n=1}^\infty$ is tight).
+We remark that the compactness assumption in Theorem 1 can be dropped if the sequence of probability measures is _tight_ (in a compact metric space, any $\{\mu\_n\}\_{n=1}^\infty$ is tight).
 
 **Lemma 2** Let $\Omega\subset \mathbb{R}^d$ be compact, and let $\mathcal{V}=\{\nu\_1,..,\nu\_m\}\subset \mathcal{P}\_{abs}( \Omega)$. Then for any $\lambda\in\Delta^m$, $\mathcal{K}\_{\lambda,\mathcal{V}}$ admits an absolutely continuous minimizer.
 
-*Proof:*  
-As $KL(-, \nu\_j)$ is nonnegative and lower-semicontinuous for all $1 \leq j \leq m$, $\mathcal{K}\_{\lambda, \mathcal{V}}$ is as well, and $|\inf\_{\rho \in \mathcal{P}( \Omega)} \mathcal{K}\_{\lambda, \mathcal{V}}( \rho)| < \infty$. Let $S := \{\mu\_n\}\_{n=1}^\infty$ be an infimizing sequence for $\mathcal{K}\_{\lambda, \mathcal{V}}$. By Theorem 1, $\{\mu\_n\}\_{n=1}^\infty$ contains a subsequence $\{\mu\_n'\}\_{n=1}^\infty$, which converges to a limit point $\mu^\star \in \mathcal{P}( \Omega)$. 
+_Proof:_  
+As $KL(-, \nu\_j)$ is nonnegative and lower-semicontinuous for all $1 \leq j \leq m$, $\mathcal{K}\_{\lambda, \mathcal{V}}$ is as well, and $|\inf\_{\rho \in \mathcal{P}( \Omega)} \mathcal{K}\_{\lambda, \mathcal{V}}( \rho)| < \infty$. Let $S := \{\mu\_n\}\_{n=1}^\infty$ be an infimizing sequence for $\mathcal{K}\_{\lambda, \mathcal{V}}$. By Theorem 1, $\{\mu\_n\}\_{n=1}^\infty$ contains a subsequence $\{\mu\_n'\}\_{n=1}^\infty$, which converges to a limit point $\mu^\star \in \mathcal{P}( \Omega)$.
 
 As $\mathcal{K}\_{\lambda, \mathcal{V}}( \rho) = \infty$ for all $\rho \in \mathcal{P}( \Omega) \setminus \mathcal{P}\_{\text{abs}}( \Omega)$, it must be the case that $S \subset \mathcal{P}\_{\text{abs}}( \Omega)$. Furthermore, by lower semicontinuity of $\mathcal{K}\_{\lambda, \mathcal{V}}$, we have that:
 
@@ -143,7 +136,6 @@ $$
 $$
 
 We have thus established the theorem:
-
 
 **Theorem 2** Let $\Omega\subset \mathbb{R}^d$ be compact, and let $\mathcal{V}=\{\nu\_1,...,\nu\_m\}\subset \mathcal{P}\_{abs}( \Omega)$, where for all $1\leq j\leq m$, $\nu\_j\propto \exp(-V\_j)$ for some continuous and nonnegative $V\_j$. Then for any $\lambda\in\Delta^m$:
 

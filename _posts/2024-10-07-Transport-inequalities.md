@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: Notes on Transportation Inequalities
-description: 
+description:
 tags: ["Optimal Transport", "Concentration of Measure", "Transportation Inequalities"]
 giscus_comments: true
 date: 2024-10-07
@@ -46,7 +46,7 @@ _styles: >
   }
 ---
 
-Here are some notes from back when I was trying to really learn about transport inequalities for the first time. Most of the following is distilled from <d-cite key="gozlan2010transport"></d-cite> and <d-cite key="gozlan2015transport"></d-cite>. Before getting on, I'll say that since then there have been a number of times where I was working hard on a problem, only to realize that what I was ``really doing'' the whole time was establishing a transport inequality. I mention this because (in my opinion), transport inequalities seem opaque and technical when you first come across them, made all the more mysterious by the fact that a lot of the most [celebrated results](https://cedricvillani.org/sites/dev/files/old_images//2012/08/014.OV-Talagrand.pdf) in the field are about establishing them. 
+Here are some notes from back when I was trying to really learn about transport inequalities for the first time. Most of the following is distilled from <d-cite key="gozlan2010transport"></d-cite> and <d-cite key="gozlan2015transport"></d-cite>. Before getting on, I'll say that since then there have been a number of times where I was working hard on a problem, only to realize that what I was ``really doing'' the whole time was establishing a transport inequality. I mention this because (in my opinion), transport inequalities seem opaque and technical when you first come across them, made all the more mysterious by the fact that a lot of the most [celebrated results](https://cedricvillani.org/sites/dev/files/old_images//2012/08/014.OV-Talagrand.pdf) in the field are about establishing them.
 
 So if you are like me and are not particularly motivated by a bunch of statements like "LSI==> T2 ==> T1", rest assured that these things become unexpectedly handy, unexpectedly often.
 
@@ -58,10 +58,7 @@ $$
 \alpha(\mathcal{T}_c(\nu,\mu))\leq J(\nu\mid\mu), \forall \nu\in\mathcal{P}(\mathcal{X})
 $$
 
-
 We will primarily concerned with the following family of examples:
-
-  
 
 **Definition 2:** (Transport-Entropy Inequality) Let $(\mathcal{X},d)$ be a metric space and let $C>0$. We say that $\mu$ satisfies the inequality $T_p(C)$ if:
 
@@ -71,10 +68,7 @@ $$
 
 where $W_p$ is the $p$-Wasserstein distance and $H$ is the relative entropy.
 
-  
-
 We will typically take $p=1,2$. When $p=1$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x^2$. When $p=2$, this is Definition 1 with $\alpha(x)=\frac{1}{C}x$. Observe by Jensen's inequality, $T_1(C)$ is always weaker than $T_2(C).$ A basic example is the following:
-
 
 **Theorem 1:** (Pinsker's Inequality ) Let $\mu,\nu \in \mathcal{P}(\mathcal{X})$, and let $d_H$ denote the Hamming distance. Then:
 
@@ -91,8 +85,9 @@ A particularly famous one was proven by Talagrand:
 
 Before proving Theorem 2, we mention some applications:
 
-*Applications of transportation inequalities:*
-1. If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $T_2$ is particularly useful in that it ''tensorizes'', allowing one to establish *dimension independent* concentration for $\mu^{\otimes n}$.
+_Applications of transportation inequalities:_
+
+1. If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $T_2$ is particularly useful in that it ''tensorizes'', allowing one to establish _dimension independent_ concentration for $\mu^{\otimes n}$.
 2. Transportation inequalities can allow one to prove other functional inequalities of interest.
 3. Connections to positive curvature lower bounds
 
@@ -110,9 +105,9 @@ $$
 \mu(\{f>m_f+r+r_0\})\leq e^{-\alpha(r)},\;\;\;\;\;\;r\geq 0
 $$
 
-where $m_f$ is the median of $f$. 
+where $m_f$ is the median of $f$.
 
-*Proof:* Take $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, and let $B=\mathcal{X}\setminus A^r$. Consider $d\mu_A(x):=\frac{1}{\mu(A)}1_A(x) d\mu(x)$ and $d\mu_B=1_B(x)d\mu(x)$. Any coupling between $\mu_A$ and $\mu_B$ has cost lower bounded by $r$, by definition. Via the triangle inequality we have :
+_Proof:_ Take $A\subset \mathcal{X}$ with $\mu(A)\geq \frac{1}{2}$, and let $B=\mathcal{X}\setminus A^r$. Consider $d\mu_A(x):=\frac{1}{\mu(A)}1_A(x) d\mu(x)$ and $d\mu_B=1_B(x)d\mu(x)$. Any coupling between $\mu_A$ and $\mu_B$ has cost lower bounded by $r$, by definition. Via the triangle inequality we have :
 
 $$
 \begin{align*}
@@ -122,18 +117,18 @@ $$
 
 We compute:
 
-$$ 
+$$
 \begin{align*}
 H(\mu_A\mid\mu) & = \int \log (\frac{d\mu_A}{d\mu})d\mu_A \\ & = \frac{1}{\mu(A)}\int_A \log(\frac{1}{\mu(A)})d\mu \\& = -\log (\mu(A)) \\&  \leq \log 2
-\end{align*} 
+\end{align*}
 $$
 
-and 
+and
 
-$$ 
+$$
 \begin{align*}
 H(\mu_B\mid\mu) & = \frac{1}{\mu(B)}\int_B \log(\frac{1}{\mu(B)})d\mu \\ & = -\log(1-\mu(A^r))
-\end{align*} 
+\end{align*}
 $$
 
 Applying $\alpha$ and exponentiating both sides, we obtain:
@@ -141,49 +136,54 @@ Applying $\alpha$ and exponentiating both sides, we obtain:
 $$
 \begin{equation*}
 \mu(A^r)\geq 1- e^{-\alpha(r-r_0)}
-\end{equation*} 
+\end{equation*}
 $$
+
 for all $r\geq r_0$.
 
-Hence we see $T_p\rightarrow$ subgaussian concentration for any $p$. Observe that from the above, __there is no apparent difference between $T_2$ and $T_1$, as both imply subgaussian concentration.__
+Hence we see $T_p\rightarrow$ subgaussian concentration for any $p$. Observe that from the above, **there is no apparent difference between $T_2$ and $T_1$, as both imply subgaussian concentration.**
 
 ## Proof of Theorem 2
 
-In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use *tensorization* properties of $T_2$.
+In this section we give a proof of Theorem 2. The strategy will be to prove the result in 1-D then to use _tensorization_ properties of $T_2$.
 
-**Lemma 1:** Let $V: \mathbb{R}\rightarrow \mathbb{R}_{\geq 0}$, and let $\mu\in \mathcal{P}_2(\mathbb{R})$ be defined by $d\mu(x)=e^{-V(x)}dx$. Then: 
+**Lemma 1:** Let $V: \mathbb{R}\rightarrow \mathbb{R}_{\geq 0}$, and let $\mu\in \mathcal{P}_2(\mathbb{R})$ be defined by $d\mu(x)=e^{-V(x)}dx$. Then:
 
 $$
 H(\nu\mid\mu)\geq \int V(T_{\mu\rightarrow \nu}(x))-V(x)-V'(x)[T_{\mu\rightarrow \nu}(x)-x] d\mu(x)
 $$
 
-where $T_{\mu\rightarrow \nu}$ is the optimal transport map from $\mu$ to $\nu$. 
+where $T_{\mu\rightarrow \nu}$ is the optimal transport map from $\mu$ to $\nu$.
 
-*Proof:* By Brenier's theorem, $T_{\mu\rightarrow \nu}$ is a monotone map. Assume that $f$ is absolutely continuous and hence we have $\nu=f\mu$. We may write 
+_Proof:_ By Brenier's theorem, $T_{\mu\rightarrow \nu}$ is a monotone map. Assume that $f$ is absolutely continuous and hence we have $\nu=f\mu$. We may write
 
 $$
 \nu((-\infty,T_{\mu\rightarrow \nu}(x)])=\mu((-\infty,x])
 $$
 
 for all $x\in \mathbb{R}$. By definition of pushforwards, this means:
+
 $$
 \int_{-\infty}^{T_{\mu\rightarrow \nu}(x)} f(z)e^{-V(z)} dz=\int_{-\infty}^x e^{-V(z)}dz.
 $$
 
 Differentiating, we have:
-$$ 
+
+$$
 f(T_{\mu\rightarrow \nu}(x))e^{-V(T_{\mu\rightarrow \nu}(x))}T'_{\mu\rightarrow \nu}(x)=e^{-V(x)}.
 $$
 
 Taking logarithms, we get:
+
 $$
 \log f(T_{\mu\rightarrow \nu}(x))+\log T'_{\mu\rightarrow \nu}(x) -V(T_{\mu\rightarrow \nu}(x))=-V(x).
 $$
 
 Integrating both sides w.r.t. $\mu$, we get:
+
 $$
 \begin{align*}
-\int \log f d\nu & =  \int (V(T_{\mu\rightarrow \nu}(x))-V(x) - \log T'_{\mu\rightarrow \nu}(x))e^{-V(x)}dx 
+\int \log f d\nu & =  \int (V(T_{\mu\rightarrow \nu}(x))-V(x) - \log T'_{\mu\rightarrow \nu}(x))e^{-V(x)}dx
 \end{align*}
 $$
 
@@ -195,7 +195,7 @@ $$
 \end{align*}
 $$
 
-since $b-1-\log b\geq 0$ for all $b>0$. The left hand side is $H(\nu\mid\mu)$ and we are done. 
+since $b-1-\log b\geq 0$ for all $b>0$. The left hand side is $H(\nu\mid\mu)$ and we are done.
 
 **Corollary 1:** ($T_1$ for the standard 1D Gaussian) Let $\gamma$ be the standard 1-D Gaussian. Then $\gamma$ satisfies $T_2(2)$:
 
@@ -203,7 +203,8 @@ $$
 H(\nu\mid\mu)\geq \frac{1}{2} W_2^2(\nu,\gamma)
 $$
 
-*Proof:* Applying Lemma 1 with $V(x)=x^2/2+\log(2\pi)/2$ we get:
+_Proof:_ Applying Lemma 1 with $V(x)=x^2/2+\log(2\pi)/2$ we get:
+
 $$
 H(\nu\mid\gamma)\geq \int \frac{(T_{\gamma\rightarrow \nu}(x)-x)^2}{2} d\gamma(x) = \frac{W_2^2(\nu,\gamma)}{2}.
 $$
@@ -211,19 +212,22 @@ $$
 We remark that the general case may be proven by generalizing the above argument. Instead, we proceed by establishing the tensorization property for transport inequalities. First we define infimum convolution:
 
 **Definition:** Let $\alpha_1,\alpha_2 : [0,\infty)\rightarrow [0,\infty)$. Then the infimum convolution of $\alpha_1,\alpha_2$ is defined:
+
 $$
 \alpha_1 \square \alpha_2(t)=\inf \{\alpha_1(t_1)+\alpha_2(t_2):t_1+t_2=t\}.
 $$
 
 **Remark:**
+
 - Infimal-convolution is integral convolution in the min-plus algebra
-- Infimum-convolution preserves convexity. 
+- Infimum-convolution preserves convexity.
 - If $\alpha_1,\alpha_2$ are increasing then $\alpha_1\square \alpha_2$ is as well.
 - The proximal operator $\text{prox}^\mu_f(x)=\inf_w f(x)+\frac{1}{2\mu}\|x-w\|^2$ is an example of an infimal-convolution.
 - Note we may write Kantorovich duality as:
-$$
-W_p(\mu,\nu)^p=\displaystyle\sup_{f \in C_b(\mathcal{\mathbb{R}^d})} \int f\square \|.\|^p d\nu - \int f d\mu.
-$$
+
+  $$
+  W_p(\mu,\nu)^p=\displaystyle\sup_{f \in C_b(\mathcal{\mathbb{R}^d})} \int f\square \|.\|^p d\nu - \int f d\mu.
+  $$
 
 - **Important:** For convex, increasing $\alpha$, we have: $\alpha^{\square n}(t)=n \alpha (t/n)$ for all $t\geq 0$. (Proof: Set $n=2$ and take a derivative, then generalize.)
 
@@ -235,12 +239,14 @@ $$
 
 for all $\nu\in \mathcal{P}(\mathcal{X}^n)$, where $c^{\oplus n}(x,y)=\sum_{i=1}^n c(x_i,y_i)$.
 
-*Proof:* We will prove this for $n=2$, and the result extends to arbitrary $n$ by induction: Let $\nu\in \mathcal{P}(\mathcal{X}\times \mathcal{X})$. Then we may define the conditional expectation w.r.t. the first coordinate as follows:
+_Proof:_ We will prove this for $n=2$, and the result extends to arbitrary $n$ by induction: Let $\nu\in \mathcal{P}(\mathcal{X}\times \mathcal{X})$. Then we may define the conditional expectation w.r.t. the first coordinate as follows:
+
 $$
 d\nu(x_1,x_2)=d\nu_1(x_1)d\nu_2^{x_1}(x_2).
 $$
 
 With this notation established, we establish some useful facts:
+
 $$
 \begin{equation}\mathcal{T}_{c_1\otimes c_2}(\nu,\mu_1\otimes \mu_2)\leq \mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1),\label{eqn:transport_tensor}
 \end{equation}
@@ -273,14 +279,13 @@ $$
 
 for $r\geq r_0=\sqrt{n C\log(2)}$.
 
-*Proof:* $T_1(C)$ means:
+_Proof:_ $T_1(C)$ means:
 
 $$
 W_1^2(\nu,\mu)=\mathcal{T}^2_d(\nu,\mu)\leq CH(\nu\mid\mu),
 $$
 
 and hence $\frac{1}{n}\mathcal{T}^2_{d_1^n}(\nu,\mu)\leq CH(\nu\mid\mu)$ (recall that $\alpha(x)=\frac{1}{C}x^2$ in this case). Apply Theorem 4 and Theorem 3 to conclude concentration.
-
 
 **Corollary 3:** (Tensorization of $T_2$) Suppose $\mu$ verifies $T_2(C)$ on $(\mathcal{X},d)$. Then $\mu^{\otimes n}$ verifies the inequality $T_2(C)$ on $\mathcal{X}^n$ equipped with $d_2^n(x,y)=\sqrt{\sum_{i=1}^n d^2(x_i,y_i)}$. Consequently, for all $1$-Lipschitz functions $f$:
 
@@ -292,13 +297,13 @@ $$
 
 for $r\geq r_0=\sqrt{2\log 2}$.
 
-*Proof:* $T_2(C)$ means:
+_Proof:_ $T_2(C)$ means:
 
 $$
 W_2^2(\nu,\mu)=\mathcal{T}_{d_2^1}(\nu,\mu)\leq CH(\nu\mid\mu).
 $$
 
- In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields: 
+In this case, $\alpha=\frac{1}{C}$, so Theorem 4 yields:
 
 $$
 \mathcal{T}_{\sum_{i=1}^n d^2}(\nu,\mu^{\otimes n})\leq CH(\nu\mid\mu^{\otimes n}).
@@ -310,11 +315,9 @@ $$
 \mathcal{T}_{\sum_{i=1}^n d^2}=\mathcal{T}_{(d_2^n)^2}(\nu,\mu^{\otimes n})
 $$
 
-and hence this is $T_2(C)$ with this metric.  
-
+and hence this is $T_2(C)$ with this metric.
 
 Hence we see that $T_2$ is much stronger than $T_1$, since it tensorizes to give dimension free concentration. Combining Corollary 3 and Corollary 1, we obtain Theorem 2.
-
 
 ### Extension to strongly log-concave measures
 
@@ -334,4 +337,4 @@ by $1$-Lipschitzness of $T_{\mu\rightarrow \nu}.$ In other words, we may transpo
 
 **Corollary:** (Concentration for Strongly Log-Concave Measures) Let $\nu\in\mathcal{P}_2(\mathbb{R}^d)$ have density $d\nu=\exp(-W)$ with $W:\mathbb{R}^d\rightarrow \mathbb{R}$ a $\kappa$-strongly log-concave for $\kappa>0$. Then $\nu(f>m_f+r+r_0)\leq e^{-\frac{r^2}{\kappa}}$.
 
-*Proof:* Let $\gamma_\kappa$ be a standard $d$-dimensional Gaussian with variance $2\kappa^2$. Then by applying Theorem 4 and scaling appropriately, $\gamma_\kappa$ satisfies $T_2(\kappa)$, and hence has the above concentration profile by Theorem 3. By Theorem 5, the optimal transport map $T_{\mu\rightarrow \nu}$ is $1$-Lipschitz, so we may transport this concentration profile to $\nu$.
+_Proof:_ Let $\gamma_\kappa$ be a standard $d$-dimensional Gaussian with variance $2\kappa^2$. Then by applying Theorem 4 and scaling appropriately, $\gamma_\kappa$ satisfies $T_2(\kappa)$, and hence has the above concentration profile by Theorem 3. By Theorem 5, the optimal transport map $T_{\mu\rightarrow \nu}$ is $1$-Lipschitz, so we may transport this concentration profile to $\nu$.

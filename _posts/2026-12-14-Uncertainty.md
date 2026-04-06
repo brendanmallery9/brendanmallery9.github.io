@@ -2,7 +2,7 @@
 layout: distill
 title: A Proof of the Heisenberg Uncertainty Principle
 description:
-tags: ["Uncertainty Principles","Harmonic Analysis"]
+tags: ["Uncertainty Principles", "Harmonic Analysis"]
 giscus_comments: true
 date: 2025-12-12
 featured: false
@@ -23,7 +23,6 @@ bibliography: blog.bib
 #  - name: Ricci Curvature
 #  - name: Convexity Meets Curvature
 
-
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
 _styles: >
@@ -42,6 +41,7 @@ _styles: >
     font-size: 16px;
   }
 ---
+
 ## Proof of the Uncertainty Principle
 
 **Theorem (Heisenberg Uncertainty Principle).**  
@@ -85,7 +85,8 @@ then (1) says $A+B \ge \frac{1}{2}$. Among all $A,B>0$ with $A+B=C$, the product
 $$
 AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},
 $$
-i.e. $(H)$ in the normalized case. For general $f$, write 
+
+i.e. $(H)$ in the normalized case. For general $f$, write
 $f = g * \| f \|_{L^2}$ with $\| g \|_{L^2} = 1$ and apply the normalized inequality to $g$, which yields $(H)$.
 
 ---

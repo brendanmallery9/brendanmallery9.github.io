@@ -65,13 +65,13 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-      
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
-      
+
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
@@ -79,12 +79,12 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
-      
+
       - name: Install ImageMagick 🎨
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
-      
+
       - name: Install and Build 🔧
         run: |
           python3 -m venv venv  # Create a virtual environment
@@ -93,18 +93,17 @@ jobs:
           pip install --upgrade jupyter  # Install Jupyter in the virtual environment
           export JEKYLL_ENV=production
           bundle exec jekyll build
-      
+
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
-      
+
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site
-
 # jobs:
 #   deploy:
 #     # available images: https://github.com/actions/runner-images#available-images
