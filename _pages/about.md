@@ -31,7 +31,7 @@ I have also published work in topological data analysis and geometric group theo
 
 <!-- split -->
 
-Here are some pics from my research:
+
 
 <div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 15px;">
   <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
