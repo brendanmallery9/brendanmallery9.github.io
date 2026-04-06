@@ -192,12 +192,38 @@ ul.task-list input[type="checkbox"] {
 
 // Profile
 
+.about-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.about-text {
+  flex: 1;
+  padding-top: 0.5rem;
+
+  @media (min-width: 576px) {
+    padding-top: 0;
+    margin-left: 1.5rem;
+    margin-top: 0.75rem;
+  }
+}
+
 .profile {
-  width: 100%;
   border: 1px solid var(--global-divider-color);
   border-radius: 8px;
   padding: 15px;
   background-color: var(--global-card-bg-color, transparent);
+  flex-shrink: 0;
+
+  @media (min-width: 576px) {
+    width: 30%;
+  }
 
   .more-info {
     margin-bottom: 5px;
@@ -218,17 +244,6 @@ ul.task-list input[type="checkbox"] {
 .profile.float-left {
   margin-right: 1rem;
 }
-
-@media (min-width: 576px) {
-  .profile {
-    width: 30%;
-
-    .address {
-      p {
-        display: block;
-      }
-    }
-  }
 }
 
 .post-description {
