@@ -31,15 +31,33 @@ I have also published work in topological data analysis and geometric group theo
 
 <!-- split -->
 
+Here are some pics from my research:
 
-<div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 15px;">
-  <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
-    <img src="/assets/img/synth_and_analysis.gif" alt="Synthesis and Analysis" style="width: 100%;">
-    <video autoplay loop muted playsinline style="width: 100%;">
-      <source src="/assets/img/curvemov.mp4" type="video/mp4">
-    </video>
+<div style="display: flex; flex-direction: column; gap: 30px; margin-top: 15px;">
+  <div style="display: flex; gap: 20px; align-items: center;">
+    <div style="flex: 1;">
+      <p><strong>Synthesis and Analysis</strong> — Generating and reconstructing data as probability measures using entropy-regularized optimal transport.</p>
+    </div>
+    <div style="flex: 1;">
+      <img src="/assets/img/synth_and_analysis.gif" alt="Synthesis and Analysis" style="width: 100%;">
+    </div>
   </div>
-  <div style="flex: 1;">
-    <img src="/assets/img/recons.png" alt="Reconstructions" style="width: 100%;">
+  <div style="display: flex; gap: 20px; align-items: center;">
+    <div style="flex: 1;">
+      <p><strong>Curve Evolution</strong> — Visualizing the movement of curves through Wasserstein space.</p>
+    </div>
+    <div style="flex: 1;">
+      <video autoplay loop muted playsinline style="width: 100%;">
+        <source src="/assets/img/curvemov.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div style="display: flex; gap: 20px; align-items: center;">
+    <div style="flex: 1;">
+      <p><strong>Reconstructions</strong> — Reconstructing target distributions from learned representations.</p>
+    </div>
+    <div style="flex: 1;">
+      <img src="/assets/img/recons.png" alt="Reconstructions" style="width: 100%;">
+    </div>
   </div>
 </div>
