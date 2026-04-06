@@ -36,8 +36,12 @@ layout: default
             <div class="more-info">{{ page.profile.more_info }}</div>
           {% endif %}
         </div>
-        <div class="about-text">{{ content }}</div>
+        {% assign parts = content | split: '<!-- split -->' %}
+        <div class="about-text">{{ parts[0] }}</div>
       </div>
+      {% if parts.size > 1 %}
+        <div class="about-bottom">{{ parts[1] }}</div>
+      {% endif %}
     {% else %}
       <div>{{ content }}</div>
     {% endif %}

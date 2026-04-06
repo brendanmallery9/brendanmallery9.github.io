@@ -29,7 +29,9 @@ My research focuses on:
 
 I have also published work in topological data analysis and geometric group theory.
 
-Here are some cool pics from my research:
+<!-- split -->
+
+Here are some pics from my research:
 
 <div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 50px;">
   <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
