@@ -33,7 +33,7 @@ I have also published work in topological data analysis and geometric group theo
 
 Here are some pics from my research:
 
-<div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 50px;">
+<div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 15px;">
   <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
     <img src="/assets/img/synth_and_analysis.gif" alt="Synthesis and Analysis" style="width: 100%;">
     <video autoplay loop muted playsinline style="width: 100%;">
