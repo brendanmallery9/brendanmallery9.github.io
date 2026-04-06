@@ -44,7 +44,7 @@ Here are some pics from my research:
   </div>
   <div style="display: flex; gap: 30px; align-items: center;">
     <div style="flex: 1;">
-      <p><strong>Latent Space</strong> — Analyzing latent representations in deep learning models.</p>
+      <p><strong>Dictionary Learning on LLM Document Embeddings </strong> — Visualizing unsupervised clustering of dictionary codes.</p>
     </div>
     <div style="flex: 3;">
       <img src="/assets/img/latent.png" alt="Latent Space" style="width: 100%;">
@@ -52,7 +52,7 @@ Here are some pics from my research:
   </div>
   <div style="display: flex; gap: 30px; align-items: center;">
     <div style="flex: 1;">
-      <p><strong>Reconstructions</strong> — Reconstructing target distributions from learned representations.</p>
+      <p><strong>Robust Signal Recovery with Entropy-Regularized Barycenters </strong> — Point clouds with dropout noise can be recovered by projecting onto set of barycenters.</p>
     </div>
     <div style="flex: 3;">
       <img src="/assets/img/recons.png" alt="Reconstructions" style="width: 100%;">
@@ -60,7 +60,7 @@ Here are some pics from my research:
   </div>
   <div style="display: flex; gap: 30px; align-items: center;">
     <div style="flex: 1;">
-      <p><strong>Curve Evolution</strong> — Visualizing the movement of curves through Wasserstein space.</p>
+      <p><strong>Time-Evolving Curvature of Networks </strong> — Evolving cluster structure is detected using time-evolving Ricci curvature.</p>
     </div>
     <div style="flex: 3;">
       <video autoplay loop muted playsinline style="width: 100%;">
