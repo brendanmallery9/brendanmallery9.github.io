@@ -82,8 +82,13 @@
 
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+        },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] },
       };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -381,6 +386,7 @@
 <p>Before proving Theorem 2, we mention some applications:</p>
 
 <p><em>Applications of transportation inequalities:</em></p>
+
 <ol>
   <li>If $\mu$ satisfies a transportation inequality, it is concentrated w.r.t. that cost function. $T_2$ is particularly useful in that it ‘‘tensorizes’’, allowing one to establish <em>dimension independent</em> concentration for $\mu^{\otimes n}$.</li>
   <li>Transportation inequalities can allow one to prove other functional inequalities of interest.</li>
@@ -419,10 +425,11 @@ H(\mu_B\mid\mu) &amp; = \frac{1}{\mu(B)}\int_B \log(\frac{1}{\mu(B)})d\mu \\ &am
 
 <p>Applying $\alpha$ and exponentiating both sides, we obtain:</p>
 
-<p>\(\begin{equation*}
+\[\begin{equation*}
 \mu(A^r)\geq 1- e^{-\alpha(r-r_0)}
-\end{equation*}\)
-for all $r\geq r_0$.</p>
+\end{equation*}\]
+
+<p>for all $r\geq r_0$.</p>
 
 <p>Hence we see $T_p\rightarrow$ subgaussian concentration for any $p$. Observe that from the above, <strong>there is no apparent difference between $T_2$ and $T_1$, as both imply subgaussian concentration.</strong></p>
 
@@ -440,19 +447,23 @@ for all $r\geq r_0$.</p>
 
 \[\nu((-\infty,T_{\mu\rightarrow \nu}(x)])=\mu((-\infty,x])\]
 
-<p>for all $x\in \mathbb{R}$. By definition of pushforwards, this means:
-\(\int_{-\infty}^{T_{\mu\rightarrow \nu}(x)} f(z)e^{-V(z)} dz=\int_{-\infty}^x e^{-V(z)}dz.\)</p>
+<p>for all $x\in \mathbb{R}$. By definition of pushforwards, this means:</p>
 
-<p>Differentiating, we have:
-\(f(T_{\mu\rightarrow \nu}(x))e^{-V(T_{\mu\rightarrow \nu}(x))}T'_{\mu\rightarrow \nu}(x)=e^{-V(x)}.\)</p>
+\[\int_{-\infty}^{T_{\mu\rightarrow \nu}(x)} f(z)e^{-V(z)} dz=\int_{-\infty}^x e^{-V(z)}dz.\]
 
-<p>Taking logarithms, we get:
-\(\log f(T_{\mu\rightarrow \nu}(x))+\log T'_{\mu\rightarrow \nu}(x) -V(T_{\mu\rightarrow \nu}(x))=-V(x).\)</p>
+<p>Differentiating, we have:</p>
 
-<p>Integrating both sides w.r.t. $\mu$, we get:
-\(\begin{align*}
-\int \log f d\nu &amp; =  \int (V(T_{\mu\rightarrow \nu}(x))-V(x) - \log T'_{\mu\rightarrow \nu}(x))e^{-V(x)}dx 
-\end{align*}\)</p>
+\[f(T_{\mu\rightarrow \nu}(x))e^{-V(T_{\mu\rightarrow \nu}(x))}T'_{\mu\rightarrow \nu}(x)=e^{-V(x)}.\]
+
+<p>Taking logarithms, we get:</p>
+
+\[\log f(T_{\mu\rightarrow \nu}(x))+\log T'_{\mu\rightarrow \nu}(x) -V(T_{\mu\rightarrow \nu}(x))=-V(x).\]
+
+<p>Integrating both sides w.r.t. $\mu$, we get:</p>
+
+\[\begin{align*}
+\int \log f d\nu &amp; =  \int (V(T_{\mu\rightarrow \nu}(x))-V(x) - \log T'_{\mu\rightarrow \nu}(x))e^{-V(x)}dx
+\end{align*}\]
 
 <p>By integration by parts, we have: $\int (T_{\mu\rightarrow \nu}(x)-x)V’(x) e^{-V(x)}dx=\int (T’_{\mu\rightarrow \nu}(x)-1)e^{-V(x)}dx.$ Adding and subtracting this to the above equation we get:</p>
 
@@ -466,23 +477,27 @@ for all $r\geq r_0$.</p>
 
 \[H(\nu\mid\mu)\geq \frac{1}{2} W_2^2(\nu,\gamma)\]
 
-<p><em>Proof:</em> Applying Lemma 1 with $V(x)=x^2/2+\log(2\pi)/2$ we get:
-\(H(\nu\mid\gamma)\geq \int \frac{(T_{\gamma\rightarrow \nu}(x)-x)^2}{2} d\gamma(x) = \frac{W_2^2(\nu,\gamma)}{2}.\)</p>
+<p><em>Proof:</em> Applying Lemma 1 with $V(x)=x^2/2+\log(2\pi)/2$ we get:</p>
+
+\[H(\nu\mid\gamma)\geq \int \frac{(T_{\gamma\rightarrow \nu}(x)-x)^2}{2} d\gamma(x) = \frac{W_2^2(\nu,\gamma)}{2}.\]
 
 <p>We remark that the general case may be proven by generalizing the above argument. Instead, we proceed by establishing the tensorization property for transport inequalities. First we define infimum convolution:</p>
 
-<p><strong>Definition:</strong> Let $\alpha_1,\alpha_2 : [0,\infty)\rightarrow [0,\infty)$. Then the infimum convolution of $\alpha_1,\alpha_2$ is defined:
-\(\alpha_1 \square \alpha_2(t)=\inf \{\alpha_1(t_1)+\alpha_2(t_2):t_1+t_2=t\}.\)</p>
+<p><strong>Definition:</strong> Let $\alpha_1,\alpha_2 : [0,\infty)\rightarrow [0,\infty)$. Then the infimum convolution of $\alpha_1,\alpha_2$ is defined:</p>
+
+\[\alpha_1 \square \alpha_2(t)=\inf \{\alpha_1(t_1)+\alpha_2(t_2):t_1+t_2=t\}.\]
 
 <p><strong>Remark:</strong></p>
+
 <ul>
   <li>Infimal-convolution is integral convolution in the min-plus algebra</li>
   <li>Infimum-convolution preserves convexity.</li>
   <li>If $\alpha_1,\alpha_2$ are increasing then $\alpha_1\square \alpha_2$ is as well.</li>
   <li>The proximal operator $\text{prox}^\mu_f(x)=\inf_w f(x)+\frac{1}{2\mu}|x-w|^2$ is an example of an infimal-convolution.</li>
   <li>
-    <p>Note we may write Kantorovich duality as:
-\(W_p(\mu,\nu)^p=\displaystyle\sup_{f \in C_b(\mathcal{\mathbb{R}^d})} \int f\square \|.\|^p d\nu - \int f d\mu.\)</p>
+    <p>Note we may write Kantorovich duality as:</p>
+
+\[W_p(\mu,\nu)^p=\displaystyle\sup_{f \in C_b(\mathcal{\mathbb{R}^d})} \int f\square \|.\|^p d\nu - \int f d\mu.\]
   </li>
   <li>
 <strong>Important:</strong> For convex, increasing $\alpha$, we have: $\alpha^{\square n}(t)=n \alpha (t/n)$ for all $t\geq 0$. (Proof: Set $n=2$ and take a derivative, then generalize.)</li>
@@ -494,12 +509,14 @@ for all $r\geq r_0$.</p>
 
 <p>for all $\nu\in \mathcal{P}(\mathcal{X}^n)$, where $c^{\oplus n}(x,y)=\sum_{i=1}^n c(x_i,y_i)$.</p>
 
-<p><em>Proof:</em> We will prove this for $n=2$, and the result extends to arbitrary $n$ by induction: Let $\nu\in \mathcal{P}(\mathcal{X}\times \mathcal{X})$. Then we may define the conditional expectation w.r.t. the first coordinate as follows:
-\(d\nu(x_1,x_2)=d\nu_1(x_1)d\nu_2^{x_1}(x_2).\)</p>
+<p><em>Proof:</em> We will prove this for $n=2$, and the result extends to arbitrary $n$ by induction: Let $\nu\in \mathcal{P}(\mathcal{X}\times \mathcal{X})$. Then we may define the conditional expectation w.r.t. the first coordinate as follows:</p>
 
-<p>With this notation established, we establish some useful facts:
-\(\begin{equation}\mathcal{T}_{c_1\otimes c_2}(\nu,\mu_1\otimes \mu_2)\leq \mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1),\label{eqn:transport_tensor}
-\end{equation}\)</p>
+\[d\nu(x_1,x_2)=d\nu_1(x_1)d\nu_2^{x_1}(x_2).\]
+
+<p>With this notation established, we establish some useful facts:</p>
+
+\[\begin{equation}\mathcal{T}_{c_1\otimes c_2}(\nu,\mu_1\otimes \mu_2)\leq \mathcal{T}_{c_1}(\nu_1,\mu_1)+\int \mathcal{T}_{c_2}(\nu_2^{x_1},\mu_2)d\nu_1(x_1),\label{eqn:transport_tensor}
+\end{equation}\]
 
 \[\begin{equation}H(\nu\mid\mu_1\otimes \mu_2)=H(\nu_1\mid\mu_1)+\int H(\nu_2^{x_1}\mid\mu_2)d\nu_1(x_1)\label{eqn:entropy_tensor}
 \end{equation}\]

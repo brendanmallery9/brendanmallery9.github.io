@@ -82,8 +82,13 @@
 
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+        },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] },
       };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -329,16 +334,16 @@
 
 <h2 id="the-fokker-planck-equation">The Fokker-Planck Equation</h2>
 
-<p>Let 
- \(X_t = b_t(X_t)dt + \sigma_t(X_t)dB_t, \; \; \; \; X_0 \sim \mu_0\)</p>
+<p>Let
+\(X_t = b_t(X_t)dt + \sigma_t(X_t)dB_t, \; \; \; \; X_0 \sim \mu_0\)</p>
 
 <p>be a stochastic differential equation, where $b_t \in \mathbb{R}^d$ and $\sigma_t \in \mathbb{R}^{d \times d}$. The Fokker-Planck Equation gives us a way to express the density of $X_t$ as a PDE:</p>
 
 <p><strong>Theorem (Fokker-Planck Equation):</strong> Let $\mu_t = \text{Law}(X_t)$ and $p_t$ be the density of $\mu_t$. Then $p_t$ solves:</p>
 
-\[\partial \mu_t(x) = - \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x)]_i \mu_t(x) \right) + \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]_{ij} \mu_t(x) \right)\]
+\[\partial \mu*t(x) = - \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x)]\_i \mu_t(x) \right) + \frac{1}{2} \sum*{i,j} \frac{\partial^2}{\partial x*i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]*{ij} \mu_t(x) \right)\]
 
-\[= - \text{div}(b_t(x) \mu_t(x)) + \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x) \sigma_t^\top(x)]_{ij} \mu_t(x) \right)\]
+\[= - \text{div}(b*t(x) \mu_t(x)) + \frac{1}{2} \sum*{i,j} \frac{\partial^2}{\partial x*i \partial x_j} \left( [\sigma_t(x) \sigma_t^\top(x)]*{ij} \mu_t(x) \right)\]
 
 <p><strong>Example (Spatially Homogeneous Diffusion):</strong> If $\sigma_t(x)$ is constant as a function of $x$, then this can be written as:</p>
 
@@ -362,30 +367,30 @@
 
 <p>Recall multidimensional integration by parts:</p>
 
-\[\int_\Omega \frac{\partial u(x)}{\partial x_i} v(x) dx = \int_{\partial \Omega} u(x) v(x) n_i dS - \int_\Omega u(x) \frac{\partial v(x)}{\partial x_i} dx\]
+\[\int*\Omega \frac{\partial u(x)}{\partial x_i} v(x) dx = \int*{\partial \Omega} u(x) v(x) n*i dS - \int*\Omega u(x) \frac{\partial v(x)}{\partial x_i} dx\]
 
 <p>Consider the first term in the equation above, written in coordinate form:</p>
 
-\[\mathbb{E} \left[ \frac{\partial \phi}{\partial x_i} (X_t) [b_t(X_t)]_i \right] = \int \frac{\partial \phi}{\partial x_i} (x) [b_t(x)]_i \mu_t(x) dx = - \int \phi(x) \frac{\partial}{\partial x_i} \left( [b_t(x)]_i \mu_t(x) \right) dx\]
+\[\mathbb{E} \left[ \frac{\partial \phi}{\partial x_i} (X_t) [b_t(X_t)]\_i \right] = \int \frac{\partial \phi}{\partial x_i} (x) [b_t(x)]\_i \mu_t(x) dx = - \int \phi(x) \frac{\partial}{\partial x_i} \left( [b_t(x)]\_i \mu_t(x) \right) dx\]
 
 <p>Applying integration by parts, and similarly for the second term:</p>
 
-\[\mathbb{E} \left[ \langle \nabla^2 \phi(X_t), \sigma_t \sigma_t^\top \rangle \right] = \int \left( \frac{\partial^2 \phi}{\partial x_i \partial x_j} \right) [\sigma_t(x) \sigma_t^\top(x)]_{ij} \mu_t(x) dx\]
+\[\mathbb{E} \left[ \langle \nabla^2 \phi(X_t), \sigma_t \sigma_t^\top \rangle \right] = \int \left( \frac{\partial^2 \phi}{\partial x*i \partial x_j} \right) [\sigma_t(x) \sigma_t^\top(x)]*{ij} \mu_t(x) dx\]
 
-\[= \int \phi(x) \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x) \sigma_t^\top(x)]_{ij} \mu_t(x) \right) dx\]
+\[= \int \phi(x) \frac{\partial^2}{\partial x*i \partial x_j} \left( [\sigma_t(x) \sigma_t^\top(x)]*{ij} \mu_t(x) \right) dx\]
 
 <p>Substituting these into the earlier equation:</p>
 
-\[\int \phi(x) \partial \mu_t(x) dx = - \sum_i \int \phi(x) \frac{\partial}{\partial x_i} \left( [b_t(x)]_i \mu_t(x) \right) dx\]
+\[\int \phi(x) \partial \mu_t(x) dx = - \sum_i \int \phi(x) \frac{\partial}{\partial x_i} \left( [b_t(x)]\_i \mu_t(x) \right) dx\]
 
-\[+ \frac{1}{2} \sum_{i,j} \int \phi(x) \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x) \sigma_t^\top(x)]_{ij} \mu_t(x) \right) dx\]
+\[+ \frac{1}{2} \sum*{i,j} \int \phi(x) \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x) \sigma_t^\top(x)]*{ij} \mu_t(x) \right) dx\]
 
-<p>which can be rewritten as: 
-\(\int \phi(x) \left( \frac{\partial \mu_t(x)}{\partial t} + \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x,t)]_i \mu_t(x) \right) - \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]_{ij} \mu_t(x) \right) \right) dx = 0\)</p>
+<p>which can be rewritten as:
+\(\int \phi(x) \left( \frac{\partial \mu*t(x)}{\partial t} + \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x,t)]\_i \mu_t(x) \right) - \frac{1}{2} \sum*{i,j} \frac{\partial^2}{\partial x*i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]*{ij} \mu_t(x) \right) \right) dx = 0\)</p>
 
 <p>This holds for all $\phi \in \mathcal{C}_c^2(\mathbb{R}^d)$, implying:</p>
 
-\[\frac{\partial \mu_t(x)}{\partial t} + \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x,t)]_i \mu_t(x) \right) - \frac{1}{2} \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]_{ij} \mu_t(x) \right) = 0\]
+\[\frac{\partial \mu*t(x)}{\partial t} + \sum_i \frac{\partial}{\partial x_i} \left( [b_t(x,t)]\_i \mu_t(x) \right) - \frac{1}{2} \sum*{i,j} \frac{\partial^2}{\partial x*i \partial x_j} \left( [\sigma_t(x)\sigma_t^\top(x)]*{ij} \mu_t(x) \right) = 0\]
 
 <p>for $\mu_t$ almost every $x$.</p>
 
@@ -393,17 +398,17 @@
 
 <p>We will now construct the time reversal of the SDE. Let $X^\leftarrow$ be defined such that $Law(X_t^\leftarrow) = \pi_{T-t}$. For convenience, assume $\sigma_t$ is independent of the spatial variable. The Fokker-Planck equation gives:</p>
 
-\[\partial \mu_t^\leftarrow = - \frac{1}{2} \langle \sigma_{T-t} \sigma_{T-t}^\top, \nabla^2 \mu_t^\leftarrow \rangle + \text{div}(\mu_t^\leftarrow b_{T-t})\]
+\[\partial \mu*t^\leftarrow = - \frac{1}{2} \langle \sigma*{T-t} \sigma*{T-t}^\top, \nabla^2 \mu_t^\leftarrow \rangle + \text{div}(\mu_t^\leftarrow b*{T-t})\]
 
 <p>Observe that:</p>
 
-\[\langle \sigma_{T-t} \sigma_{T-t}^\top, \nabla^2 \mu_t^\leftarrow \rangle = \text{div}(\sigma_{T-t} \sigma_{T-t}^\top \nabla \mu_t^\leftarrow)\]
+\[\langle \sigma*{T-t} \sigma*{T-t}^\top, \nabla^2 \mu*t^\leftarrow \rangle = \text{div}(\sigma*{T-t} \sigma\_{T-t}^\top \nabla \mu_t^\leftarrow)\]
 
-<p>Substituting, the equation becomes: 
-\(\partial \mu_t^\leftarrow = \frac{1}{2} \langle \sigma_{T-t} \sigma_{T-t}^\top, \nabla^2 \mu_t^\leftarrow \rangle + \text{div}(\mu_t^\leftarrow(b_{T-t} - \sigma_{T-t} \sigma_{T-t}^\top \nabla \ln \mu_t^\leftarrow))\)</p>
+<p>Substituting, the equation becomes:
+\(\partial \mu*t^\leftarrow = \frac{1}{2} \langle \sigma*{T-t} \sigma*{T-t}^\top, \nabla^2 \mu_t^\leftarrow \rangle + \text{div}(\mu_t^\leftarrow(b*{T-t} - \sigma*{T-t} \sigma*{T-t}^\top \nabla \ln \mu_t^\leftarrow))\)</p>
 
-<p>The corresponding SDE is: 
-\(dX_t^\leftarrow = \left\{ -b_{T-t}(X_t^\leftarrow) + \sigma_{T-t} \sigma_{T-t}^\top \nabla \ln \mu_t^\leftarrow(X_t^\leftarrow) \right\} dt + \sigma_{T-t} dB_t\)</p>
+<p>The corresponding SDE is:
+\(dX*t^\leftarrow = \left\{ -b*{T-t}(X*t^\leftarrow) + \sigma*{T-t} \sigma*{T-t}^\top \nabla \ln \mu_t^\leftarrow(X_t^\leftarrow) \right\} dt + \sigma*{T-t} dB_t\)</p>
 
 <p>If initialized at $X_0^\leftarrow \sim \pi_T$, then $X_t^\leftarrow \sim \pi_{T-t}$ for all $t$.</p>
 

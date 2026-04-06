@@ -82,8 +82,13 @@
 
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+        },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] },
       };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -359,8 +364,9 @@ B := \int_{\mathbb{R}} \xi^2 |\hat f(\xi)|^2\,d\xi,\]
 
 <p>then (1) says $A+B \ge \frac{1}{2}$. Among all $A,B&gt;0$ with $A+B=C$, the product $AB$ is maximized at $A=B=C/2$; in particular the best universal lower bound on $AB$ given a lower bound on $A+B$ is obtained in the symmetric case. Thus from $A+B \ge \frac{1}{2}$ we obtain</p>
 
-<p>\(AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},\)
-i.e. $(H)$ in the normalized case. For general $f$, write 
+\[AB \ge \left(\frac{1}{4}\right)^2 = \frac{1}{16},\]
+
+<p>i.e. $(H)$ in the normalized case. For general $f$, write
 $f = g * | f |<em>{L^2}$ with $| g |</em>{L^2} = 1$ and apply the normalized inequality to $g$, which yields $(H)$.</p>
 
 <hr>

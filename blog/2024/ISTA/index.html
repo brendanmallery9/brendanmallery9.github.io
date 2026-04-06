@@ -82,8 +82,13 @@
 
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+        },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] },
       };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -337,15 +342,16 @@
 
 <p>This function is a sum of functions of the form:</p>
 
-<p>\(g( \tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.\)
-We compute the subdifferential</p>
+\[g( \tau) = \frac{1}{2} |\gamma - \tau|^2 + \lambda |\tau|, \; \; \; \; \gamma \in \mathbb{R}.\]
+
+<p>We compute the subdifferential</p>
 
 \[\partial g( \tau) = \tau - \gamma + \lambda \partial|\tau|,\]
 
 <p>where</p>
 
-\[\partial|\tau| = 
-\begin{cases} 
+\[\partial|\tau| =
+\begin{cases}
 -1 &amp; \text{for } \tau &lt; 0, \\
 1 &amp; \text{for } \tau &gt; 0, \\
 [-1, 1] &amp; \text{for } \tau = 0,

@@ -82,8 +82,13 @@
 
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+        },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] },
       };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -366,11 +371,11 @@
   </li>
 </ol>
 
-<p>The first property is trivial to verify: Observe that if there were two minima $x_1^\star$ and $x_2^\star$, the above inequality reduces to 
-  \(0\geq \langle \nabla f(x_1^\star),x_1^\star-x_2^\star\rangle +\frac{\alpha}{2}\|x_1^\star-x_2^\star\|^2\)</p>
+<p>The first property is trivial to verify: Observe that if there were two minima $x_1^\star$ and $x_2^\star$, the above inequality reduces to
+\(0\geq \langle \nabla f(x_1^\star),x_1^\star-x_2^\star\rangle +\frac{\alpha}{2}\|x_1^\star-x_2^\star\|^2\)</p>
 
-<p>and since $\nabla f(x_1^\star)=0$ we have $x_1^\star=x_2^\star$. The second property can be proved in both discrete and continuous time, where in the first case, “following the gradient” means gradient descent, i.e. setting $x_t=x_{t-1}-\eta\nabla f(x_{t-1})$ for some initialization $x_0$ and stepsize $\eta&gt;0$. The continuous time analog is gradient flow, which is defined by the differential equation 
-  \(\dot{x}_t=-\nabla f(x_t),\)</p>
+<p>and since $\nabla f(x_1^\star)=0$ we have $x_1^\star=x_2^\star$. The second property can be proved in both discrete and continuous time, where in the first case, “following the gradient” means gradient descent, i.e. setting $x_t=x_{t-1}-\eta\nabla f(x_{t-1})$ for some initialization $x_0$ and stepsize $\eta&gt;0$. The continuous time analog is gradient flow, which is defined by the differential equation
+\(\dot{x}_t=-\nabla f(x_t),\)</p>
 
 <p>with some initial condition $x_0$. The discrete case is more relevant for this analogy, so we give the standard proof here. For convenience we assume $f$ is L-Lipschitz, in which case we can set $\eta=\frac{1}{L}$. Let $x_0\in \mathbb{R}^d$, and let $x_\star=\min_{y\in \mathbb{R}^d} f(y)$. Then:</p>
 
@@ -391,6 +396,7 @@
 \[\|x_t-x_\star\|_2^2\leq (1-\eta\alpha)^t\|x_0-x_\star\|_2^2\]
 
 <p>which implies that $x_t$ converges to the solution in $|.|_2^2$ exponentially fast. We make two remarks:</p>
+
 <ol>
   <li>If we remove the smoothness assumption from $f$, one may still conclude that (a suitably generalized version of) gradient descent will converge provided one appropriately shrinks the step-size at each iteration (otherwise one is left with an error proportional to $\eta$).</li>
   <li>The same proof holds for all $0\leq \eta \leq \frac{1}{L}$.</li>
@@ -415,6 +421,7 @@
 <p>How should one think about this curvature? It is most natural to think about $M(x)$ as a probability measure centered at $x$ (for instance the uniform measure on a ball centered with $x$ at its center). Then one can think of $M$ as defining a density of particles around each point in the metric space. Then $\kappa(x,y)$ can be seen as a comparison between the distance a particle at $x$ must travel to reach $y$ versus the “average” distance a particle nearby $x$ must travel to reach a particle nearby $y$. If $\kappa(x,y)\geq 0$, then a random nearby particle must on average travel less distance than the one placed at $x$, whereas if $\kappa(x,y)\leq 0$, the nearby particle must travel further. Thus $\kappa(x,y)$ says something about the “local geometry” of the pair of points $(x,y)$.</p>
 
 <p>The easiest way to convince yourself that this is a good notion of curvature is by example. For the following examples, we take $M$ to be the uniform measure on a ball of some radius $r&gt;0$ around each point in $X$:</p>
+
 <ul>
   <li>The quintessential positively curved space, a sphere, has everywhere positive Ollivier Ricci curvature. This is easiest to see when $x$ and $y$ are antipodal points on the sphere. In this case, $M(x)$ and $M(y)$ are small “caps” on the ends of the sphere, and one should have no problem believing that $W_1(M(x),M(y))&lt;d(x,y)$.</li>
   <li>“Tree-like” metric spaces tend to have negative curvature. Let $\mathcal{T}$ infinite tree with minimum degree at least $3$, equipped with the graph metric. Let $x$ and $y$ be two points which are separated by at least 3 edges. Then one can easily compute that the distance between $x$ and $y$ is less than the average distance between a point in the support of $M(x)$ and the support of $M(y)$. If one is familiar with $\delta$-hyperbolicity, or the fact that an infinite tree embeds quasi-isometrically into hyperbolic space, one will be satisfied with the definition in this case.</li>
@@ -440,7 +447,7 @@
 <p>where $V:\mathbb{R}^d\rightarrow\mathbb{R}$ is a potential function and $B_t$ is a standard Brownian motion. One can think of $X_t$ as the trajectory of a particle undergoing random motion in a force field $\nabla V$. As $t\rightarrow \infty$, the law of $X_t$ converges to a unique stationary distribution, given by the Gibbs measure $\mu_{\star}= \frac{1}{Z}e^{-V}$, with the normalizing constant $Z=\int_{\mathbb{R}^d} e^{-\nabla V(x)}dx$. The rate at which the process converges to its stationary distribution is a well-studied topic, as it suggests natural sampling schemes for distributions that can be written in the form $\frac{1}{Z}e^{-V}$. In particular, if one assumes that $V$ is $\alpha$-strongly convex, one is guaranteed exponential convergence of the Langevin diffusion to $\mu_\star$. This can be proved directly in a fairly straightforward manner, but we will take a nonstandard perspective on this, which was first made clear to me by the aforementioned blog post.</p>
 
 <p>Consider the Euler-Marayama discretization of $X_t$, with $k+1$’st iterate:
-  \(x^{k+1}=x^{k}-\frac{\delta}{2}\nabla V(x^k) + \sqrt{\delta}\zeta\)</p>
+\(x^{k+1}=x^{k}-\frac{\delta}{2}\nabla V(x^k) + \sqrt{\delta}\zeta\)</p>
 
 <p>for $\zeta$ distributed according to a standard normal $\mathcal{N}(0,1)$ and $\delta&gt;0$. This gives rise to a Markov chain, and so we may try to compute its Ollivier Ricci curvature. Let $x_0,y_0$ be two different initial points in $\mathbb{R}^d$, and let $M(x)=\mu_1^x$ and $M(y)=\mu_1^y$ be the laws of $x_1$ and $y_1$ respectively. Then we have:</p>
 
@@ -456,8 +463,8 @@
 
 \[\|(x_0-y_0)\left(1-\frac{\delta}{2}\alpha\right)\|\]
 
-<p>Plugging this bound into our formula for the curvature between $x_0$ and $y_0$, we have: 
-  \(\kappa(x_0,y_0)\geq \frac{\|x_0-y_0\|-\|(x_0-y_0)(1-\frac{\delta}{2}\alpha)\|}{\|x_0-y_0\|}\geq \frac{\delta}{2}\alpha.\)</p>
+<p>Plugging this bound into our formula for the curvature between $x_0$ and $y_0$, we have:
+\(\kappa(x_0,y_0)\geq \frac{\|x_0-y_0\|-\|(x_0-y_0)(1-\frac{\delta}{2}\alpha)\|}{\|x_0-y_0\|}\geq \frac{\delta}{2}\alpha.\)</p>
 
 <p>As this is true for all initial points $x_0,y_0$, we have a global positive curvature bound of $\frac{\delta\alpha}{2}$, which guarantees that the Euler-Marayama discretization of $X_t$ converges to equilibrium at a rate of at least $(1-\frac{\delta}{2}\alpha)^t$. Thus we see that the convexity of $V$ directly implies a positive curvature bound for (a discrete approximation to) the Langevin diffusion with potential $V$, and together they imply an exponential rate of convergence for this process.</p>
 
