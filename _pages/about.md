@@ -33,12 +33,12 @@ Here are some cool pics from my research:
 
 <div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 50px;">
   <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
-    <img src="{{ '/assets/img/synth_and_analysis.gif' | relative_url }}" alt="Synthesis and Analysis" style="width: 100%;">
+    <img src="/assets/img/synth_and_analysis.gif" alt="Synthesis and Analysis" style="width: 100%;">
     <video autoplay loop muted playsinline style="width: 100%;">
-      <source src="{{ '/assets/img/curvemov.mp4' | relative_url }}" type="video/mp4">
+      <source src="/assets/img/curvemov.mp4" type="video/mp4">
     </video>
   </div>
   <div style="flex: 1;">
-    <img src="{{ '/assets/img/recons.png' | relative_url }}" alt="Reconstructions" style="width: 100%;">
+    <img src="/assets/img/recons.png" alt="Reconstructions" style="width: 100%;">
   </div>
 </div>
