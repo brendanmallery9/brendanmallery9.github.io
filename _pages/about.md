@@ -38,7 +38,7 @@ Here are some pics from my research:
     <div style="flex: 1; padding-top: 10px;">
       <p><strong>Synthesis and Analysis</strong> — Generating and reconstructing data as probability measures using entropy-regularized optimal transport.</p>
     </div>
-    <div style="flex: 2;">
+    <div style="flex: 3;">
       <img src="/assets/img/synth_and_analysis.gif" alt="Synthesis and Analysis" style="width: 100%;">
     </div>
   </div>
@@ -46,7 +46,7 @@ Here are some pics from my research:
     <div style="flex: 1; padding-top: 10px;">
       <p><strong>Curve Evolution</strong> — Visualizing the movement of curves through Wasserstein space.</p>
     </div>
-    <div style="flex: 2;">
+    <div style="flex: 3;">
       <video autoplay loop muted playsinline style="width: 100%;">
         <source src="/assets/img/curvemov.mp4" type="video/mp4">
       </video>
@@ -56,7 +56,7 @@ Here are some pics from my research:
     <div style="flex: 1; padding-top: 10px;">
       <p><strong>Reconstructions</strong> — Reconstructing target distributions from learned representations.</p>
     </div>
-    <div style="flex: 2;">
+    <div style="flex: 3;">
       <img src="/assets/img/recons.png" alt="Reconstructions" style="width: 100%;">
     </div>
   </div>
