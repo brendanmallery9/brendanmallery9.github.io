@@ -44,12 +44,10 @@ Here are some pics from my research:
   </div>
   <div style="display: flex; gap: 30px; align-items: center;">
     <div style="flex: 1;">
-      <p><strong>Curve Evolution</strong> — Visualizing the movement of curves through Wasserstein space.</p>
+      <p><strong>Latent Space</strong> — Analyzing latent representations in deep learning models.</p>
     </div>
     <div style="flex: 3;">
-      <video autoplay loop muted playsinline style="width: 100%;">
-        <source src="/assets/img/curvemov.mp4" type="video/mp4">
-      </video>
+      <img src="/assets/img/latent.png" alt="Latent Space" style="width: 100%;">
     </div>
   </div>
   <div style="display: flex; gap: 30px; align-items: center;">
@@ -58,6 +56,16 @@ Here are some pics from my research:
     </div>
     <div style="flex: 3;">
       <img src="/assets/img/recons.png" alt="Reconstructions" style="width: 100%;">
+    </div>
+  </div>
+  <div style="display: flex; gap: 30px; align-items: center;">
+    <div style="flex: 1;">
+      <p><strong>Curve Evolution</strong> — Visualizing the movement of curves through Wasserstein space.</p>
+    </div>
+    <div style="flex: 3;">
+      <video autoplay loop muted playsinline style="width: 100%;">
+        <source src="/assets/img/curvemov.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </div>
