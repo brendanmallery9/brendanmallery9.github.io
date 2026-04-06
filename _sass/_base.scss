@@ -194,6 +194,10 @@ ul.task-list input[type="checkbox"] {
 
 .profile {
   width: 100%;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  padding: 15px;
+  background-color: var(--global-card-bg-color, transparent);
 
   .more-info {
     margin-bottom: 5px;
@@ -201,7 +205,7 @@ ul.task-list input[type="checkbox"] {
     font-family: monospace;
 
     p {
-      display: inline-block;
+      display: block;
       margin: 0;
     }
   }

@@ -11,6 +11,7 @@ profile:
   more_info: >
     <p>Cambridge, MA 02139</p>
     <p>brendanmallery9@gmail.com</p>
+    <p><a href="/assets/cv/BM_CV_04_06.pdf">CV</a> &middot; <a href="https://scholar.google.com/citations?user=5f4OvaEAAAAJ&hl=en&oi=ao">Google Scholar</a></p>
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
@@ -27,22 +28,16 @@ My research focuses on:
 
 I have also published work in topological data analysis and geometric group theory. 
 
-Links:
-1. [CV]({{ '/assets/cv/BM_CV_04_06.pdf' | relative_url }})
-2. [Google Scholar](https://scholar.google.com/citations?user=5f4OvaEAAAAJ&hl=en&oi=ao)
-
 Here are some cool pics from my research:
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
-  <div>
-    <img src="{{ '/assets/img/synth_and_analysis.gif' | relative_url }}" alt="Synthesis and Analysis" style="max-width: 100%;">
-  </div>
-  <div>
-    <video autoplay loop muted playsinline style="max-width: 100%;">
+<div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 40px;">
+  <div style="display: flex; flex-direction: column; gap: 10px; flex: 0 0 45%;">
+    <img src="{{ '/assets/img/synth_and_analysis.gif' | relative_url }}" alt="Synthesis and Analysis" style="width: 100%;">
+    <video autoplay loop muted playsinline style="width: 100%;">
       <source src="{{ '/assets/img/curvemov.mp4' | relative_url }}" type="video/mp4">
     </video>
   </div>
-  <div>
-    <img src="{{ '/assets/img/recons.png' | relative_url }}" alt="Reconstructions" style="max-width: 100%;">
+  <div style="flex: 0 0 50%;">
+    <img src="{{ '/assets/img/recons.png' | relative_url }}" alt="Reconstructions" style="width: 100%;">
   </div>
 </div>
