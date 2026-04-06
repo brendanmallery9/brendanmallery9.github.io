@@ -32,7 +32,6 @@ I have also published work in topological data analysis and geometric group theo
 <!-- split -->
 
 
-
 <div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 15px;">
   <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
     <img src="/assets/img/synth_and_analysis.gif" alt="Synthesis and Analysis" style="width: 100%;">
