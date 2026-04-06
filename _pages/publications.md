@@ -11,9 +11,9 @@ nav_order: 1
 
 ### Mathematics of Data Science
 
-1. *Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport*, with James Murphy and Shuchin Aeron. Published in the *Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS 2025)*, PMLR, 2025.
+1. *Synthesis and Analysis of Data as Probability Measures With Entropy-Regularized Optimal Transport*, with James Murphy and Shuchin Aeron. Published in the *Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS 2025)*, PMLR, 2025. [[Git](https://github.com/brendanmallery9/Entropic-Barycenters)]
 
-2. *Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications*, with Matthew Werenski, James Murphy, and Shuchin Aeron. Published in the *Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS 2025)*, PMLR, 2025.
+2. *Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational Capacity, and Applications*, with Matthew Werenski, James Murphy, and Shuchin Aeron. Published in the *Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS 2025)*, PMLR, 2025. [[Git](https://github.com/MattWerenski/LBCM)]
 
 3. *From Trees to Barcodes and Back Again II: Combinatorial and Probabilistic Aspects of a Topological Inverse Problem*, with Jordan DeSha, Adélie Garin, Kathryn Hess, and Lida Kanari. Published in *Computational Geometry: Theory and Applications*, Special Issue on Computational and Applied Topology, 2021.
 

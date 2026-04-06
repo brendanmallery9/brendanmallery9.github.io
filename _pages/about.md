@@ -5,29 +5,44 @@ permalink: /
 subtitle: Tufts University
 
 profile:
-  align: right
-  image: headshot.png
+  align: left
+  image: headshot.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>560D Joyce Cummings Center</p>
-    <p>177 College Ave,</p>
-    <p>Medford, MA 02155</p>
+    <p>Cambridge, MA 02139</p>
+    <p>brendanmallery9@gmail.com</p>
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-I am a 5th year PhD candidate studying mathematics at Tufts University, working with Professors [James Murphy](https://jmurphy.math.tufts.edu/) and [Shuchin Aeron](https://sites.google.com/view/shuchin-aeron/home?authuser=0). I obtained a Masters in mathematics from SUNY Albany in 2020, and a B.A. in mathematics and chemistry from Bowdoin College in 2018. For more details, see my [CV](/assets/cv/brendan_mallery_cv.pdf).
+I am a 5th year PhD candidate in the mathematics department at Tufts University, working with Professors [James Murphy](https://jmurphy.math.tufts.edu/) and [Shuchin Aeron](https://sites.google.com/view/shuchin-aeron/home?authuser=0). 
 
-I am broadly interested in applications of optimal transportation to data science and machine learning. I am particularly intersted in developing ideas from sparse-signal processing and representation learning in Wasserstein space. My ongoing projects are:
+My research focuses on:
+  1. Representation learning for probability distributions with optimal transport;
+  2. Geometric approaches to machine learning and data science;
+  3. Interpretability and safety in AI, through the analysis of latent spaces in deep learning models.
+  4. Modeling and analysis of time-evolving networks;
 
-- Developing theory and algorithms for transport map dictionary learning, for nonlinear dimensionality reduction on probability measure valued data.
-- Establishing quantitative regularity results for entropy-regularized optimal transportation, with applications to Wasserstein gradient flows.
+I have also published work in topological data analysis and geometric group theory. 
 
-In addition to my dissertation work, I am also interested in:
+Links:
+1. [CV]({{ '/assets/cv/BM_CV_04_06.pdf' | relative_url }})
+2. [Google Scholar](https://scholar.google.com/citations?user=5f4OvaEAAAAJ&hl=en&oi=ao)
 
-- Modeling and analysis of time-evolving networks;
-- Interactions between optimal transport and Ricci curvature;
+Here are some cool pics from my research:
 
-I was introduced to the first topic through my work at NASA Glenn Research & Goddard Space Flight Centers (2020-2023). I have also published work in topological data analysis and geometric group theory.
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+  <div>
+    <img src="{{ '/assets/img/synth_and_analysis.gif' | relative_url }}" alt="Synthesis and Analysis" style="max-width: 100%;">
+  </div>
+  <div>
+    <video autoplay loop muted playsinline style="max-width: 100%;">
+      <source src="{{ '/assets/img/curvemov.mp4' | relative_url }}" type="video/mp4">
+    </video>
+  </div>
+  <div>
+    <img src="{{ '/assets/img/recons.png' | relative_url }}" alt="Reconstructions" style="max-width: 100%;">
+  </div>
+</div>
